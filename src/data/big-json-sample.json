@@ -1,0 +1,5658 @@
+{
+  "dashboards": [
+    {
+      "id": 2,
+      "label": "Dashboard",
+      "title": "Dashboard",
+      "mandatory": 1,
+      "customProperties": {
+        "hiddenWidgetsToDisplay": [
+          "internalNews",
+          "nominations",
+          "tsNews",
+          "covid"
+        ],
+        "addRules": [
+          {
+            "property": "entity",
+            "value": "TS"
+          }
+        ]
+      },
+      "config": {
+        "mandatory": 1,
+        "layout": [
+          {
+            "fv": 2,
+            "id": 20000,
+            "name": "internalNews",
+            "config": {
+              "title": "Internal News",
+              "isOpen": true,
+              "activeDisplay": "tile",
+              "hasHeaderHidden": true,
+              "isHiddenOnMobile": false
+            },
+            "data": {
+              "list": [
+                {
+                  "name": "TSNews à la une",
+                  "value": "tsNewsSticky",
+                  "ref": "3"
+                }
+              ],
+              "entity": {
+                "TS": true
+              },
+              "sites": {
+                "TS": {
+                  "isGlobal": true,
+                  "auto": true
+                }
+              },
+              "filters": {
+                "headline": true
+              }
+            },
+            "layout": {
+              "h": 7,
+              "w": 5,
+              "x": 0,
+              "y": 0,
+              "autoPos": 0,
+              "minH": 2,
+              "minW": 2
+            },
+            "widgetUniqueId": "1604328797_60bf4_03a8"
+          },
+          {
+            "name": "msviewer",
+            "fv": 2,
+            "data": {
+              "list": [],
+              "folder": "ms-viewer-1677668086c",
+              "link": {
+                "href": "http://home-dev.dts.corp.local/dashboarddocuments/dashboard_libraries_0/dwp_db_lib_20200325_163945_2c333da/ms-viewer-1677668086c/TS_TRADING_NLPrint_202304-v0.6-pages.pdf",
+                "embed": "http://home-dev.dts.corp.local/Style%20Library/apps/viewer/simple.html#http://home-dev.dts.corp.local/dashboarddocuments/dashboard_libraries_0/dwp_db_lib_20200325_163945_2c333da/ms-viewer-1677668086c/TS_TRADING_NLPrint_202304-v0.6-pages.pdf",
+                "open": "http://home-dev.dts.corp.local/Style%20Library/apps/viewer/simple.html#http://home-dev.dts.corp.local/dashboarddocuments/dashboard_libraries_0/dwp_db_lib_20200325_163945_2c333da/ms-viewer-1677668086c/TS_TRADING_NLPrint_202304-v0.6-pages.pdf"
+              }
+            },
+            "config": {
+              "hasHeaderHidden": true,
+              "hasDisplayOptionsHidden": false,
+              "hasBorderHidden": false,
+              "isOpen": true,
+              "activeDisplay": "tileXs",
+              "theme": false,
+              "customColor": "green",
+              "isHiddenOnMobile": false,
+              "isReadOnly": true,
+              "title": "MS Office Viewer"
+            },
+            "layout": {
+              "autoPos": 0,
+              "w": 2,
+              "h": 6,
+              "x": 5,
+              "y": 0,
+              "minH": 2,
+              "minW": 1
+            },
+            "id": 10008,
+            "widgetUniqueId": "1677668086_ebddc_4841"
+          },
+          {
+            "name": "links",
+            "fv": 2,
+            "data": {
+              "list": [
+                {
+                  "ref": "1669019340_3d83",
+                  "isFolder": false,
+                  "name": "LAST WEEKLY OIL MARKETS",
+                  "href": "http://home.dts.corp.local/Shared%20Documents/TSNews/WeeklyOil/2023-04-21.WeeklyOil.pdf?d=w13e395f1d18d4424ac9b6ff0f036a21c",
+                  "browser": "tslauncherag:chrome",
+                  "target": "_blank",
+                  "linkType": "web",
+                  "isFolderIcon": false
+                }
+              ]
+            },
+            "config": {
+              "hasHeaderHidden": true,
+              "hasDisplayOptionsHidden": false,
+              "hasBorderHidden": false,
+              "isOpen": true,
+              "activeDisplay": "list",
+              "theme": false,
+              "customColor": false,
+              "isHiddenOnMobile": false,
+              "isReadOnly": true,
+              "title": "Links",
+              "widgetVersion": "2.1",
+              "isHero": true
+            },
+            "layout": {
+              "autoPos": 0,
+              "w": 2,
+              "h": 4,
+              "x": 7,
+              "y": 0,
+              "minH": 2,
+              "minW": 1
+            },
+            "id": 10005,
+            "widgetUniqueId": "1634828578_fcf6d_950e"
+          },
+          {
+            "name": "iframe",
+            "fv": 2,
+            "data": {
+              "list": [],
+              "iframeHref": "//home-dev.dts.corp.local/Style%20Library/apps/adventCalendar/CTA/index.html?debug=1&href=%2F%2Fhome-dev.dts.corp.local%2FPages%2FHome.aspx%23!%3FdisplaySharedBoard%3D1076"
+            },
+            "config": {
+              "activeDisplay": "tileXs",
+              "hasHeaderHidden": false,
+              "isHiddenOnMobile": false,
+              "isOpen": true,
+              "isReadOnly": true,
+              "title": "Iframe"
+            },
+            "layout": {
+              "autoPos": 0,
+              "w": 3,
+              "h": 3,
+              "minH": 2,
+              "minW": 1,
+              "x": 9,
+              "y": 0
+            },
+            "id": 100012,
+            "widgetUniqueId": "1699867493_0e51c_c737"
+          },
+          {
+            "name": "apps",
+            "fv": 2,
+            "data": {
+              "list": [
+                {
+                  "ref": "tslauncherag:publisher_171",
+                  "name": "Publisher",
+                  "listItemId": "171",
+                  "description": "",
+                  "icon": "https://applications.dts.corp.local/apps/tslauncherag/Logos/publisher.png",
+                  "href": "tslauncherag:publisher",
+                  "bgColor": "white",
+                  "type": "SystemApp",
+                  "disabled": false
+                }
+              ],
+              "period": "1D"
+            },
+            "config": {
+              "hasHeaderHidden": true,
+              "hasDisplayOptionsHidden": false,
+              "hasBorderHidden": false,
+              "isOpen": true,
+              "activeDisplay": "tile",
+              "theme": false,
+              "customColor": false,
+              "isHiddenOnMobile": false,
+              "isReadOnly": true,
+              "title": "Applications"
+            },
+            "layout": {
+              "autoPos": 0,
+              "w": 1,
+              "h": 3,
+              "x": 9,
+              "y": 3,
+              "minH": 2,
+              "minW": 1
+            },
+            "id": 20006,
+            "widgetUniqueId": "1604937342_cf41a_3942"
+          },
+          {
+            "name": "apps",
+            "fv": 2,
+            "data": {
+              "list": [
+                {
+                  "ref": "tslauncherag:powerpoint_3",
+                  "name": "Powerpoint",
+                  "listItemId": "3",
+                  "description": "",
+                  "icon": "https://applications.dts.corp.local/apps/tslauncherag/Logos/powerpoint.png",
+                  "href": "tslauncherag:powerpoint",
+                  "bgColor": "white",
+                  "type": "SystemApp",
+                  "disabled": false
+                }
+              ]
+            },
+            "config": {
+              "hasHeaderHidden": true,
+              "hasDisplayOptionsHidden": false,
+              "hasBorderHidden": false,
+              "isOpen": true,
+              "activeDisplay": "tile",
+              "theme": false,
+              "customColor": false,
+              "isHiddenOnMobile": false,
+              "isReadOnly": true,
+              "title": "Applications"
+            },
+            "layout": {
+              "autoPos": 0,
+              "w": 1,
+              "h": 3,
+              "x": 10,
+              "y": 3,
+              "minH": 2,
+              "minW": 1
+            },
+            "id": 20005,
+            "widgetUniqueId": "1610370406_c1a15_3ab7"
+          },
+          {
+            "name": "links",
+            "fv": 2,
+            "data": {
+              "list": [
+                {
+                  "ref": "1649755309_8cbb",
+                  "isFolder": false,
+                  "name": "HSE ToolBox",
+                  "href": "https://toolbox-hse.totalenergies.com/en",
+                  "browser": "tslauncherag:chrome",
+                  "target": "_blank",
+                  "linkType": "web",
+                  "isFolderIcon": false
+                }
+              ]
+            },
+            "config": {
+              "hasHeaderHidden": false,
+              "hasDisplayOptionsHidden": false,
+              "hasBorderHidden": false,
+              "isOpen": true,
+              "activeDisplay": "list",
+              "theme": false,
+              "customColor": "lobsterOrange",
+              "isHiddenOnMobile": false,
+              "isReadOnly": true,
+              "title": "HSE ToolBox",
+              "widgetVersion": "2.1"
+            },
+            "layout": {
+              "autoPos": 0,
+              "w": 1,
+              "h": 2,
+              "x": 11,
+              "y": 3,
+              "minH": 2,
+              "minW": 1
+            },
+            "id": 10009,
+            "widgetUniqueId": "1649755293_05876_b70d"
+          },
+          {
+            "name": "links",
+            "fv": 2,
+            "data": {
+              "list": [
+                {
+                  "ref": "1634828572_cc7f",
+                  "isFolder": false,
+                  "name": "PAST PUBLICATIONS HERE (Weekly Oil Markets)",
+                  "href": "http://applications.dts.corp.local/rpt/eco/Pages/Home.aspx",
+                  "browser": "tslauncherag:chrome",
+                  "target": "_blank",
+                  "linkType": "web",
+                  "isFolderIcon": false
+                }
+              ]
+            },
+            "config": {
+              "hasHeaderHidden": false,
+              "hasDisplayOptionsHidden": false,
+              "hasBorderHidden": false,
+              "isOpen": true,
+              "activeDisplay": "tile",
+              "theme": false,
+              "customColor": false,
+              "isHiddenOnMobile": false,
+              "isReadOnly": true,
+              "title": "Links",
+              "widgetVersion": "2.1",
+              "isHero": false
+            },
+            "layout": {
+              "autoPos": 0,
+              "w": 2,
+              "h": 2,
+              "x": 7,
+              "y": 4,
+              "minH": 2,
+              "minW": 1
+            },
+            "id": 10004,
+            "widgetUniqueId": "1634828549_13551_31aa"
+          },
+          {
+            "name": "msviewer",
+            "fv": 2,
+            "data": {
+              "list": [],
+              "folder": "ms-viewer-1646402999f",
+              "link": {
+                "href": "http://home-dev.dts.corp.local/dashboarddocuments/dashboard_libraries_0/dwp_db_lib_20200325_163945_2c333da/ms-viewer-1646402999f/TSkeyFigures-DEV.pdf",
+                "embed": "http://home-dev.dts.corp.local/Style%20Library/apps/viewer/simple.html#http://home-dev.dts.corp.local/dashboarddocuments/dashboard_libraries_0/dwp_db_lib_20200325_163945_2c333da/ms-viewer-1646402999f/TSkeyFigures-DEV.pdf",
+                "open": "http://home-dev.dts.corp.local/Style%20Library/apps/viewer/simple.html#http://home-dev.dts.corp.local/dashboarddocuments/dashboard_libraries_0/dwp_db_lib_20200325_163945_2c333da/ms-viewer-1646402999f/TSkeyFigures-DEV.pdf"
+              }
+            },
+            "config": {
+              "hasHeaderHidden": true,
+              "hasDisplayOptionsHidden": false,
+              "hasBorderHidden": false,
+              "isOpen": true,
+              "activeDisplay": "tileXs",
+              "theme": false,
+              "customColor": false,
+              "isHiddenOnMobile": false,
+              "isReadOnly": true,
+              "title": "MS Office Viewer"
+            },
+            "layout": {
+              "autoPos": 0,
+              "w": 4,
+              "h": 5,
+              "x": 5,
+              "y": 6,
+              "minH": 2,
+              "minW": 1
+            },
+            "id": 10007,
+            "widgetUniqueId": "1646402999_e1c3d_316c"
+          },
+          {
+            "name": "tilt",
+            "fv": 2,
+            "data": {
+              "list": []
+            },
+            "config": {
+              "activeDisplay": "tileXs",
+              "hasHeaderHidden": false,
+              "isHiddenOnMobile": false,
+              "isOpen": true,
+              "isReadOnly": true,
+              "title": "Events"
+            },
+            "layout": {
+              "autoPos": 0,
+              "w": 3,
+              "h": 6,
+              "minH": 2,
+              "minW": 1,
+              "x": 9,
+              "y": 6
+            },
+            "id": 100010,
+            "widgetUniqueId": "1682934858_9b081_9c51"
+          },
+          {
+            "fv": 2,
+            "id": 20003,
+            "name": "internalNews",
+            "config": {
+              "title": "Fil d'actu",
+              "isOpen": true,
+              "activeDisplay": "tileXs",
+              "hasHeaderHidden": true,
+              "isHiddenOnMobile": false
+            },
+            "data": {
+              "list": [
+                {
+                  "name": "TSNews",
+                  "value": "tsNews",
+                  "ref": "2"
+                }
+              ],
+              "sites": {
+                "TS": {
+                  "isGlobal": true,
+                  "GVA": true,
+                  "auto": true,
+                  "HOU": true,
+                  "SIN": true
+                }
+              },
+              "entity": {
+                "TS": true
+              },
+              "filters": {
+                "allCategories": false,
+                "category": {
+                  "Get to know": true,
+                  "Compliance": true,
+                  "HSE": true,
+                  "TS": true,
+                  "Innovation": true,
+                  "Edito": true,
+                  "Welcome": true,
+                  "HR": true,
+                  "Video": true,
+                  "Company": true,
+                  "T&S Challenge": true,
+                  "Business": true,
+                  "WTC": true,
+                  "Working at WTC": true,
+                  "One Total": true,
+                  "Events": true,
+                  "Bons Plans": true,
+                  "IT & Digital": true,
+                  "COVID19": true,
+                  "Shipping": true,
+                  "#TradingData": true,
+                  "HR Announcements": true,
+                  "Advent Calendar": true,
+                  "TGP": true,
+                  "GRP": true,
+                  "Trainings": true,
+                  "#MICROSOFT365": true,
+                  "IDS - New Comers": true,
+                  "IDS - Projects": true,
+                  "#CyberSecurity": true,
+                  "Action! ": true,
+                  "Trading life": true,
+                  "TILT": true,
+                  "Sport Events": false,
+                  "Sport News": false,
+                  "Media": true,
+                  "Biz - Biofuels": true,
+                  "Event": true,
+                  "Others": true
+                }
+              }
+            },
+            "layout": {
+              "h": 5,
+              "w": 5,
+              "x": 0,
+              "y": 7,
+              "autoPos": 0,
+              "minH": 2,
+              "minW": 2
+            },
+            "widgetUniqueId": "1604328797_6be4b_d663"
+          },
+          {
+            "name": "apps",
+            "fv": 2,
+            "data": {
+              "list": [
+                {
+                  "ref": 334,
+                  "listItemId": "334",
+                  "name": "My APR (Mon EIA) 2019",
+                  "description": "Annual Individual Review site",
+                  "href": "http://portal.dts.corp.local/dpts/hr/eia/Pages/APRs.aspx",
+                  "icon": "/Style%20Library/TSImg/TilesIcons/eia-2019.svg",
+                  "bgColor": "#702082",
+                  "disabled": false
+                }
+              ]
+            },
+            "config": {
+              "hasHeaderHidden": true,
+              "hasDisplayOptionsHidden": false,
+              "hasBorderHidden": false,
+              "isOpen": true,
+              "activeDisplay": "tile",
+              "theme": false,
+              "customColor": false,
+              "isHiddenOnMobile": false,
+              "isReadOnly": true,
+              "title": "Applications"
+            },
+            "layout": {
+              "autoPos": 0,
+              "w": 1,
+              "h": 2,
+              "x": 5,
+              "y": 11,
+              "minH": 2,
+              "minW": 1
+            },
+            "id": 10002,
+            "widgetUniqueId": "1633430099_692db_77a4"
+          },
+          {
+            "fv": 2,
+            "id": 20009,
+            "name": "apps",
+            "config": {
+              "hasHeaderHidden": true,
+              "hasDisplayOptionsHidden": false,
+              "hasBorderHidden": false,
+              "isOpen": true,
+              "activeDisplay": "tile",
+              "theme": false,
+              "customColor": false,
+              "title": "Applications",
+              "isPlaceholder": false,
+              "isHiddenOnMobile": false
+            },
+            "data": {
+              "list": [
+                {
+                  "ref": 268,
+                  "listItemId": "268",
+                  "name": "T&S Videos",
+                  "href": "http://home.dts.corp.local/Pages/Videos.aspx",
+                  "icon": "/Style%20Library/TSImg/TilesIcons/ic_video.svg",
+                  "bgColor": "#B41A83",
+                  "description": "T&S Videos",
+                  "disabled": false
+                }
+              ],
+              "period": "1D"
+            },
+            "layout": {
+              "h": 2,
+              "w": 1,
+              "x": 6,
+              "y": 11,
+              "autoPos": 0,
+              "minH": 2,
+              "minW": 1
+            },
+            "widgetUniqueId": "1604328797_5155b_7587"
+          },
+          {
+            "fv": 2,
+            "id": 200011,
+            "name": "apps",
+            "config": {
+              "hasHeaderHidden": true,
+              "hasDisplayOptionsHidden": false,
+              "hasBorderHidden": false,
+              "isOpen": true,
+              "activeDisplay": "tile",
+              "theme": false,
+              "customColor": false,
+              "title": "Applications",
+              "isHiddenOnMobile": false
+            },
+            "data": {
+              "list": [
+                {
+                  "ref": 131,
+                  "listItemId": "131",
+                  "name": "T&S Internal Procedures",
+                  "href": "notes://TCHGVA-X01/C1256938003901BD/Accueil?OpenFrameset",
+                  "icon": "/Style%20Library/TSImg/TilesIcons/ic_lotus-apps.svg",
+                  "bgColor": "#702082",
+                  "description": "T&S Internal Procedures + links to some Group procedures",
+                  "disabled": false
+                }
+              ]
+            },
+            "layout": {
+              "h": 2,
+              "w": 1,
+              "x": 7,
+              "y": 11,
+              "autoPos": 0,
+              "minH": 2,
+              "minW": 1
+            },
+            "widgetUniqueId": "1604328797_9eaa2_05c8"
+          },
+          {
+            "name": "links",
+            "fv": 2,
+            "data": {
+              "list": [
+                {
+                  "ref": "1636033477_7aab",
+                  "isFolder": false,
+                  "isFolderIcon": false,
+                  "name": "Say Hello to the Comms team ! Your feedback",
+                  "href": "mailto:ts.comms@totsa.com",
+                  "browser": "",
+                  "target": "_self",
+                  "linkType": "email"
+                }
+              ]
+            },
+            "config": {
+              "hasHeaderHidden": false,
+              "hasDisplayOptionsHidden": false,
+              "hasBorderHidden": false,
+              "isOpen": true,
+              "activeDisplay": "tile",
+              "theme": false,
+              "customColor": "red",
+              "isHiddenOnMobile": false,
+              "isReadOnly": true,
+              "title": "Links",
+              "widgetVersion": "2.1"
+            },
+            "layout": {
+              "autoPos": 0,
+              "w": 1,
+              "h": 2,
+              "x": 8,
+              "y": 11,
+              "minH": 2,
+              "minW": 1
+            },
+            "id": 10001,
+            "widgetUniqueId": "1636033446_ab003_a05f"
+          },
+          {
+            "name": "msviewer",
+            "fv": 2,
+            "data": {
+              "list": [],
+              "folder": "ms-viewer-16348197029",
+              "link": {
+                "href": "http://home-dev.dts.corp.local/dashboarddocuments/dashboard_libraries_0/dwp_db_lib_20200325_163945_2c333da/ms-viewer-16348197029/TS Forward_Dataviz_Juillet2021.pdf",
+                "embed": "http://home-dev.dts.corp.local/Style%20Library/apps/viewer/simple.html#http://home-dev.dts.corp.local/dashboarddocuments/dashboard_libraries_0/dwp_db_lib_20200325_163945_2c333da/ms-viewer-16348197029/TS%20Forward_Dataviz_Juillet2021.pdf",
+                "open": "http://home-dev.dts.corp.local/Style%20Library/apps/viewer/simple.html#http://home-dev.dts.corp.local/dashboarddocuments/dashboard_libraries_0/dwp_db_lib_20200325_163945_2c333da/ms-viewer-16348197029/TS%20Forward_Dataviz_Juillet2021.pdf"
+              }
+            },
+            "config": {
+              "hasHeaderHidden": true,
+              "hasDisplayOptionsHidden": false,
+              "hasBorderHidden": false,
+              "isOpen": true,
+              "activeDisplay": "tileXs",
+              "theme": false,
+              "customColor": "lobsterOrange",
+              "isHiddenOnMobile": false,
+              "isReadOnly": true,
+              "title": "MS Office Viewer"
+            },
+            "layout": {
+              "autoPos": 0,
+              "w": 5,
+              "h": 5,
+              "x": 0,
+              "y": 12,
+              "minH": 2,
+              "minW": 1
+            },
+            "id": 10003,
+            "widgetUniqueId": "1634819701_497b1_cc0a"
+          },
+          {
+            "name": "yammer",
+            "fv": 2,
+            "data": {
+              "list": [],
+              "feedLinkHref": "https://web.yammer.com/main/org/totsa.com/groups/eyJfdHlwZSI6Ikdyb3VwIiwiaWQiOiIxMjY5MjgxNDIzMzYifQ/all"
+            },
+            "config": {
+              "activeDisplay": "tileXs",
+              "hasHeaderHidden": false,
+              "isHiddenOnMobile": false,
+              "isOpen": true,
+              "isReadOnly": true,
+              "title": "Yammer Feed"
+            },
+            "layout": {
+              "autoPos": 0,
+              "w": 3,
+              "h": 7,
+              "y": 12,
+              "x": 9,
+              "minH": 2,
+              "minW": 1
+            },
+            "id": 40001,
+            "widgetUniqueId": "1676037353_0c41f_041d"
+          },
+          {
+            "name": "peopleMoves",
+            "fv": 2,
+            "data": {
+              "list": []
+            },
+            "config": {
+              "activeDisplay": "tileXs",
+              "hasHeaderHidden": false,
+              "isHiddenOnMobile": false,
+              "isOpen": true,
+              "isReadOnly": true,
+              "title": "People Moves",
+              "settings": {
+                "categories": [
+                  true,
+                  true,
+                  true,
+                  true
+                ],
+                "branches": [
+                  [
+                    "TS",
+                    true
+                  ],
+                  [
+                    "TGP",
+                    false
+                  ],
+                  [
+                    "GRP",
+                    false
+                  ],
+                  [
+                    "MS",
+                    false
+                  ],
+                  [
+                    "EP",
+                    false
+                  ],
+                  [
+                    "RC",
+                    false
+                  ],
+                  [
+                    "HD",
+                    false
+                  ]
+                ],
+                "sites": [
+                  [
+                    "Geneva",
+                    true
+                  ],
+                  [
+                    "Geneva TSMS",
+                    true
+                  ],
+                  [
+                    "Houston",
+                    true
+                  ],
+                  [
+                    "Paris",
+                    true
+                  ],
+                  [
+                    "Singapore",
+                    true
+                  ],
+                  [
+                    "Dubaï",
+                    true
+                  ],
+                  [
+                    "Dubai",
+                    true
+                  ],
+                  [
+                    "China",
+                    true
+                  ],
+                  [
+                    "Calgary",
+                    true
+                  ],
+                  [
+                    "Mexico",
+                    true
+                  ],
+                  [
+                    "Moscow",
+                    true
+                  ],
+                  [
+                    "Nigeria",
+                    true
+                  ],
+                  [
+                    "Astana",
+                    true
+                  ],
+                  [
+                    "Spain",
+                    true
+                  ],
+                  [
+                    "Other",
+                    true
+                  ],
+                  [
+                    "Other Geneva",
+                    true
+                  ]
+                ]
+              }
+            },
+            "layout": {
+              "autoPos": 0,
+              "w": 4,
+              "h": 6,
+              "minH": 2,
+              "minW": 1,
+              "x": 5,
+              "y": 13
+            },
+            "id": 100011,
+            "widgetUniqueId": "1683637470_8a39e_da79"
+          },
+          {
+            "fv": 2,
+            "id": 200012,
+            "name": "links",
+            "config": {
+              "hasHeaderHidden": true,
+              "hasDisplayOptionsHidden": false,
+              "hasBorderHidden": false,
+              "isOpen": true,
+              "activeDisplay": "smallList",
+              "theme": false,
+              "customColor": false,
+              "title": "Useful Links",
+              "isHiddenOnMobile": false,
+              "widgetVersion": "2.1"
+            },
+            "data": {
+              "list": [
+                {
+                  "ref": "http://portal.dts.corp.local/dpts/legal/compliance/Shared%20Documents/Public/Exchanges%20-%20Key%20rules.pdf",
+                  "isFolder": false,
+                  "name": "ICE and NYMEX - Key rules",
+                  "href": "http://portal.dts.corp.local/dpts/legal/compliance/Shared%20Documents/Public/Exchanges%20-%20Key%20rules.pdf",
+                  "browser": "tslauncherag:chrome",
+                  "target": "_blank",
+                  "linkType": "web",
+                  "listItemId": 3,
+                  "description": "http://portal.dts.corp.local/dpts/legal/compliance/Shared%20Documents/Public/Exchanges%20-%20Key%20rules.pdf",
+                  "isFolderIcon": false
+                },
+                {
+                  "ref": "https://hr4u.main.glb.corp.local/",
+                  "isFolder": false,
+                  "name": "HR4U",
+                  "href": "https://hr4u.main.glb.corp.local/",
+                  "browser": "tslauncherag:chrome",
+                  "target": "_blank",
+                  "linkType": "web",
+                  "listItemId": 7,
+                  "description": "https://hr4u.main.glb.corp.local/",
+                  "isFolderIcon": false
+                },
+                {
+                  "ref": "https://oil.dts.corp.local/portal/best_practices.php",
+                  "isFolder": false,
+                  "name": "Passwords : Best practices",
+                  "href": "https://oil.dts.corp.local/portal/best_practices.php",
+                  "browser": "tslauncherag:chrome",
+                  "target": "_blank",
+                  "linkType": "web",
+                  "listItemId": 11,
+                  "description": "https://oil.dts.corp.local/portal/best_practices.php",
+                  "isFolderIcon": false
+                },
+                {
+                  "ref": "http://home.dts.corp.local/Shared%20Documents/TSLinks/Internet%20Usage%20Guidelines.docx",
+                  "isFolder": false,
+                  "name": "Internet Usage",
+                  "href": "http://home.dts.corp.local/Shared%20Documents/TSLinks/Internet%20Usage%20Guidelines.docx",
+                  "browser": "tslauncherag:chrome",
+                  "target": "_blank",
+                  "linkType": "web",
+                  "listItemId": 10,
+                  "description": "http://home.dts.corp.local/Shared%20Documents/TSLinks/Internet%20Usage%20Guidelines.docx",
+                  "isFolderIcon": false
+                },
+                {
+                  "ref": "https://ph7-self.corp.local/",
+                  "isFolder": false,
+                  "name": "PH7",
+                  "href": "https://ph7-self.corp.local/",
+                  "browser": "tslauncherag:chrome",
+                  "target": "_blank",
+                  "linkType": "web",
+                  "listItemId": 8,
+                  "description": "https://ph7-self.corp.local/",
+                  "isFolderIcon": false
+                }
+              ]
+            },
+            "layout": {
+              "h": 2,
+              "w": 2,
+              "x": 0,
+              "y": 17,
+              "autoPos": 0,
+              "minH": 2,
+              "minW": 1
+            },
+            "widgetUniqueId": "1604328797_982db_ccfd"
+          },
+          {
+            "name": "links",
+            "fv": 2,
+            "data": {
+              "list": [
+                {
+                  "ref": "https://www.cetotalsiege.com/",
+                  "isFolder": false,
+                  "name": "CE Total Coupole",
+                  "href": "https://www.cetotalsiege.com/",
+                  "browser": "tslauncherag:chrome",
+                  "target": "_blank",
+                  "linkType": "web",
+                  "listItemId": 13,
+                  "isFolderIcon": false,
+                  "description": "https://www.cetotalsiege.com/"
+                }
+              ]
+            },
+            "config": {
+              "activeDisplay": "list",
+              "hasHeaderHidden": false,
+              "isHiddenOnMobile": false,
+              "isOpen": true,
+              "isReadOnly": true,
+              "title": "Links",
+              "widgetVersion": "2.1"
+            },
+            "layout": {
+              "autoPos": 0,
+              "w": 1,
+              "h": 2,
+              "minH": 2,
+              "minW": 1,
+              "x": 2,
+              "y": 17
+            },
+            "id": 20001,
+            "widgetUniqueId": "1700142839_48ac2_4512"
+          },
+          {
+            "name": "links",
+            "fv": 2,
+            "data": {
+              "list": [
+                {
+                  "ref": "1677514740_0f92",
+                  "isFolder": false,
+                  "name": "M365 Lets Collaborate",
+                  "href": "https://tradingworkplace.sharepoint.com/sites/IDS-M365LetsCollaborate",
+                  "browser": "tslauncherag:chrome",
+                  "target": "_blank",
+                  "linkType": "web",
+                  "isFolderIcon": false
+                }
+              ]
+            },
+            "config": {
+              "hasHeaderHidden": true,
+              "hasDisplayOptionsHidden": false,
+              "hasBorderHidden": false,
+              "isOpen": true,
+              "activeDisplay": "tile",
+              "theme": false,
+              "customColor": false,
+              "isHiddenOnMobile": false,
+              "isReadOnly": true,
+              "title": "Links",
+              "widgetVersion": "2.1",
+              "isHero": true
+            },
+            "layout": {
+              "autoPos": 0,
+              "w": 1,
+              "h": 2,
+              "x": 3,
+              "y": 17,
+              "minH": 2,
+              "minW": 1
+            },
+            "id": 20002,
+            "widgetUniqueId": "1677514718_81742_904c"
+          },
+          {
+            "fv": 2,
+            "id": 20008,
+            "name": "market",
+            "config": {
+              "hasHeaderHidden": true,
+              "hasDisplayOptionsHidden": false,
+              "hasBorderHidden": false,
+              "isOpen": true,
+              "activeDisplay": "numbers",
+              "theme": false,
+              "customColor": false,
+              "title": "Market",
+              "isPlaceholder": false,
+              "isHiddenOnMobile": true
+            },
+            "data": {
+              "list": [
+                {
+                  "ref": 26,
+                  "type": "stock",
+                  "market": "PAR",
+                  "marketCategory": "CAC 40 Stocks",
+                  "description": "/TTEF.PA | PAR",
+                  "name": "TOTAL",
+                  "code": "/TTEF.PA",
+                  "iconClass": "cac40"
+                }
+              ],
+              "period": "6M"
+            },
+            "layout": {
+              "h": 5,
+              "w": 5,
+              "x": 0,
+              "y": 19,
+              "autoPos": 0,
+              "minH": 2,
+              "minW": 1
+            },
+            "widgetUniqueId": "1604328797_30711_8add"
+          },
+          {
+            "name": "nominations",
+            "fv": 2,
+            "data": {
+              "list": []
+            },
+            "config": {
+              "hasHeaderHidden": false,
+              "hasDisplayOptionsHidden": false,
+              "hasBorderHidden": false,
+              "isOpen": true,
+              "activeDisplay": "tileXs",
+              "theme": false,
+              "customColor": false,
+              "isHiddenOnMobile": false,
+              "isReadOnly": true,
+              "title": "Nominations"
+            },
+            "layout": {
+              "autoPos": 0,
+              "w": 4,
+              "h": 5,
+              "x": 5,
+              "y": 19,
+              "minH": 2,
+              "minW": 1
+            },
+            "id": 20007,
+            "widgetUniqueId": "1604328797_bdf29_bb9d"
+          },
+          {
+            "name": "internalNews",
+            "fv": 2,
+            "data": {
+              "list": [],
+              "entity": {
+                "TS": true
+              },
+              "filters": {
+                "category": {
+                  "HR": true
+                }
+              }
+            },
+            "config": {
+              "hasHeaderHidden": true,
+              "hasDisplayOptionsHidden": false,
+              "hasBorderHidden": false,
+              "isOpen": true,
+              "activeDisplay": "tileXs",
+              "theme": false,
+              "customColor": false,
+              "isHiddenOnMobile": false,
+              "isReadOnly": true,
+              "title": "HR Announcement"
+            },
+            "layout": {
+              "autoPos": 0,
+              "w": 3,
+              "h": 4,
+              "minH": 2,
+              "minW": 2,
+              "x": 9,
+              "y": 19
+            },
+            "id": 10006,
+            "widgetUniqueId": "1685980476_65df7_7ce3"
+          }
+        ],
+        "version": "1.29"
+      },
+      "locked": true,
+      "shareOptions": {
+        "id": 72,
+        "title": "Dashboard",
+        "description": null,
+        "lastUpdateDate": "2024-04-29T13:26:28.000Z",
+        "publicationDate": "2018-09-26T15:47:04.000Z",
+        "locked": true,
+        "lockStatus": {
+          "locked": true,
+          "by": 3633,
+          "lastUpdate": "2024-04-29T13:26:27.701Z"
+        },
+        "admins": [
+          1677,
+          1672,
+          16,
+          271,
+          22
+        ],
+        "users": [
+          1499,
+          1500,
+          1199,
+          887
+        ],
+        "editors": [],
+        "version": 1054,
+        "sendEmail": true,
+        "isAutoAdded": true,
+        "author": {
+          "id": 16,
+          "name": "name"
+        }
+      },
+      "description": "There is no message or description",
+      "updateMessages": [
+        {
+          "v": 44,
+          "message": ""
+        },
+        {
+          "v": 45,
+          "message": ""
+        },
+        {
+          "v": 46,
+          "message": "review layout"
+        },
+        {
+          "v": 46,
+          "message": "review layout"
+        },
+        {
+          "v": 48,
+          "message": ""
+        },
+        {
+          "v": 49,
+          "message": "review layout corporate"
+        },
+        {
+          "v": 50,
+          "message": "desc"
+        },
+        {
+          "v": 51,
+          "message": "desc"
+        },
+        {
+          "v": 52,
+          "message": ""
+        },
+        {
+          "v": 53,
+          "message": ""
+        },
+        {
+          "v": 56,
+          "message": ""
+        },
+        {
+          "v": 60,
+          "message": ""
+        },
+        {
+          "v": 134,
+          "message": ""
+        },
+        {
+          "v": 134,
+          "message": ""
+        },
+        {
+          "v": 236,
+          "message": ""
+        },
+        {
+          "v": 239,
+          "message": ""
+        },
+        {
+          "v": 265,
+          "message": "ad nominations"
+        },
+        {
+          "v": 305,
+          "message": ""
+        },
+        {
+          "v": 310,
+          "message": ""
+        },
+        {
+          "v": 314,
+          "message": ""
+        },
+        {
+          "v": 333,
+          "message": ""
+        },
+        {
+          "v": 389,
+          "message": ""
+        },
+        {
+          "v": 399,
+          "message": ""
+        },
+        {
+          "v": 406,
+          "message": ""
+        },
+        {
+          "v": 415,
+          "message": ""
+        },
+        {
+          "v": 529,
+          "message": ""
+        },
+        {
+          "v": 550,
+          "message": ""
+        },
+        {
+          "v": 562,
+          "message": ""
+        },
+        {
+          "v": 576,
+          "message": ""
+        },
+        {
+          "v": 581,
+          "message": ""
+        },
+        {
+          "v": 587,
+          "message": ""
+        },
+        {
+          "v": 613,
+          "message": ""
+        },
+        {
+          "v": 620,
+          "message": "bkg"
+        },
+        {
+          "v": 629,
+          "message": ""
+        },
+        {
+          "v": 643,
+          "message": ""
+        },
+        {
+          "v": 647,
+          "message": ""
+        },
+        {
+          "v": 740,
+          "message": ""
+        },
+        {
+          "v": 798,
+          "message": ""
+        },
+        {
+          "v": 809,
+          "message": ""
+        },
+        {
+          "v": 813,
+          "message": ""
+        },
+        {
+          "v": 815,
+          "message": ""
+        }
+      ],
+      "updateMessageConfig": null,
+      "dateAdded": "2021-07-25T18:13:15.248Z",
+      "shareOptionsBackup": null,
+      "data": {
+        "folderNameInCreation": null,
+        "folderName": "dashboard_libraries_0/dwp_db_lib_20200325_163945_2c333da",
+        "legacyFolderName": "/dwp_db_lib_20200325_163945_2c333da",
+        "subFolderName": "dwp_db_lib_20200325_163945_2c333da",
+        "libraryName": "dashboard_libraries_0"
+      },
+      "uuid": "56bc3d07-0b77-4df2-82e9-66d943cfc533",
+      "version": "1.29"
+    },
+    {
+      "id": 19,
+      "label": "Dashboard",
+      "title": "Dashboard",
+      "config": {
+        "layout": [
+          {
+            "name": "internalNews",
+            "fv": 2,
+            "data": {
+              "list": [],
+              "entity": {
+                "TGP": true
+              },
+              "sites": {
+                "TGP": {
+                  "isGlobal": true
+                }
+              },
+              "filters": {
+                "headline": true
+              }
+            },
+            "config": {
+              "hasHeaderHidden": true,
+              "hasDisplayOptionsHidden": false,
+              "hasBorderHidden": false,
+              "isOpen": true,
+              "activeDisplay": "tile",
+              "theme": false,
+              "customColor": false,
+              "isHiddenOnMobile": false,
+              "isReadOnly": true,
+              "title": "Internal News"
+            },
+            "layout": {
+              "autoPos": 0,
+              "w": 5,
+              "h": 8,
+              "minH": 2,
+              "minW": 2,
+              "x": 0,
+              "y": 0
+            },
+            "id": 20000,
+            "widgetUniqueId": "1636016567_01da4_4a6d"
+          },
+          {
+            "name": "peopleMoves",
+            "fv": 2,
+            "data": {
+              "list": []
+            },
+            "config": {
+              "activeDisplay": "tileXs",
+              "hasHeaderHidden": false,
+              "isHiddenOnMobile": false,
+              "isOpen": true,
+              "isReadOnly": true,
+              "title": "People Moves",
+              "settings": {
+                "categories": [
+                  true,
+                  true,
+                  true,
+                  true
+                ],
+                "branches": [
+                  [
+                    "TGP",
+                    true
+                  ],
+                  [
+                    "TS",
+                    false
+                  ],
+                  [
+                    "RC",
+                    false
+                  ],
+                  [
+                    "EP",
+                    false
+                  ],
+                  [
+                    "MS",
+                    false
+                  ],
+                  [
+                    "HD",
+                    false
+                  ],
+                  [
+                    "GRP",
+                    false
+                  ]
+                ],
+                "sites": [
+                  [
+                    "Geneva",
+                    true
+                  ],
+                  [
+                    "Geneva TSMS",
+                    true
+                  ],
+                  [
+                    "Houston",
+                    true
+                  ],
+                  [
+                    "Paris",
+                    true
+                  ],
+                  [
+                    "Singapore",
+                    true
+                  ],
+                  [
+                    "Dubaï",
+                    true
+                  ],
+                  [
+                    "Dubai",
+                    true
+                  ],
+                  [
+                    "China",
+                    true
+                  ],
+                  [
+                    "Calgary",
+                    true
+                  ],
+                  [
+                    "Mexico",
+                    true
+                  ],
+                  [
+                    "Moscow",
+                    true
+                  ],
+                  [
+                    "Nigeria",
+                    true
+                  ],
+                  [
+                    "Astana",
+                    true
+                  ],
+                  [
+                    "Spain",
+                    true
+                  ],
+                  [
+                    "Other",
+                    true
+                  ],
+                  [
+                    "Other Geneva",
+                    true
+                  ]
+                ]
+              }
+            },
+            "layout": {
+              "autoPos": 0,
+              "w": 2,
+              "h": 8,
+              "minH": 2,
+              "minW": 1,
+              "y": 0,
+              "x": 5
+            },
+            "id": 20004,
+            "widgetUniqueId": "1700143123_8bb85_54fb"
+          },
+          {
+            "name": "apps",
+            "fv": 2,
+            "data": {
+              "list": [
+                {
+                  "ref": 12,
+                  "listItemId": "12",
+                  "name": "Click & Learn",
+                  "description": "Group learning application",
+                  "href": "http://clickandlearn.total.com/portail_login/Default.aspx",
+                  "icon": "/Style%20Library/TSImg/TilesIcons/ic_e-learning.svg",
+                  "bgColor": "#702082",
+                  "disabled": false
+                }
+              ]
+            },
+            "config": {
+              "hasHeaderHidden": true,
+              "hasDisplayOptionsHidden": false,
+              "hasBorderHidden": false,
+              "isOpen": true,
+              "activeDisplay": "tile",
+              "theme": false,
+              "customColor": false,
+              "isHiddenOnMobile": false,
+              "isReadOnly": true,
+              "title": "Applications"
+            },
+            "layout": {
+              "autoPos": 0,
+              "w": 1,
+              "h": 2,
+              "minH": 2,
+              "minW": 1,
+              "x": 7,
+              "y": 0
+            },
+            "id": 60004,
+            "widgetUniqueId": "1638804381_292fb_2956"
+          },
+          {
+            "name": "apps",
+            "fv": 2,
+            "data": {
+              "list": [
+                {
+                  "ref": 334,
+                  "listItemId": "334",
+                  "name": "My APR (Mon EIA) 2019",
+                  "description": "Annual Individual Review site",
+                  "href": "http://portal.dts.corp.local/dpts/hr/eia/Pages/APRs.aspx",
+                  "icon": "/Style%20Library/TSImg/TilesIcons/eia-2019.svg",
+                  "bgColor": "#702082",
+                  "disabled": false
+                }
+              ]
+            },
+            "config": {
+              "hasHeaderHidden": true,
+              "hasDisplayOptionsHidden": false,
+              "hasBorderHidden": false,
+              "isOpen": true,
+              "activeDisplay": "tileXs",
+              "theme": false,
+              "customColor": false,
+              "isHiddenOnMobile": false,
+              "isReadOnly": true,
+              "title": "Applications"
+            },
+            "layout": {
+              "autoPos": 0,
+              "w": 1,
+              "h": 2,
+              "minH": 2,
+              "minW": 1,
+              "x": 8,
+              "y": 0
+            },
+            "id": 60003,
+            "widgetUniqueId": "1636972047_e68af_3924"
+          },
+          {
+            "name": "msviewer",
+            "fv": 2,
+            "data": {
+              "list": [],
+              "folder": "ms-viewer-17001436781",
+              "link": {
+                "href": null,
+                "embed": null,
+                "open": null
+              }
+            },
+            "config": {
+              "hasHeaderHidden": false,
+              "hasDisplayOptionsHidden": false,
+              "hasBorderHidden": false,
+              "isOpen": true,
+              "activeDisplay": "tileXs",
+              "theme": false,
+              "customColor": "red",
+              "isHiddenOnMobile": false,
+              "isReadOnly": true,
+              "title": "CTA"
+            },
+            "layout": {
+              "autoPos": 0,
+              "w": 3,
+              "h": 3,
+              "minH": 2,
+              "minW": 1,
+              "x": 9,
+              "y": 0
+            },
+            "id": 200012,
+            "widgetUniqueId": "1700143678_85c3c_c059"
+          },
+          {
+            "name": "links",
+            "fv": 2,
+            "data": {
+              "list": [
+                {
+                  "ref": "1700144324_886d",
+                  "isFolder": false,
+                  "name": "Tilt",
+                  "href": "https://tradingworkplace.sharepoint.com/sites/ids-tilt#services",
+                  "browser": "tslauncherag:chrome",
+                  "target": "_blank",
+                  "linkType": "web",
+                  "isFolderIcon": false
+                }
+              ]
+            },
+            "config": {
+              "hasHeaderHidden": false,
+              "hasDisplayOptionsHidden": false,
+              "hasBorderHidden": false,
+              "isOpen": true,
+              "activeDisplay": "tile",
+              "theme": false,
+              "customColor": false,
+              "isHiddenOnMobile": false,
+              "isReadOnly": true,
+              "title": "Links",
+              "widgetVersion": "2.1",
+              "isHero": true
+            },
+            "layout": {
+              "autoPos": 0,
+              "w": 1,
+              "h": 2,
+              "minH": 2,
+              "minW": 1,
+              "x": 7,
+              "y": 2
+            },
+            "id": 60001,
+            "widgetUniqueId": "1636465441_e8d2f_3216"
+          },
+          {
+            "name": "links",
+            "fv": 2,
+            "data": {
+              "list": [
+                {
+                  "ref": "1636033374_e91e",
+                  "isFolder": false,
+                  "isFolderIcon": false,
+                  "name": "Love it or Hate it? Let us know",
+                  "href": "mailto:ts.comms@totsa.com",
+                  "browser": "",
+                  "target": "_self",
+                  "linkType": "email"
+                }
+              ]
+            },
+            "config": {
+              "hasHeaderHidden": false,
+              "hasDisplayOptionsHidden": false,
+              "hasBorderHidden": false,
+              "isOpen": true,
+              "activeDisplay": "tile",
+              "theme": false,
+              "customColor": false,
+              "isHiddenOnMobile": false,
+              "isReadOnly": true,
+              "title": "Links",
+              "widgetVersion": "2.1"
+            },
+            "layout": {
+              "autoPos": 0,
+              "w": 1,
+              "h": 2,
+              "minH": 2,
+              "minW": 1,
+              "x": 8,
+              "y": 2
+            },
+            "id": 200015,
+            "widgetUniqueId": "1636033328_01ebb_e2fc"
+          },
+          {
+            "name": "yammer",
+            "fv": 2,
+            "data": {
+              "list": [],
+              "feedLinkHref": "https://www.yammer.com/totsa.com/#/threads/inGroup?type=in_group&feedId=29777838080&view=all"
+            },
+            "config": {
+              "hasHeaderHidden": true,
+              "hasDisplayOptionsHidden": false,
+              "hasBorderHidden": false,
+              "isOpen": true,
+              "activeDisplay": "tileXs",
+              "theme": false,
+              "customColor": false,
+              "isHiddenOnMobile": false,
+              "isReadOnly": true,
+              "title": "Yammer Feed"
+            },
+            "layout": {
+              "autoPos": 0,
+              "w": 3,
+              "h": 5,
+              "minH": 2,
+              "minW": 1,
+              "x": 9,
+              "y": 3
+            },
+            "id": 20003,
+            "widgetUniqueId": "1643620620_f7381_1f1a"
+          },
+          {
+            "name": "links",
+            "fv": 2,
+            "data": {
+              "list": [
+                {
+                  "ref": "https://ph7-self.corp.local/",
+                  "isFolder": false,
+                  "name": "PH7",
+                  "href": "https://ph7-self.corp.local/",
+                  "browser": "tslauncherag:chrome",
+                  "target": "_blank",
+                  "linkType": "web",
+                  "listItemId": 8,
+                  "isFolderIcon": false,
+                  "description": "https://ph7-self.corp.local/"
+                }
+              ]
+            },
+            "config": {
+              "activeDisplay": "list",
+              "hasHeaderHidden": false,
+              "isHiddenOnMobile": false,
+              "isOpen": true,
+              "isReadOnly": true,
+              "title": "Links",
+              "widgetVersion": "2.1"
+            },
+            "layout": {
+              "autoPos": 0,
+              "w": 1,
+              "h": 2,
+              "minH": 2,
+              "minW": 1,
+              "x": 7,
+              "y": 4
+            },
+            "id": 20008,
+            "widgetUniqueId": "1700143370_55726_cc96"
+          },
+          {
+            "name": "links",
+            "fv": 2,
+            "data": {
+              "list": [
+                {
+                  "ref": "http://portal.dts.corp.local/dpts/legal/compliance/Shared%20Documents/Public/TS_Trading_Compliance_Manual.pdf",
+                  "isFolder": false,
+                  "name": "Trading Compliance Code",
+                  "href": "http://portal.dts.corp.local/dpts/legal/compliance/Shared%20Documents/Public/TS_Trading_Compliance_Manual.pdf",
+                  "browser": "tslauncherag:chrome",
+                  "target": "_blank",
+                  "linkType": "web",
+                  "listItemId": 2,
+                  "isFolderIcon": false,
+                  "description": "http://portal.dts.corp.local/dpts/legal/compliance/Shared%20Documents/Public/TS_Trading_Compliance_Manual.pdf"
+                }
+              ]
+            },
+            "config": {
+              "activeDisplay": "list",
+              "hasHeaderHidden": false,
+              "isHiddenOnMobile": false,
+              "isOpen": true,
+              "isReadOnly": true,
+              "title": "Links",
+              "widgetVersion": "2.1"
+            },
+            "layout": {
+              "autoPos": 0,
+              "w": 1,
+              "h": 2,
+              "minH": 2,
+              "minW": 1,
+              "x": 8,
+              "y": 4
+            },
+            "id": 20006,
+            "widgetUniqueId": "1700143353_672e2_f844"
+          },
+          {
+            "name": "links",
+            "fv": 2,
+            "data": {
+              "list": [
+                {
+                  "ref": "https://krb-sjobs.brassring.com/TGnewUI/Search/Home/Home?partnerid=30080&siteid=6563#home",
+                  "isFolder": false,
+                  "name": "Careers Mobility",
+                  "href": "https://krb-sjobs.brassring.com/TGnewUI/Search/Home/Home?partnerid=30080&siteid=6563#home",
+                  "browser": "tslauncherag:chrome",
+                  "target": "_blank",
+                  "linkType": "web",
+                  "listItemId": 9,
+                  "isFolderIcon": false,
+                  "description": "https://krb-sjobs.brassring.com/TGnewUI/Search/Home/Home?partnerid=30080&siteid=6563#home"
+                }
+              ]
+            },
+            "config": {
+              "activeDisplay": "list",
+              "hasHeaderHidden": false,
+              "isHiddenOnMobile": false,
+              "isOpen": true,
+              "isReadOnly": true,
+              "title": "Links",
+              "widgetVersion": "2.1"
+            },
+            "layout": {
+              "autoPos": 0,
+              "w": 1,
+              "h": 2,
+              "minH": 2,
+              "minW": 1,
+              "x": 7,
+              "y": 6
+            },
+            "id": 20009,
+            "widgetUniqueId": "1700143405_023ca_6b13"
+          },
+          {
+            "name": "links",
+            "fv": 2,
+            "data": {
+              "list": [
+                {
+                  "ref": "https://oil.dts.corp.local/portal/offices.php",
+                  "isFolder": false,
+                  "name": "T&S Offices",
+                  "href": "https://oil.dts.corp.local/portal/offices.php",
+                  "browser": "tslauncherag:chrome",
+                  "target": "_blank",
+                  "linkType": "web",
+                  "listItemId": 12,
+                  "isFolderIcon": false,
+                  "description": "https://oil.dts.corp.local/portal/offices.php"
+                }
+              ]
+            },
+            "config": {
+              "activeDisplay": "list",
+              "hasHeaderHidden": false,
+              "isHiddenOnMobile": false,
+              "isOpen": true,
+              "isReadOnly": true,
+              "title": "Links",
+              "widgetVersion": "2.1"
+            },
+            "layout": {
+              "autoPos": 0,
+              "w": 1,
+              "h": 2,
+              "minH": 2,
+              "minW": 1,
+              "x": 8,
+              "y": 6
+            },
+            "id": 20007,
+            "widgetUniqueId": "1700143359_1d6b4_4483"
+          },
+          {
+            "name": "internalNews",
+            "fv": 2,
+            "data": {
+              "list": [],
+              "entity": {
+                "TS": false,
+                "TGP": true
+              },
+              "sites": {
+                "TS": {
+                  "GVA": false
+                },
+                "TGP": {
+                  "GVA": false,
+                  "global": true,
+                  "isGlobal": true,
+                  "auto": true
+                }
+              },
+              "filters": {
+                "allCategories": false,
+                "category": {
+                  "Get to know": true,
+                  "Compliance": true,
+                  "HSE": true,
+                  "TS": true,
+                  "Innovation": true,
+                  "Edito": true,
+                  "Welcome": true,
+                  "HR": true,
+                  "Video": true,
+                  "Company": true,
+                  "T&S Challenge": true,
+                  "Business": true,
+                  "WTC": true,
+                  "Working at WTC": true,
+                  "One Total": true,
+                  "Events": true,
+                  "Bons Plans": true,
+                  "IT & Digital": true,
+                  "COVID19": true,
+                  "Shipping": true,
+                  "#TradingData": true,
+                  "HR Announcements": false,
+                  "Advent Calendar": false,
+                  "Media": true
+                }
+              }
+            },
+            "config": {
+              "hasHeaderHidden": true,
+              "hasDisplayOptionsHidden": false,
+              "hasBorderHidden": false,
+              "isOpen": true,
+              "activeDisplay": "tileXs",
+              "theme": false,
+              "customColor": false,
+              "isHiddenOnMobile": false,
+              "isReadOnly": true,
+              "title": "TGP News",
+              "isLocked": false
+            },
+            "layout": {
+              "autoPos": 0,
+              "w": 3,
+              "h": 8,
+              "minH": 2,
+              "minW": 2,
+              "x": 0,
+              "y": 8
+            },
+            "id": 200013,
+            "widgetUniqueId": "1627241614_be1a9_90d2"
+          },
+          {
+            "name": "msviewer",
+            "fv": 2,
+            "data": {
+              "list": [],
+              "folder": "ms-viewer-16436205565",
+              "link": {
+                "href": "http://home-dev.dts.corp.local/Shared%20Documents/TGP%20Files/GRP%20Empowered/PrintEmpowered-25GB.pdf",
+                "embed": "http://home-dev.dts.corp.local/Style%20Library/apps/pdf/web/simple.html?file=http://home-dev.dts.corp.local/Shared%20Documents/TGP%20Files/GRP%20Empowered/PrintEmpowered-25GB.pdf",
+                "open": "http://home-dev.dts.corp.local/Style%20Library/apps/pdf/web/simple.html?file=http://home-dev.dts.corp.local/Shared%20Documents/TGP%20Files/GRP%20Empowered/PrintEmpowered-25GB.pdf"
+              }
+            },
+            "config": {
+              "hasHeaderHidden": true,
+              "hasDisplayOptionsHidden": false,
+              "hasBorderHidden": false,
+              "isOpen": true,
+              "activeDisplay": "tileXs",
+              "theme": false,
+              "customColor": false,
+              "isHiddenOnMobile": false,
+              "isReadOnly": true,
+              "title": "MS Office Viewer"
+            },
+            "layout": {
+              "autoPos": 0,
+              "w": 2,
+              "h": 8,
+              "minH": 2,
+              "minW": 1,
+              "x": 3,
+              "y": 8
+            },
+            "id": 20002,
+            "widgetUniqueId": "1643620556_ee45f_ec48"
+          },
+          {
+            "name": "msviewer",
+            "fv": 2,
+            "data": {
+              "list": [],
+              "folder": "ms-viewer-1636918617a",
+              "link": {
+                "href": "http://home-dev.dts.corp.local/Shared%20Documents/TGP%20Files/Monthly%20Report/Market%20Review_January_2022.pdf",
+                "embed": "http://home-dev.dts.corp.local/Style%20Library/apps/pdf/web/simple.html?file=http://home-dev.dts.corp.local/Shared%20Documents/TGP%20Files/Monthly%20Report/Market%20Review_January_2022.pdf",
+                "open": "http://home-dev.dts.corp.local/Style%20Library/apps/pdf/web/simple.html?file=http://home-dev.dts.corp.local/Shared%20Documents/TGP%20Files/Monthly%20Report/Market%20Review_January_2022.pdf"
+              }
+            },
+            "config": {
+              "hasHeaderHidden": true,
+              "hasDisplayOptionsHidden": false,
+              "hasBorderHidden": false,
+              "isOpen": true,
+              "activeDisplay": "tileXs",
+              "theme": false,
+              "customColor": false,
+              "isHiddenOnMobile": false,
+              "isReadOnly": true,
+              "title": "MS Office Viewer"
+            },
+            "layout": {
+              "autoPos": 0,
+              "w": 2,
+              "h": 3,
+              "minH": 2,
+              "minW": 1,
+              "x": 5,
+              "y": 8
+            },
+            "id": 60002,
+            "widgetUniqueId": "1636918617_d2309_3ddb"
+          },
+          {
+            "name": "internalNews",
+            "fv": 2,
+            "data": {
+              "list": [],
+              "entity": {
+                "TGP": true
+              },
+              "filters": {
+                "category": {
+                  "HR Announcements": true
+                },
+                "allCategories": false
+              }
+            },
+            "config": {
+              "hasHeaderHidden": true,
+              "hasDisplayOptionsHidden": false,
+              "hasBorderHidden": false,
+              "isOpen": true,
+              "activeDisplay": "tileXs",
+              "theme": false,
+              "customColor": false,
+              "isHiddenOnMobile": false,
+              "isReadOnly": true,
+              "title": "HR Annoucements"
+            },
+            "layout": {
+              "autoPos": 0,
+              "w": 2,
+              "h": 3,
+              "minH": 2,
+              "minW": 2,
+              "x": 7,
+              "y": 8
+            },
+            "id": 200014,
+            "widgetUniqueId": "1636016555_35151_d0e3"
+          },
+          {
+            "name": "tilt",
+            "fv": 2,
+            "data": {
+              "list": []
+            },
+            "config": {
+              "activeDisplay": "tileXs",
+              "hasHeaderHidden": false,
+              "isHiddenOnMobile": false,
+              "isOpen": true,
+              "isReadOnly": true,
+              "title": "Events"
+            },
+            "layout": {
+              "autoPos": 0,
+              "w": 3,
+              "h": 8,
+              "minH": 2,
+              "minW": 1,
+              "x": 9,
+              "y": 8
+            },
+            "id": 20005,
+            "widgetUniqueId": "1700143312_adf3d_88bc"
+          },
+          {
+            "name": "msviewer",
+            "fv": 2,
+            "data": {
+              "list": [],
+              "folder": "ms-viewer-17001434315",
+              "link": {
+                "href": "https://home-dev.dts.corp.local/dashboarddocuments/dashboard_libraries_0/lib_210725_4db467d/ms-viewer-17001434315/Intro Board Video - Com (1).pdf",
+                "embed": "https://home-dev.dts.corp.local/Style%20Library/apps/viewer/simple.html#https://home-dev.dts.corp.local/dashboarddocuments/dashboard_libraries_0/lib_210725_4db467d/ms-viewer-17001434315/Intro%20Board%20Video%20-%20Com%20(1).pdf",
+                "open": "https://home-dev.dts.corp.local/Style%20Library/apps/viewer/simple.html#https://home-dev.dts.corp.local/dashboarddocuments/dashboard_libraries_0/lib_210725_4db467d/ms-viewer-17001434315/Intro%20Board%20Video%20-%20Com%20(1).pdf"
+              }
+            },
+            "config": {
+              "activeDisplay": "tileXs",
+              "hasHeaderHidden": false,
+              "isHiddenOnMobile": false,
+              "isOpen": true,
+              "isReadOnly": true,
+              "title": "MS Office Viewer"
+            },
+            "layout": {
+              "autoPos": 0,
+              "w": 2,
+              "h": 3,
+              "minH": 2,
+              "minW": 1,
+              "y": 11,
+              "x": 5
+            },
+            "id": 200010,
+            "widgetUniqueId": "1700143431_0cbee_6304"
+          },
+          {
+            "name": "msviewer",
+            "fv": 2,
+            "data": {
+              "list": [],
+              "folder": "ms-viewer-17001434635",
+              "link": {
+                "embed": null,
+                "open": null
+              }
+            },
+            "config": {
+              "activeDisplay": "tileXs",
+              "hasHeaderHidden": false,
+              "isHiddenOnMobile": false,
+              "isOpen": true,
+              "isReadOnly": true,
+              "title": "MS Office Viewer"
+            },
+            "layout": {
+              "autoPos": 0,
+              "w": 2,
+              "h": 3,
+              "minH": 2,
+              "minW": 1,
+              "x": 7,
+              "y": 11
+            },
+            "id": 200011,
+            "widgetUniqueId": "1700143463_4533a_959d"
+          },
+          {
+            "name": "links",
+            "fv": 2,
+            "data": {
+              "list": [
+                {
+                  "ref": "1636649328_abe3",
+                  "isFolder": false,
+                  "name": "Gas & Power Monthly Brief",
+                  "href": "http://home-dev.dts.corp.local/Shared%20Documents/TGP%20Files/Monthly%20Report/Monthly%20Report%20-20211208.pdf?d=w87697ad4bcac4524bf2833362d618bb2",
+                  "browser": "tslauncherag:chrome",
+                  "target": "iframe",
+                  "linkType": "web",
+                  "isFolderIcon": false
+                }
+              ]
+            },
+            "config": {
+              "hasHeaderHidden": true,
+              "hasDisplayOptionsHidden": false,
+              "hasBorderHidden": false,
+              "isOpen": true,
+              "activeDisplay": "list",
+              "theme": false,
+              "customColor": false,
+              "isHiddenOnMobile": false,
+              "isReadOnly": true,
+              "title": "Links",
+              "widgetVersion": "2.1",
+              "isHero": true
+            },
+            "layout": {
+              "autoPos": 0,
+              "w": 2,
+              "h": 3,
+              "minH": 2,
+              "minW": 1,
+              "x": 5,
+              "y": 14
+            },
+            "id": 160001,
+            "widgetUniqueId": "1636649302_5e141_5eeb"
+          },
+          {
+            "name": "links",
+            "fv": 2,
+            "config": {
+              "hasHeaderHidden": false,
+              "hasDisplayOptionsHidden": false,
+              "hasBorderHidden": false,
+              "isOpen": true,
+              "activeDisplay": "tileXs",
+              "theme": false,
+              "customColor": "lobsterOrange",
+              "isHiddenOnMobile": false,
+              "isReadOnly": true,
+              "title": "GRP",
+              "widgetVersion": "2.1",
+              "isLocked": false
+            },
+            "layout": {
+              "autoPos": 0,
+              "w": 2,
+              "h": 3,
+              "minH": 2,
+              "minW": 1,
+              "x": 7,
+              "y": 14
+            },
+            "id": 20001,
+            "widgetUniqueId": "1614112897_4addd_fcb2",
+            "shareDetails": null,
+            "locked": false,
+            "data": {
+              "list": [
+                {
+                  "ref": "https://krb-sjobs.brassring.com/TGnewUI/Search/Home/Home?partnerid=30080&siteid=6563#home",
+                  "isFolder": false,
+                  "name": "GRP Orgchart",
+                  "href": "https://wat.corp.local/sites/s587/fr-FR/Documents/Organigrammes/Orgcharts%20GRP%2001.09.2021%20version%20light%20v2.pdf",
+                  "browser": "tslauncherag:chrome",
+                  "target": "_blank",
+                  "linkType": "web",
+                  "description": "https://krb-sjobs.brassring.com/TGnewUI/Search/Home/Home?partnerid=30080&siteid=6563#home",
+                  "isFolderIcon": false
+                },
+                {
+                  "ref": "1636467548_d595",
+                  "isFolder": false,
+                  "name": "GRP Roadmap",
+                  "href": "https://wat.corp.local/sites/s587/fr-FR/Pages/Notre%20Profil/Feuille-de-route-GRP.aspx",
+                  "browser": "tslauncherag:chrome",
+                  "target": "_blank",
+                  "linkType": "web",
+                  "isFolderIcon": false
+                },
+                {
+                  "ref": "1636467568_dc4a",
+                  "isFolder": false,
+                  "name": "GRP Presentation tool kit",
+                  "href": "https://wat.corp.local/sites/s587/fr-FR/Pages/Notre%20Profil/GRP-en-kits.aspx",
+                  "browser": "tslauncherag:chrome",
+                  "target": "_blank",
+                  "linkType": "web",
+                  "isFolderIcon": false
+                },
+                {
+                  "ref": "1636467595_d9e7",
+                  "isFolder": false,
+                  "name": "GRP in a nutshell",
+                  "href": "https://wat.corp.local/sites/s587/en-US/Pages/Notre%20Profil/nos-activites.aspx",
+                  "browser": "tslauncherag:chrome",
+                  "target": "_blank",
+                  "linkType": "web",
+                  "isFolderIcon": false
+                }
+              ]
+            }
+          }
+        ],
+        "version": "2.18"
+      },
+      "data": {
+        "folderNameInCreation": null,
+        "folderName": "dashboard_libraries_0/lib_210725_4db467d",
+        "legacyFolderName": "/lib_210725_4db467d",
+        "subFolderName": "lib_210725_4db467d",
+        "libraryName": "dashboard_libraries_0"
+      },
+      "backgroundUrl": "/TGPBackgroundImages/arteum-ro-ZYu6P9-Glic-unsplash.jpg",
+      "uuid": "e39778e8-0f87-4fe9-9635-3d4a018bf0c5",
+      "locked": true,
+      "shareOptions": {
+        "id": 813,
+        "title": "Dashboard",
+        "description": null,
+        "lastUpdateDate": "2024-04-12T13:47:21.000Z",
+        "publicationDate": "2021-07-25T12:16:53.000Z",
+        "locked": true,
+        "lockStatus": {},
+        "admins": [
+          1672,
+          1668
+        ],
+        "users": [
+          1683,
+          1920,
+          1921,
+          1922,
+          1923,
+          644,
+          1157,
+          1298,
+          1924,
+          887
+        ],
+        "editors": [
+          1669
+        ],
+        "version": 298,
+        "sendEmail": true,
+        "isAutoAdded": true,
+        "author": {
+          "id": 16,
+          "name": "name"
+        }
+      },
+      "shareOptionsBackup": null,
+      "updateMessageConfig": null,
+      "version": "1.29",
+      "mandatory": 1,
+      "customProperties": {
+        "isHideable": false,
+        "color": "#334455",
+        "icon": "",
+        "hiddenWidgetsToDisplay": [
+          "internalNews"
+        ],
+        "trackingConfig": {
+          "isEnabled": true,
+          "name": "TGP Dashboard",
+          "widgets": [
+            "links"
+          ]
+        },
+        "customIcon": "/Style%20Library/img/tgp_white.svg",
+        "header": {
+          "hasGeneralServices": false,
+          "hasNewsletter": false,
+          "hasFatalities": false,
+          "hasCompliance": false,
+          "hasInnovation": false,
+          "hasHumanResources": false,
+          "hasTENewsletter": true,
+          "hasLizzy": false,
+          "hasJobPosting": true,
+          "hasBetterTogether": true,
+          "hasHSE": true,
+          "hasBeSimple": false,
+          "hasHR4U": false,
+          "hasTGPACompliance": false,
+          "hasTGPAComplianceGva": false,
+          "hasTGPAComplianceSin": false,
+          "hasTGPAInternalControlGva": {
+            "site": "Geneva"
+          },
+          "hasTGPAInternalControlSin": {
+            "site": "singapore"
+          }
+        },
+        "addRules": []
+      },
+      "dateAdded": "2021-09-21T14:09:18.672Z",
+      "description": "There is no message or description"
+    },
+    {
+      "id": 35,
+      "label": "Test Optims #2 (09.03.2021) v7",
+      "title": "Test Optims #2 (09.03.2021) v7",
+      "config": {
+        "layout": [
+          {
+            "fv": 2,
+            "id": 350000,
+            "config": {
+              "activeDisplay": "tileXs",
+              "hasHeaderHidden": false,
+              "isHiddenOnMobile": false,
+              "isOpen": true,
+              "isReadOnly": true,
+              "title": "Applications"
+            },
+            "data": {
+              "list": [
+                {
+                  "ref": 351,
+                  "listItemId": "351",
+                  "name": "ACME CI",
+                  "description": null,
+                  "href": "https://acme.client-integration.acme.vtest.info",
+                  "icon": "/Style%20Library/TSImg/TilesIcons/vakt.svg",
+                  "bgColor": "#00C18C",
+                  "disabled": false
+                },
+                {
+                  "ref": 5,
+                  "listItemId": "5",
+                  "name": "AQB private",
+                  "description": "Private site for AQB team",
+                  "href": "http://portal.dts.corp.local/dpts/AQB/private/",
+                  "icon": "/Style%20Library/TSImg/TilesIcons/ic_private-sites.svg",
+                  "bgColor": "#0096AA",
+                  "disabled": false
+                },
+                {
+                  "ref": 2,
+                  "listItemId": "2",
+                  "name": "Agil / TES",
+                  "description": "Group directory",
+                  "href": "tslauncherag:ie:http://agil.corp.local/agil/personne.view",
+                  "icon": "/Style%20Library/TSImg/TilesIcons/ic-menu_agil.svg",
+                  "bgColor": "#B41A83",
+                  "disabled": false
+                },
+                {
+                  "ref": 290,
+                  "listItemId": "290",
+                  "name": "Aviation 2k",
+                  "description": "Aviation website between Total and TS",
+                  "href": "tslauncherag:chrome:http://portal.dts.corp.local/dpts/prodtradderiv/aviation",
+                  "icon": "/Style%20Library/TSImg/TilesIcons/ic_sp-apps.svg",
+                  "bgColor": "#B41A83",
+                  "disabled": false
+                },
+                {
+                  "ref": 4,
+                  "listItemId": "4",
+                  "name": "360T RFS Client",
+                  "description": null,
+                  "href": "https://tex.360t.com/tex.jnlp",
+                  "icon": "/Style%20Library/TSImg/TilesIcons/ic_sp-apps.svg",
+                  "bgColor": "#0096AA",
+                  "disabled": false
+                }
+              ]
+            },
+            "layout": {
+              "h": 7,
+              "w": 6,
+              "x": 0,
+              "y": 0,
+              "autoPos": 0,
+              "minH": 2,
+              "minW": 1
+            },
+            "widgetUniqueId": "1615211479_b2689_7485",
+            "name": "apps"
+          },
+          {
+            "fv": 2,
+            "id": 350001,
+            "config": {
+              "activeDisplay": "numbers",
+              "hasHeaderHidden": false,
+              "isHiddenOnMobile": false,
+              "isOpen": true,
+              "isReadOnly": true,
+              "title": "Market"
+            },
+            "data": {
+              "list": [
+                {
+                  "ref": 26,
+                  "type": "stock",
+                  "market": "PAR",
+                  "marketCategory": "CAC 40 Stocks",
+                  "description": "/TOTF.PA | PAR",
+                  "name": "TOTAL",
+                  "code": "/TOTF.PA",
+                  "iconClass": "cac40"
+                }
+              ],
+              "period": "1M"
+            },
+            "layout": {
+              "h": 3,
+              "w": 2,
+              "x": 6,
+              "y": 0,
+              "autoPos": 0,
+              "minH": 2,
+              "minW": 1
+            },
+            "widgetUniqueId": "1615211479_6e5bc_80bb",
+            "name": "market"
+          },
+          {
+            "fv": 2,
+            "id": 350002,
+            "config": {
+              "activeDisplay": "tileXs",
+              "hasHeaderHidden": false,
+              "isHiddenOnMobile": false,
+              "isOpen": true,
+              "isReadOnly": true,
+              "title": "Communities"
+            },
+            "data": {
+              "list": [
+                {
+                  "ref": 69,
+                  "listItemId": "69",
+                  "name": "AQBIZ Forum",
+                  "description": "AQB Community",
+                  "photo": null,
+                  "href": "http://portal.dts.corp.local/social/aqbiz",
+                  "icon": "/Style%20Library/TSImg/TilesIcons/ic-app_social.svg",
+                  "bgColor": "#ffa400",
+                  "disabled": false
+                },
+                {
+                  "ref": 20,
+                  "listItemId": "20",
+                  "name": "Administration",
+                  "description": "Administration community",
+                  "photo": "/Style%20Library/TSImg/ComPhoto/general%20administration.jpeg",
+                  "href": "http://portal.dts.corp.local/social/ag",
+                  "icon": "/Style%20Library/TSImg/TilesIcons/ic_ag.svg",
+                  "bgColor": "#91BD39",
+                  "disabled": false
+                }
+              ]
+            },
+            "layout": {
+              "h": 5,
+              "w": 4,
+              "x": 8,
+              "y": 0,
+              "autoPos": 0,
+              "minH": 2,
+              "minW": 1
+            },
+            "widgetUniqueId": "1615211479_2502e_fd63",
+            "name": "communities"
+          },
+          {
+            "fv": 2,
+            "id": 350003,
+            "config": {
+              "hasHeaderHidden": false,
+              "hasDisplayOptionsHidden": false,
+              "hasBorderHidden": false,
+              "isOpen": true,
+              "activeDisplay": "tile",
+              "theme": false,
+              "customColor": false,
+              "isHiddenOnMobile": false,
+              "isReadOnly": true,
+              "title": "Links",
+              "widgetVersion": "2.1"
+            },
+            "data": {
+              "list": [
+                {
+                  "ref": "https://www.cetotalsiege.com/",
+                  "isFolder": false,
+                  "name": "CE Total Coupole",
+                  "href": "https://www.cetotalsiege.com/",
+                  "browser": "tslauncherag:chrome",
+                  "target": "_blank",
+                  "linkType": "web",
+                  "listItemId": 13,
+                  "description": "https://www.cetotalsiege.com/"
+                }
+              ]
+            },
+            "layout": {
+              "h": 2,
+              "w": 2,
+              "x": 6,
+              "y": 3,
+              "autoPos": 0,
+              "minH": 2,
+              "minW": 1
+            },
+            "widgetUniqueId": "1615211479_9a487_25c6",
+            "name": "links"
+          },
+          {
+            "name": "doc",
+            "fv": 2,
+            "data": {
+              "list": [],
+              "isReadOnlyRights": true,
+              "widgetFolder": "Files-d016a7a7",
+              "widgetBaseFolder": "/dashboard_libraries_0/lib_210706_8a1e754",
+              "rootFolderServerRelativeUrl": "/dashboarddocuments/dashboard_libraries_0/lib_210706_8a1e754/Files-d016a7a7"
+            },
+            "config": {
+              "activeDisplay": "listLarge",
+              "hasHeaderHidden": false,
+              "isHiddenOnMobile": false,
+              "isOpen": true,
+              "isReadOnly": true,
+              "title": "Files",
+              "isMaximizeModalOpen": false
+            },
+            "layout": {
+              "autoPos": 0,
+              "w": 6,
+              "h": 8,
+              "minH": 2,
+              "minW": 1,
+              "x": 6,
+              "y": 5
+            },
+            "id": 350004,
+            "widgetUniqueId": "1615285524_a7c3d_185a"
+          },
+          {
+            "fv": 2,
+            "id": 350005,
+            "config": {
+              "activeDisplay": "tileXs",
+              "hasHeaderHidden": false,
+              "isHiddenOnMobile": false,
+              "isOpen": true,
+              "isReadOnly": true,
+              "title": "External News"
+            },
+            "data": {
+              "list": [
+                {
+                  "ref": "BBC",
+                  "name": "BBC",
+                  "tsFeed": true,
+                  "description": "",
+                  "photo": "/Style%20Library/TSImg/Icons/default_BBC.png",
+                  "href": "//rss.wsintranet.dts.corp.local/Widgets/Total/NewRss/rss_out.xml",
+                  "icon": "/Style%20Library/TSImg/Icons/default_BBC.png",
+                  "bgColor": "#eaeaea"
+                }
+              ]
+            },
+            "layout": {
+              "h": 6,
+              "w": 6,
+              "x": 0,
+              "y": 7,
+              "autoPos": 0,
+              "minH": 2,
+              "minW": 1
+            },
+            "widgetUniqueId": "1615211479_85206_385f",
+            "name": "newsfeed"
+          }
+        ]
+      },
+      "data": {
+        "folderNameInCreation": null,
+        "folderName": "dashboard_libraries_0/lib_210706_8a1e754",
+        "legacyFolderName": "lib_210706_8a1e754",
+        "subFolderName": "lib_210706_8a1e754",
+        "libraryName": "dashboard_libraries_0"
+      },
+      "uuid": "783e8688-8c6e-45c6-9494-72f553df4af4",
+      "locked": true,
+      "dateAdded": "2021-03-09T10:00:55.223Z",
+      "updateMessages": [
+        {
+          "v": 2,
+          "message": ""
+        },
+        {
+          "v": 4,
+          "message": ""
+        },
+        {
+          "v": 9,
+          "message": ""
+        },
+        {
+          "v": 10,
+          "message": ""
+        },
+        {
+          "v": 15,
+          "message": ""
+        }
+      ],
+      "shareOptionsBackup": null,
+      "updateMessageConfig": {
+        "description": "This board has been updated"
+      },
+      "description": "There is no message or description",
+      "version": "1.29",
+      "shareOptions": {
+        "id": 875,
+        "title": "Test Optims #2 (09.03.2021) v7",
+        "description": null,
+        "lastUpdateDate": "2023-10-04T10:02:56.000Z",
+        "publicationDate": "2022-10-04T09:46:08.000Z",
+        "locked": true,
+        "lockStatus": {},
+        "admins": [
+          139
+        ],
+        "users": [
+          7,
+          3561
+        ],
+        "editors": [],
+        "version": 28,
+        "sendEmail": true,
+        "isAutoAdded": true,
+        "author": {
+          "id": 139,
+          "name": "name"
+        }
+      }
+    },
+    {
+      "id": 2,
+      "label": "Test with many people",
+      "title": "Test with many people",
+      "config": {
+        "layout": [
+          {
+            "fv": 2,
+            "id": 20000,
+            "config": {
+              "activeDisplay": "listLarge",
+              "hasHeaderHidden": false,
+              "isHiddenOnMobile": false,
+              "isOpen": true,
+              "isReadOnly": true,
+              "title": "Files"
+            },
+            "data": {
+              "list": [],
+              "isReadOnlyRights": true,
+              "widgetFolder": "Files-9c1b0564",
+              "widgetBaseFolder": "/dashboard_libraries_6/dashboard_folder_11",
+              "rootFolderServerRelativeUrl": "/dashboarddocuments/dashboard_libraries_6/dashboard_folder_11/Files-9c1b0564"
+            },
+            "layout": {
+              "h": 7,
+              "w": 12,
+              "x": 0,
+              "y": 0,
+              "autoPos": 0,
+              "minH": 2,
+              "minW": 1
+            },
+            "widgetUniqueId": "1680787210_facd5_56a1",
+            "name": "doc"
+          },
+          {
+            "fv": 2,
+            "id": 20004,
+            "config": {
+              "isOpen": true,
+              "activeDisplay": "tileXs",
+              "isPlaceholder": 1,
+              "isHiddenOnMobile": false
+            },
+            "data": {},
+            "layout": {
+              "h": 6,
+              "w": 2,
+              "x": 0,
+              "y": 7,
+              "autoPos": 0,
+              "minH": 2,
+              "minW": 1
+            },
+            "widgetUniqueId": "1680787210_9ef79_c04c"
+          },
+          {
+            "fv": 2,
+            "id": 20005,
+            "config": {
+              "isOpen": true,
+              "activeDisplay": "tileXs",
+              "isPlaceholder": 1,
+              "isHiddenOnMobile": false
+            },
+            "data": {},
+            "layout": {
+              "h": 6,
+              "w": 4,
+              "x": 2,
+              "y": 7,
+              "autoPos": 0,
+              "minH": 2,
+              "minW": 1
+            },
+            "widgetUniqueId": "1680787210_4f0a7_6543"
+          },
+          {
+            "fv": 2,
+            "id": 20001,
+            "config": {
+              "activeDisplay": "tileXs",
+              "hasHeaderHidden": false,
+              "isHiddenOnMobile": false,
+              "isOpen": true,
+              "isReadOnly": true,
+              "title": "MS Office Viewer"
+            },
+            "data": {
+              "list": [],
+              "folder": "ms-viewer-16831060518",
+              "link": {
+                "href": "test",
+                "embed": "https://test/:x:/r/_layouts/15/WopiFrame2.aspx?sourcedoc=https://test/&action=embedview&ClientRender=1",
+                "open": "https://test/:x:/r/_layouts/15/WopiFrame2.aspx?sourcedoc=https://test/&action=default&"
+              }
+            },
+            "layout": {
+              "h": 7,
+              "w": 4,
+              "x": 6,
+              "y": 7,
+              "autoPos": 0,
+              "minH": 2,
+              "minW": 1
+            },
+            "widgetUniqueId": "1683106051_0c071_f309",
+            "name": "msviewer",
+            "locked": true,
+            "shareDetails": {
+              "locked": true,
+              "id": 231,
+              "version": 4,
+              "author": {
+                "id": 1997,
+                "Email": "sebastien.siron@external.totsa.com",
+                "PreferredName": "Sebastien SIRON",
+                "LoginName": "i:0#.w|dts\\ssiron"
+              }
+            }
+          },
+          {
+            "fv": 2,
+            "id": 20002,
+            "config": {
+              "isOpen": true,
+              "activeDisplay": "tileXs",
+              "isPlaceholder": 1,
+              "isHiddenOnMobile": false
+            },
+            "data": {},
+            "layout": {
+              "h": 4,
+              "w": 2,
+              "x": 10,
+              "y": 7,
+              "autoPos": 0,
+              "minH": 2,
+              "minW": 1
+            },
+            "widgetUniqueId": "1680787210_e2ef2_fa6b"
+          },
+          {
+            "fv": 2,
+            "id": 20003,
+            "config": {
+              "isOpen": true,
+              "activeDisplay": "tileXs",
+              "isPlaceholder": 1,
+              "isHiddenOnMobile": false
+            },
+            "data": {},
+            "layout": {
+              "h": 3,
+              "w": 2,
+              "x": 10,
+              "y": 11,
+              "autoPos": 0,
+              "minH": 2,
+              "minW": 1
+            },
+            "widgetUniqueId": "1680787210_20d3a_8a9e"
+          },
+          {
+            "fv": 2,
+            "id": 20006,
+            "config": {
+              "isOpen": true,
+              "activeDisplay": "tileXs",
+              "isPlaceholder": 1,
+              "isHiddenOnMobile": false
+            },
+            "data": {},
+            "layout": {
+              "h": 6,
+              "w": 6,
+              "x": 6,
+              "y": 14,
+              "autoPos": 0,
+              "minH": 2,
+              "minW": 1
+            },
+            "widgetUniqueId": "1680787210_5149d_07ec"
+          }
+        ]
+      },
+      "version": "1.29",
+      "backgroundUrl": "/TGPBackgroundImages/arteum-ro-ZYu6P9-Glic-unsplash.jpg",
+      "data": {
+        "folderName": "/dashboard_libraries_6/dashboard_folder_11",
+        "subFolderName": "dashboard_folder_11",
+        "libraryName": "dashboard_libraries_6"
+      },
+      "uuid": "ce33b9aa-5c8c-4c16-9d84-4901f0346a22",
+      "locked": true,
+      "shareOptions": {
+        "id": 997,
+        "title": "Test with many people",
+        "description": null,
+        "lastUpdateDate": "2023-11-29T09:44:48.000Z",
+        "publicationDate": "2023-04-06T13:22:39.000Z",
+        "locked": true,
+        "lockStatus": {},
+        "admins": [
+          1997,
+          271
+        ],
+        "users": [
+          887,
+          16,
+          22,
+          2454,
+          2101,
+          1998,
+          1052,
+          537,
+          765
+        ],
+        "editors": [
+          615
+        ],
+        "version": 67,
+        "sendEmail": true,
+        "isAutoAdded": true,
+        "author": {
+          "id": 887,
+          "name": "name"
+        }
+      },
+      "shareOptionsBackup": null,
+      "updateMessageConfig": null
+    },
+    {
+      "id": 47,
+      "label": "Dashboard - Hidden test Ruben",
+      "title": "Dashboard - Hidden test Ruben",
+      "config": {
+        "layout": [
+          {
+            "name": "market",
+            "fv": 2,
+            "data": {
+              "list": [
+                {
+                  "ref": 59,
+                  "type": "stock",
+                  "market": "Reuters",
+                  "marketCategory": "Forex",
+                  "description": "Reuters",
+                  "name": "CHF/EUR",
+                  "code": "CHFEUR_S",
+                  "iconClass": "forex"
+                },
+                {
+                  "ref": 80,
+                  "type": "stock",
+                  "market": "Reuters",
+                  "marketCategory": "Forex",
+                  "description": "Reuters",
+                  "name": "CHF/CNH",
+                  "code": "CHFCNH_R",
+                  "iconClass": "forex"
+                },
+                {
+                  "ref": 61,
+                  "type": "stock",
+                  "market": "Reuters",
+                  "marketCategory": "Forex",
+                  "description": "Reuters",
+                  "name": "CHF/GBP",
+                  "code": "CHFGBP_S",
+                  "iconClass": "forex"
+                },
+                {
+                  "ref": 73,
+                  "type": "stock",
+                  "market": "Reuters",
+                  "marketCategory": "Forex",
+                  "description": "Reuters",
+                  "name": "CHF/SGD",
+                  "code": "CHFSGD_R",
+                  "iconClass": "forex"
+                },
+                {
+                  "ref": 60,
+                  "type": "stock",
+                  "market": "Reuters",
+                  "marketCategory": "Forex",
+                  "description": "Reuters",
+                  "name": "CHF/USD",
+                  "code": "CHFUSD_R",
+                  "iconClass": "forex"
+                },
+                {
+                  "ref": 84,
+                  "type": "stock",
+                  "market": "Reuters",
+                  "marketCategory": "Forex",
+                  "description": "Reuters",
+                  "name": "CNH/CHF",
+                  "code": "CNHCHF_R",
+                  "iconClass": "forex"
+                }
+              ],
+              "period": "1D"
+            },
+            "config": {
+              "hasHeaderHidden": false,
+              "hasDisplayOptionsHidden": false,
+              "hasBorderHidden": false,
+              "isOpen": true,
+              "activeDisplay": "numbers",
+              "theme": false,
+              "customColor": "waterGreen",
+              "isHiddenOnMobile": false,
+              "isReadOnly": true,
+              "title": "Forex"
+            },
+            "layout": {
+              "autoPos": 0,
+              "w": 6,
+              "h": 5,
+              "minH": 2,
+              "minW": 1,
+              "x": 0,
+              "y": 0
+            },
+            "id": 20000,
+            "widgetUniqueId": "1604926455_d9627_5b67",
+            "locked": true,
+            "shareDetails": {
+              "locked": true,
+              "id": 165,
+              "version": 3,
+              "author": {
+                "id": 271,
+                "Email": "magali.lefevre@external.totsa.com",
+                "PreferredName": "Magali LEFEVRE",
+                "LoginName": "i:0#.w|dts\\mlefev"
+              },
+              "description": "very interesting ! euro first position",
+              "isUpdated": false
+            }
+          },
+          {
+            "fv": 2,
+            "id": 20001,
+            "name": "communities",
+            "config": {
+              "title": "Communities",
+              "isOpen": true,
+              "activeDisplay": "tile",
+              "isPlaceholder": false,
+              "isHiddenOnMobile": false,
+              "sharedWidgetUpdated": 2
+            },
+            "data": {
+              "list": [
+                {
+                  "ref": 69,
+                  "listItemId": "69",
+                  "name": "AQBIZ Forum",
+                  "photo": null,
+                  "href": "http://portal.dts.corp.local/social/aqbiz",
+                  "icon": "/Style%20Library/TSImg/TilesIcons/ic-app_social.svg",
+                  "bgColor": "#ffa400",
+                  "description": "AQB Community",
+                  "disabled": false
+                },
+                {
+                  "ref": 20,
+                  "listItemId": "20",
+                  "name": "Administration",
+                  "photo": "/Style%20Library/TSImg/ComPhoto/general%20administration.jpeg",
+                  "href": "http://portal.dts.corp.local/social/ag",
+                  "icon": "/Style%20Library/TSImg/TilesIcons/ic_ag.svg",
+                  "bgColor": "#91BD39",
+                  "description": "Administration community",
+                  "disabled": false
+                },
+                {
+                  "ref": 43,
+                  "listItemId": "43",
+                  "name": "All Assistants",
+                  "photo": "/Style%20Library/TSImg/ComPhoto/earth-connection2.jpg",
+                  "href": "http://portal.dts.corp.local/social/sec/",
+                  "icon": "/Style%20Library/TSImg/TilesIcons/ic_secretary2.svg",
+                  "bgColor": "#FF8030",
+                  "description": "Coummnity for All assistants",
+                  "disabled": false
+                },
+                {
+                  "ref": 54,
+                  "listItemId": "54",
+                  "name": "Avenières",
+                  "photo": "/Style%20Library/TSImg/ComPhoto/avenieres.jpg",
+                  "href": "http://portal.dts.corp.local/social/avenieres/",
+                  "icon": "/Style%20Library/TSImg/TilesIcons/swan.svg",
+                  "bgColor": "#006072",
+                  "description": "Crude Seminar 2017",
+                  "disabled": false
+                },
+                {
+                  "ref": 52,
+                  "listItemId": "52",
+                  "name": "BPS Tanzanian Tenders",
+                  "photo": "/Style%20Library/TSImg/ComPhoto/tanzania.jpg",
+                  "href": "http://portal.dts.corp.local/social/bpstanz/",
+                  "icon": "/Style%20Library/TSImg/TilesIcons/emea_and_lpg.svg",
+                  "bgColor": "#3FBFAE",
+                  "description": "Community to share documents relative to the performance of deliveries under the BPS tenders in Tanzania",
+                  "disabled": false
+                },
+                {
+                  "ref": 31,
+                  "listItemId": "31",
+                  "name": "Babel",
+                  "photo": "/Style%20Library/TSImg/ComPhoto/babel.png",
+                  "href": "http://portal.dts.corp.local/social/babel/",
+                  "icon": "/Style%20Library/TSImg/TilesIcons/ic_helpHand.svg",
+                  "bgColor": "#ffa400",
+                  "description": "Get feedbacks for the Babel project : migration of Blankforms database",
+                  "disabled": false
+                },
+                {
+                  "ref": 19,
+                  "listItemId": "19",
+                  "name": "CODIR",
+                  "photo": "/Style%20Library/TSImg/ComPhoto/codir.jpg",
+                  "href": "http://portal.dts.corp.local/social/codir/",
+                  "icon": "/Style%20Library/TSImg/TilesIcons/ic_codir.svg",
+                  "bgColor": "#3FBFAE",
+                  "description": "Codir community",
+                  "disabled": false
+                },
+                {
+                  "ref": 46,
+                  "listItemId": "46",
+                  "name": "Colimaçon",
+                  "photo": "/Style%20Library/TSImg/ComPhoto/colimacon.jpg",
+                  "href": "http://portal.dts.corp.local/social/colimacon/",
+                  "icon": "/Style%20Library/TSImg/TilesIcons/ic_spiral.svg",
+                  "bgColor": "#0096AA",
+                  "description": null,
+                  "disabled": false
+                },
+                {
+                  "ref": 1,
+                  "listItemId": "1",
+                  "name": "Community Helpers",
+                  "photo": "/Style%20Library/TSImg/ComPhoto/CommunityHelpers.jpg",
+                  "href": "http://portal.dts.corp.local/social/communityHelp",
+                  "icon": "/Style%20Library/TSImg/TilesIcons/ic_helpHand.svg",
+                  "bgColor": "#5E5550",
+                  "description": null,
+                  "disabled": false
+                },
+                {
+                  "ref": 15,
+                  "listItemId": "15",
+                  "name": "Cosi",
+                  "photo": "/Style%20Library/TSImg/ComPhoto/cosi.jpg",
+                  "href": "http://portal.dts.corp.local/social/cosi",
+                  "icon": "/Style%20Library/TSImg/TilesIcons/ic_cosi.svg",
+                  "bgColor": "#ff8030",
+                  "description": null,
+                  "disabled": false
+                }
+              ]
+            },
+            "layout": {
+              "h": 6,
+              "w": 4,
+              "x": 6,
+              "y": 0,
+              "minH": 2,
+              "autoPos": 0,
+              "minW": 1
+            },
+            "widgetUniqueId": "1600347000_4474f_0908",
+            "locked": true,
+            "shareDetails": {
+              "author": {
+                "id": 139
+              },
+              "id": 178,
+              "locked": true,
+              "version": 2,
+              "description": "desc",
+              "isUpdated": false
+            }
+          },
+          {
+            "fv": 2,
+            "id": 20002,
+            "name": "market",
+            "config": {
+              "title": "Market",
+              "isOpen": true,
+              "activeDisplay": "numbers",
+              "isPlaceholder": false,
+              "isHiddenOnMobile": true
+            },
+            "data": {
+              "list": [
+                {
+                  "ref": 26,
+                  "type": "stock",
+                  "market": "PAR",
+                  "marketCategory": "CAC 40 Stocks",
+                  "name": "TOTAL",
+                  "code": "/TOTF.PA",
+                  "iconClass": "totsicon-icon-institution"
+                }
+              ],
+              "period": "1D"
+            },
+            "layout": {
+              "h": 3,
+              "w": 2,
+              "x": 10,
+              "y": 0,
+              "minH": 2,
+              "autoPos": 0,
+              "minW": 1
+            },
+            "widgetUniqueId": "1600347000_bd3dc_56ea"
+          },
+          {
+            "fv": 2,
+            "id": 20003,
+            "name": "market",
+            "config": {
+              "title": "Market",
+              "isOpen": true,
+              "activeDisplay": "numbers",
+              "isPlaceholder": false,
+              "isHiddenOnMobile": true
+            },
+            "data": {
+              "list": [
+                {
+                  "ref": 60,
+                  "type": "stock",
+                  "market": "Reuters",
+                  "marketCategory": "Forex",
+                  "name": "CHF/USD",
+                  "code": "CHFUSD_R",
+                  "iconClass": "totsicon-icon-coins"
+                }
+              ],
+              "period": "1D"
+            },
+            "layout": {
+              "h": 3,
+              "w": 2,
+              "x": 10,
+              "y": 3,
+              "minH": 2,
+              "autoPos": 0,
+              "minW": 1
+            },
+            "widgetUniqueId": "1600347000_5b5ed_a048"
+          },
+          {
+            "fv": 2,
+            "id": 20004,
+            "name": "tsNews",
+            "config": {
+              "hasHeaderHidden": false,
+              "hasDisplayOptionsHidden": false,
+              "hasBorderHidden": false,
+              "isOpen": true,
+              "activeDisplay": "tileXs",
+              "theme": false,
+              "customColor": "lobsterOrange",
+              "title": "T&S News",
+              "isPlaceholder": false,
+              "isHiddenOnMobile": false
+            },
+            "data": {
+              "list": []
+            },
+            "layout": {
+              "h": 6,
+              "w": 6,
+              "x": 0,
+              "y": 5,
+              "minH": 2,
+              "autoPos": 0,
+              "minW": 2
+            },
+            "widgetUniqueId": "1600347000_17015_5328"
+          },
+          {
+            "fv": 2,
+            "id": 20005,
+            "name": "apps",
+            "config": {
+              "hasHeaderHidden": false,
+              "hasDisplayOptionsHidden": false,
+              "hasBorderHidden": false,
+              "isOpen": true,
+              "activeDisplay": "tile",
+              "title": "Applications",
+              "isPlaceholder": false,
+              "isHiddenOnMobile": false
+            },
+            "data": {
+              "list": [
+                {
+                  "ref": 5,
+                  "listItemId": "5",
+                  "name": "AQB private",
+                  "href": "http://portal.dts.corp.local/dpts/AQB/private/",
+                  "icon": "/Style%20Library/TSImg/TilesIcons/ic_private-sites.svg",
+                  "bgColor": "#0096AA",
+                  "description": "Private site for AQB team",
+                  "disabled": false
+                },
+                {
+                  "ref": 2,
+                  "listItemId": "2",
+                  "name": "Agil / TES",
+                  "href": "tslauncherag:ie:http://agil.corp.local/agil/personne.view",
+                  "icon": "/Style%20Library/TSImg/TilesIcons/ic-menu_agil.svg",
+                  "bgColor": "#B41A83",
+                  "description": "Group directory",
+                  "disabled": false
+                },
+                {
+                  "ref": 290,
+                  "listItemId": "290",
+                  "name": "Aviation 2k",
+                  "href": "tslauncherag:chrome:http://portal.dts.corp.local/dpts/prodtradderiv/aviation",
+                  "icon": "/Style%20Library/TSImg/TilesIcons/ic_sp-apps.svg",
+                  "bgColor": "#B41A83",
+                  "description": "Aviation website between Total and TS",
+                  "disabled": false
+                },
+                {
+                  "ref": 11,
+                  "listItemId": "11",
+                  "name": "BCP Geneva",
+                  "href": "http://itreflib.dts.corp.local/BCP%20Pages/BCP-Home.aspx",
+                  "icon": "/Style%20Library/TSImg/TilesIcons/ic_caution.svg",
+                  "bgColor": "#00C18C",
+                  "description": "Business Continuity Plan Geneva",
+                  "disabled": false
+                },
+                {
+                  "ref": 13,
+                  "listItemId": "13",
+                  "name": "BCP Geneva Backup",
+                  "href": "file://dts.corp.local/r$/CHGVA/Shared/Services/INF/BCP/ExportBCP/BCP-Home.html",
+                  "icon": "/Style%20Library/TSImg/TilesIcons/ic_folder.svg",
+                  "bgColor": "#00C18C",
+                  "description": "Business Continuity Plan Geneva backup",
+                  "disabled": false
+                },
+                {
+                  "ref": 16,
+                  "listItemId": "16",
+                  "name": "BCP Geneva on Houston",
+                  "href": "file://dts.corp.local/r$/USHOU/Shared/Services/INF/BCP/ExportBCP/BCP-Home.html",
+                  "icon": "/Style%20Library/TSImg/TilesIcons/ic_folder.svg",
+                  "bgColor": "#00C18C",
+                  "description": "Business Continuity Plan Geneva available from Houston",
+                  "disabled": false
+                },
+                {
+                  "ref": 15,
+                  "listItemId": "15",
+                  "name": "BCP Geneva on Paris",
+                  "href": "file://dts.corp.local/r$/FRPAR/Shared/Services/INF/BCP/ExportBCP/BCP-Home.html",
+                  "icon": "/Style%20Library/TSImg/TilesIcons/ic_folder.svg",
+                  "bgColor": "#00C18C",
+                  "description": "Business Continuity Plan Geneva available from Paris",
+                  "disabled": false
+                },
+                {
+                  "ref": 9,
+                  "listItemId": "9",
+                  "name": "Barge Database",
+                  "href": "http://w3.dts.corp.local/content/en/organization/v_barges.php?vlang=en&what=DB",
+                  "icon": "/Style%20Library/TSImg/TilesIcons/ic_w3.svg",
+                  "bgColor": "#0096AA",
+                  "description": "List of Barges known to TAM Vetting",
+                  "disabled": false
+                },
+                {
+                  "ref": 18,
+                  "listItemId": "18",
+                  "name": "Biofuels Database",
+                  "href": "http://portal.dts.corp.local/dpts/ops/biofuels",
+                  "icon": "/Style%20Library/TSImg/TilesIcons/ic_leaf_bio.svg",
+                  "bgColor": "#00C18C",
+                  "description": "Biofuels Specifications, Regulations, Mass Balances&nbsp; & Audits",
+                  "disabled": false
+                },
+                {
+                  "ref": 252,
+                  "listItemId": "252",
+                  "name": "CFD Volumes",
+                  "href": "http://cfd-volumes.dts.corp.local:11003/",
+                  "icon": "/Style%20Library/TSImg/TilesIcons/ic_power_bi.svg",
+                  "bgColor": "#4891DC",
+                  "description": "Web interface to present CFD volumes exchanged on the window",
+                  "disabled": false
+                },
+                {
+                  "ref": 178,
+                  "listItemId": "178",
+                  "name": "CME Pivot",
+                  "href": "https://www.cmegroup.com/p360/prod/install/Pivot.Client.IMTrader.application",
+                  "icon": "/Style%20Library/TSImg/TilesIcons/ic_cme.svg",
+                  "bgColor": "#00C18C",
+                  "description": "Instant messaging platform",
+                  "disabled": false
+                },
+                {
+                  "ref": 196,
+                  "listItemId": "196",
+                  "name": "CSSA Product Weekly Report",
+                  "description": null,
+                  "href": "http://mysite.dts.corp.local/personal/fchans/CLEAN%20CHARTERING/CSSA%20PRODUCT%20WEEKLY%20REPORT.xlsm",
+                  "icon": "/Style%20Library/TSImg/TilesIcons/ic_private-sites.svg",
+                  "bgColor": "#0096AA",
+                  "disabled": false
+                },
+                {
+                  "ref": 177,
+                  "listItemId": "177",
+                  "name": "Citrix StoreFront - Staging",
+                  "href": "https://srv-gva-xen21.dts.corp.local",
+                  "icon": "/Style%20Library/TSImg/TilesIcons/ic_monitor.svg",
+                  "bgColor": "#00C18C",
+                  "description": "Citrix XenDesktop published apps and desktops - Staging",
+                  "disabled": false
+                },
+                {
+                  "ref": 19,
+                  "listItemId": "19",
+                  "name": "Careers Mobility",
+                  "href": "http://careers-mobility.total.com/en",
+                  "icon": "/Style%20Library/TSImg/TilesIcons/ic_travel_suitecase.svg",
+                  "bgColor": "#702082",
+                  "description": "Group Internal Mobility",
+                  "disabled": false
+                },
+                {
+                  "ref": 12,
+                  "listItemId": "12",
+                  "name": "Click & Learn",
+                  "href": "http://clickandlearn.total.com/portail_login/Default.aspx",
+                  "icon": "/Style%20Library/TSImg/TilesIcons/ic_e-learning.svg",
+                  "bgColor": "#702082",
+                  "description": "Group learning application",
+                  "disabled": false
+                }
+              ]
+            },
+            "layout": {
+              "h": 6,
+              "w": 6,
+              "x": 6,
+              "y": 6,
+              "minH": 2,
+              "autoPos": 0,
+              "minW": 1,
+              "expandedH": 6
+            },
+            "widgetUniqueId": "1600347000_93a0c_78a1"
+          },
+          {
+            "name": "communities",
+            "fv": 2,
+            "data": {
+              "list": [
+                {
+                  "ref": 54,
+                  "listItemId": "54",
+                  "name": "Avenières",
+                  "description": "Crude Seminar 2017",
+                  "photo": "/Style%20Library/TSImg/ComPhoto/avenieres.jpg",
+                  "href": "http://portal.dts.corp.local/social/avenieres/",
+                  "icon": "/Style%20Library/TSImg/TilesIcons/swan.svg",
+                  "bgColor": "#006072",
+                  "disabled": false
+                },
+                {
+                  "ref": 69,
+                  "listItemId": "69",
+                  "name": "AQBIZ Forum",
+                  "description": "AQB Community",
+                  "photo": null,
+                  "href": "http://portal.dts.corp.local/social/aqbiz",
+                  "icon": "/Style%20Library/TSImg/TilesIcons/ic-app_social.svg",
+                  "bgColor": "#ffa400",
+                  "disabled": false
+                },
+                {
+                  "ref": 52,
+                  "listItemId": "52",
+                  "name": "BPS Tanzanian Tenders",
+                  "description": "Community to share documents relative to the performance of deliveries under the BPS tenders in Tanzania",
+                  "photo": "/Style%20Library/TSImg/ComPhoto/tanzania.jpg",
+                  "href": "http://portal.dts.corp.local/social/bpstanz/",
+                  "icon": "/Style%20Library/TSImg/TilesIcons/emea_and_lpg.svg",
+                  "bgColor": "#3FBFAE",
+                  "disabled": false
+                },
+                {
+                  "ref": 54,
+                  "listItemId": "54",
+                  "name": "Avenières",
+                  "description": "Crude Seminar 2017",
+                  "photo": "/Style%20Library/TSImg/ComPhoto/avenieres.jpg",
+                  "href": "http://portal.dts.corp.local/social/avenieres/",
+                  "icon": "/Style%20Library/TSImg/TilesIcons/swan.svg",
+                  "bgColor": "#006072",
+                  "disabled": false
+                },
+                {
+                  "ref": 19,
+                  "listItemId": "19",
+                  "name": "CODIR",
+                  "description": "Codir community",
+                  "photo": "/Style%20Library/TSImg/ComPhoto/codir.jpg",
+                  "href": "http://portal.dts.corp.local/social/codir/",
+                  "icon": "/Style%20Library/TSImg/TilesIcons/ic_codir.svg",
+                  "bgColor": "#3FBFAE",
+                  "disabled": false
+                }
+              ]
+            },
+            "config": {
+              "hasHeaderHidden": false,
+              "hasDisplayOptionsHidden": false,
+              "hasBorderHidden": false,
+              "isOpen": true,
+              "activeDisplay": "tile",
+              "isHiddenOnMobile": false,
+              "isReadOnly": true,
+              "title": "Communities"
+            },
+            "layout": {
+              "autoPos": 0,
+              "w": 6,
+              "h": 4,
+              "minH": 2,
+              "minW": 1,
+              "expandedH": 4,
+              "y": 11,
+              "x": 0
+            },
+            "id": 20007,
+            "locked": true,
+            "shareDetails": {
+              "locked": true,
+              "id": 119,
+              "version": 5,
+              "author": {
+                "id": 1216,
+                "Email": "amelie.buchin@external.totsa.com",
+                "PreferredName": "Amelie BUCHIN",
+                "LoginName": "i:0#.w|dts\\abuchi"
+              },
+              "description": "test 21.10.19",
+              "isUpdated": false
+            },
+            "widgetUniqueId": "1600347000_dbea1_6407"
+          },
+          {
+            "fv": 2,
+            "id": 20008,
+            "config": {
+              "activeDisplay": "tileXs",
+              "hasHeaderHidden": false,
+              "isHiddenOnMobile": false,
+              "isOpen": true,
+              "isReadOnly": true,
+              "title": "Communities"
+            },
+            "data": {
+              "list": [
+                {
+                  "ref": 43,
+                  "listItemId": "43",
+                  "name": "All Assistants",
+                  "description": "Coummnity for All assistants",
+                  "photo": "/Style%20Library/TSImg/ComPhoto/earth-connection2.jpg",
+                  "href": "http://portal.dts.corp.local/social/sec/",
+                  "icon": "/Style%20Library/TSImg/TilesIcons/ic_secretary2.svg",
+                  "bgColor": "#FF8030",
+                  "disabled": false
+                },
+                {
+                  "ref": 31,
+                  "listItemId": "31",
+                  "name": "Babel",
+                  "description": "Get feedbacks for the Babel project : migration of Blankforms database",
+                  "photo": "/Style%20Library/TSImg/ComPhoto/babel.png",
+                  "href": "http://portal.dts.corp.local/social/babel/",
+                  "icon": "/Style%20Library/TSImg/TilesIcons/ic_helpHand.svg",
+                  "bgColor": "#ffa400",
+                  "disabled": false
+                },
+                {
+                  "ref": 15,
+                  "listItemId": "15",
+                  "name": "Cosi",
+                  "description": null,
+                  "photo": "/Style%20Library/TSImg/ComPhoto/cosi.jpg",
+                  "href": "http://portal.dts.corp.local/social/cosi",
+                  "icon": "/Style%20Library/TSImg/TilesIcons/ic_cosi.svg",
+                  "bgColor": "#ff8030",
+                  "disabled": false
+                },
+                {
+                  "ref": 52,
+                  "listItemId": "52",
+                  "name": "BPS Tanzanian Tenders",
+                  "description": "Community to share documents relative to the performance of deliveries under the BPS tenders in Tanzania",
+                  "photo": "/Style%20Library/TSImg/ComPhoto/tanzania.jpg",
+                  "href": "http://portal.dts.corp.local/social/bpstanz/",
+                  "icon": "/Style%20Library/TSImg/TilesIcons/emea_and_lpg.svg",
+                  "bgColor": "#3FBFAE",
+                  "disabled": false
+                }
+              ]
+            },
+            "layout": {
+              "h": 7,
+              "w": 6,
+              "x": 6,
+              "y": 12,
+              "autoPos": 0,
+              "minH": 2,
+              "minW": 1
+            },
+            "name": "communities",
+            "shareDetails": {
+              "id": 144,
+              "version": 2,
+              "author": {
+                "id": 553,
+                "Email": "sptest.manager-1@totsa.com",
+                "PreferredName": "Sptest MANAGER 1",
+                "LoginName": "i:0#.w|dts\\mtest"
+              }
+            },
+            "widgetUniqueId": "1600347000_ed4b6_5906"
+          },
+          {
+            "fv": 2,
+            "id": 20006,
+            "name": "links",
+            "config": {
+              "hasHeaderHidden": false,
+              "hasDisplayOptionsHidden": false,
+              "hasBorderHidden": false,
+              "isOpen": true,
+              "activeDisplay": "smallList",
+              "title": "Links",
+              "isPlaceholder": false,
+              "isHiddenOnMobile": false,
+              "widgetVersion": "2.1"
+            },
+            "data": {
+              "list": [
+                {
+                  "ref": "http://home.dts.corp.local/Shared%20Documents/TSLinks/T%26S%20Employee%20Handbook.pdf",
+                  "isFolder": false,
+                  "name": "T&S Employee handbook",
+                  "href": "http://home.dts.corp.local/Shared%20Documents/TSLinks/T%26S%20Employee%20Handbook.pdf",
+                  "browser": "tslauncherag:chrome",
+                  "target": "_blank",
+                  "linkType": "web",
+                  "description": "http://home.dts.corp.local/Shared%20Documents/TSLinks/T%26S%20Employee%20Handbook.pdf",
+                  "isFolderIcon": false,
+                  "forceBrowser": "tslauncherag:chrome"
+                },
+                {
+                  "ref": "http://portal.dts.corp.local/dpts/legal/compliance/Shared%20Documents/Public/Exchanges%20-%20Key%20rules.pdf",
+                  "isFolder": false,
+                  "name": "ICE and NYMEX - Key rules",
+                  "href": "http://portal.dts.corp.local/dpts/legal/compliance/Shared%20Documents/Public/Exchanges%20-%20Key%20rules.pdf",
+                  "browser": "tslauncherag:ie",
+                  "target": "_blank",
+                  "linkType": "web",
+                  "description": "http://portal.dts.corp.local/dpts/legal/compliance/Shared%20Documents/Public/Exchanges%20-%20Key%20rules.pdf",
+                  "isFolderIcon": false,
+                  "listItemId": 3
+                },
+                {
+                  "ref": "Notes://TCHGVA-X01/C1257D8E00556E6E/Accueil?OpenFrameset",
+                  "isFolder": false,
+                  "name": "T&S Gift",
+                  "href": "Notes://TCHGVA-X01/C1257D8E00556E6E/Accueil?OpenFrameset",
+                  "browser": "tslauncherag:current",
+                  "target": "_blank",
+                  "linkType": "web",
+                  "description": "Notes://TCHGVA-X01/C1257D8E00556E6E/Accueil?OpenFrameset",
+                  "isFolderIcon": false,
+                  "forceBrowser": "tslauncherag:current"
+                },
+                {
+                  "ref": "https://hr4u.main.glb.corp.local/",
+                  "isFolder": false,
+                  "name": "HR4U",
+                  "href": "https://hr4u.main.glb.corp.local/",
+                  "browser": "tslauncherag:chrome",
+                  "target": "_blank",
+                  "linkType": "web",
+                  "listItemId": 7,
+                  "description": "https://hr4u.main.glb.corp.local/",
+                  "isFolderIcon": false
+                },
+                {
+                  "ref": "https://krb-sjobs.brassring.com/TGnewUI/Search/Home/Home?partnerid=30080&siteid=6563#home",
+                  "isFolder": false,
+                  "name": "Careers Mobility",
+                  "href": "https://krb-sjobs.brassring.com/TGnewUI/Search/Home/Home?partnerid=30080&siteid=6563#home",
+                  "browser": "tslauncherag:chrome",
+                  "target": "_blank",
+                  "linkType": "web",
+                  "listItemId": 9,
+                  "description": "https://krb-sjobs.brassring.com/TGnewUI/Search/Home/Home?partnerid=30080&siteid=6563#home",
+                  "isFolderIcon": false
+                },
+                {
+                  "ref": "https://oil.dts.corp.local/portal/best_practices.php",
+                  "isFolder": false,
+                  "name": "Passwords : Best practices",
+                  "href": "https://oil.dts.corp.local/portal/best_practices.php",
+                  "browser": "tslauncherag:chrome",
+                  "target": "_blank",
+                  "linkType": "web",
+                  "listItemId": 11,
+                  "description": "https://oil.dts.corp.local/portal/best_practices.php",
+                  "isFolderIcon": false
+                },
+                {
+                  "ref": "https://oil.dts.corp.local/portal/offices.php",
+                  "isFolder": false,
+                  "name": "T&S Offices",
+                  "href": "https://oil.dts.corp.local/portal/offices.php",
+                  "browser": "tslauncherag:chrome",
+                  "target": "_blank",
+                  "linkType": "web",
+                  "listItemId": 12,
+                  "description": "https://oil.dts.corp.local/portal/offices.php",
+                  "isFolderIcon": false
+                },
+                {
+                  "ref": "http://home.dts.corp.local/Shared%20Documents/TSLinks/Internet%20Usage%20Guidelines.docx",
+                  "isFolder": false,
+                  "name": "Internet Usage",
+                  "href": "http://home.dts.corp.local/Shared%20Documents/TSLinks/Internet%20Usage%20Guidelines.docx",
+                  "browser": "tslauncherag:chrome",
+                  "target": "_blank",
+                  "linkType": "web",
+                  "listItemId": 10,
+                  "description": "http://home.dts.corp.local/Shared%20Documents/TSLinks/Internet%20Usage%20Guidelines.docx",
+                  "isFolderIcon": false
+                },
+                {
+                  "ref": "https://ph7-self.corp.local/",
+                  "isFolder": false,
+                  "name": "PH7",
+                  "href": "https://ph7-self.corp.local/",
+                  "browser": "tslauncherag:chrome",
+                  "target": "_blank",
+                  "linkType": "web",
+                  "listItemId": 8,
+                  "description": "https://ph7-self.corp.local/",
+                  "isFolderIcon": false
+                },
+                {
+                  "ref": "http://w3.dts.corp.local/content/en/rh/cursus_list.php?vlang=en",
+                  "isFolder": false,
+                  "name": "T&S Training Intranet",
+                  "href": "http://w3.dts.corp.local/content/en/rh/cursus_list.php?vlang=en",
+                  "browser": "tslauncherag:chrome",
+                  "target": "_blank",
+                  "linkType": "web",
+                  "listItemId": 6,
+                  "description": "http://w3.dts.corp.local/content/en/rh/cursus_list.php?vlang=en",
+                  "isFolderIcon": false
+                },
+                {
+                  "ref": "http://portal.dts.corp.local/dpts/ic/SitePages/TravelPolicy.aspx",
+                  "isFolder": false,
+                  "name": "Travel Policy",
+                  "href": "http://portal.dts.corp.local/dpts/ic/SitePages/TravelPolicy.aspx",
+                  "browser": "tslauncherag:chrome",
+                  "target": "_blank",
+                  "linkType": "web",
+                  "listItemId": 4,
+                  "description": "http://portal.dts.corp.local/dpts/ic/SitePages/TravelPolicy.aspx",
+                  "isFolderIcon": false
+                },
+                {
+                  "ref": "http://portal.dts.corp.local/dpts/legal/compliance/Shared%20Documents/Public/TS_Trading_Compliance_Manual.pdf",
+                  "isFolder": false,
+                  "name": "Trading Compliance Code",
+                  "href": "http://portal.dts.corp.local/dpts/legal/compliance/Shared%20Documents/Public/TS_Trading_Compliance_Manual.pdf",
+                  "browser": "tslauncherag:chrome",
+                  "target": "_blank",
+                  "linkType": "web",
+                  "listItemId": 2,
+                  "description": "http://portal.dts.corp.local/dpts/legal/compliance/Shared%20Documents/Public/TS_Trading_Compliance_Manual.pdf",
+                  "isFolderIcon": false
+                }
+              ]
+            },
+            "layout": {
+              "h": 4,
+              "w": 6,
+              "x": 0,
+              "y": 15,
+              "minH": 2,
+              "autoPos": 0,
+              "minW": 1,
+              "expandedH": 6
+            },
+            "widgetUniqueId": "1600347000_c7b17_ecf8"
+          },
+          {
+            "name": "doc",
+            "fv": 2,
+            "data": {
+              "list": [],
+              "isReadOnlyRights": false,
+              "widgetFolder": "Files-18c1776c",
+              "widgetBaseFolder": "/dashboard_libraries_0/dwp_db_lib_20200312_155133_f7fa142",
+              "rootFolderServerRelativeUrl": "/dashboarddocuments/dashboard_libraries_0/dwp_db_lib_20200312_155133_f7fa142/Files-18c1776c"
+            },
+            "config": {
+              "activeDisplay": "listLarge",
+              "hasHeaderHidden": false,
+              "isHiddenOnMobile": false,
+              "isOpen": true,
+              "isReadOnly": true,
+              "title": "Files"
+            },
+            "layout": {
+              "autoPos": 0,
+              "w": 6,
+              "h": 8,
+              "minH": 2,
+              "minW": 1,
+              "x": 0,
+              "y": 19
+            },
+            "id": 20009,
+            "widgetUniqueId": "1615658443_191a3_a5ad"
+          },
+          {
+            "name": "communities",
+            "fv": 2,
+            "data": {
+              "list": [
+                {
+                  "ref": 50,
+                  "listItemId": "50",
+                  "name": "SAM",
+                  "description": "Secretaires et assistant(e)s de manager community on WAT",
+                  "photo": "/Style%20Library/TSImg/ComPhoto/wat.jpg",
+                  "href": "http://wat-social.corp.local/sites/4e54bffc-261c-47c1-9236-cf2f71507814_FR-FR",
+                  "icon": "/Style%20Library/TSImg/TilesIcons/wat2.svg",
+                  "bgColor": "#00BCC8",
+                  "disabled": false
+                },
+                {
+                  "ref": 44,
+                  "listItemId": "44",
+                  "name": "SAT",
+                  "description": "SAT community on WAT",
+                  "photo": "/Style%20Library/TSImg/ComPhoto/wat.jpg",
+                  "href": "http://wat-social.corp.local/sites/1568635b-c083-43c8-940f-c1feeb5e1e5c_en-US/Pages/CommunityHome.aspx",
+                  "icon": "/Style%20Library/TSImg/TilesIcons/wat2.svg",
+                  "bgColor": "#00BCC8",
+                  "disabled": false
+                },
+                {
+                  "ref": 42,
+                  "listItemId": "42",
+                  "name": "Twice",
+                  "description": "Twice Community on WAT",
+                  "photo": "/Style%20Library/TSImg/ComPhoto/wat.jpg",
+                  "href": "http://wat-social.corp.local/sites/84004190-c8a9-4659-8406-38b63414d284_en-US",
+                  "icon": "/Style%20Library/TSImg/TilesIcons/wat2.svg",
+                  "bgColor": "#00BCC8",
+                  "disabled": false
+                },
+                {
+                  "ref": 41,
+                  "listItemId": "41",
+                  "name": "Twice USA",
+                  "description": "Twice Community on WAT",
+                  "photo": "/Style%20Library/TSImg/ComPhoto/wat.jpg",
+                  "href": "http://wat-social.corp.local/sites/12d3f906-49fd-4670-8915-df4512a85429_EN-US",
+                  "icon": "/Style%20Library/TSImg/TilesIcons/wat2.svg",
+                  "bgColor": "#00BCC8",
+                  "disabled": false
+                }
+              ]
+            },
+            "config": {
+              "activeDisplay": "tileXs",
+              "hasHeaderHidden": false,
+              "isHiddenOnMobile": false,
+              "isOpen": true,
+              "isReadOnly": true,
+              "title": "Communities wat"
+            },
+            "layout": {
+              "autoPos": 0,
+              "w": 4,
+              "h": 4,
+              "minH": 2,
+              "minW": 1,
+              "y": 19,
+              "x": 6
+            },
+            "id": 200010,
+            "widgetUniqueId": "1626772604_7e4e8_b002",
+            "locked": true,
+            "shareDetails": {
+              "locked": true,
+              "id": 180,
+              "version": 3,
+              "author": {
+                "id": 271,
+                "Email": "magali.lefevre@external.totsa.com",
+                "PreferredName": "Magali LEFEVRE",
+                "LoginName": "i:0#.w|dts\\mlefev"
+              },
+              "description": "coucou",
+              "isSync": false,
+              "isUpdated": false
+            }
+          }
+        ],
+        "version": "1.29"
+      },
+      "data": {
+        "folderNameInCreation": null,
+        "folderName": "dashboard_libraries_0/dwp_db_lib_20200312_155133_f7fa142",
+        "legacyFolderName": "/dwp_db_lib_20200312_155133_f7fa142",
+        "subFolderName": "dwp_db_lib_20200312_155133_f7fa142",
+        "libraryName": "dashboard_libraries_0"
+      },
+      "uuid": "6a310e09-922f-4b78-9703-af726a88f111",
+      "version": "1.29",
+      "backgroundUrl": "/TGPBackgroundImages/arteum-ro-ZYu6P9-Glic-unsplash.jpg",
+      "locked": true,
+      "shareOptions": {
+        "id": 1035,
+        "title": "Dashboard - Hidden test Ruben",
+        "description": null,
+        "lastUpdateDate": "2024-05-07T15:30:56.000Z",
+        "publicationDate": "2023-09-04T15:32:20.000Z",
+        "locked": true,
+        "lockStatus": {},
+        "admins": [],
+        "users": [],
+        "editors": [
+          3561
+        ],
+        "version": 55,
+        "sendEmail": true,
+        "isAutoAdded": true,
+        "author": {
+          "id": 139,
+          "name": "name"
+        }
+      },
+      "shareOptionsBackup": null,
+      "updateMessageConfig": null
+    },
+    {
+      "id": 2,
+      "label": "Test partage 1",
+      "title": "Test partage 1",
+      "config": {
+        "layout": [
+          {
+            "fv": 2,
+            "id": 20000,
+            "config": {
+              "activeDisplay": "tileXs",
+              "hasHeaderHidden": false,
+              "isHiddenOnMobile": false,
+              "isOpen": true,
+              "isReadOnly": true,
+              "title": "Applications"
+            },
+            "data": {
+              "list": [
+                {
+                  "ref": 273,
+                  "listItemId": "273",
+                  "name": "Absence Notice",
+                  "description": "Absence Notice site",
+                  "href": "http://applications.dts.corp.local/adm/abs",
+                  "icon": "/Style%20Library/TSImg/TilesIcons/ic_holidays_logo.svg",
+                  "bgColor": "#702082",
+                  "disabled": false
+                }
+              ]
+            },
+            "layout": {
+              "h": 7,
+              "w": 6,
+              "x": 0,
+              "y": 0,
+              "autoPos": 0,
+              "minH": 2,
+              "minW": 1
+            },
+            "widgetUniqueId": "1697016648_e73aa_3c8f",
+            "name": "apps"
+          },
+          {
+            "fv": 2,
+            "id": 20001,
+            "config": {
+              "isOpen": true,
+              "activeDisplay": "tileXs",
+              "isPlaceholder": 1,
+              "isHiddenOnMobile": false
+            },
+            "data": {},
+            "layout": {
+              "h": 7,
+              "w": 4,
+              "x": 6,
+              "y": 0,
+              "autoPos": 0,
+              "minH": 2,
+              "minW": 1
+            },
+            "widgetUniqueId": "1697016648_db381_c13f"
+          },
+          {
+            "fv": 2,
+            "id": 20002,
+            "config": {
+              "isOpen": true,
+              "activeDisplay": "tileXs",
+              "isPlaceholder": 1,
+              "isHiddenOnMobile": false
+            },
+            "data": {},
+            "layout": {
+              "h": 4,
+              "w": 2,
+              "x": 10,
+              "y": 0,
+              "autoPos": 0,
+              "minH": 2,
+              "minW": 1
+            },
+            "widgetUniqueId": "1697016648_0b749_af12"
+          },
+          {
+            "fv": 2,
+            "id": 20003,
+            "config": {
+              "isOpen": true,
+              "activeDisplay": "tileXs",
+              "isPlaceholder": 1,
+              "isHiddenOnMobile": false
+            },
+            "data": {},
+            "layout": {
+              "h": 3,
+              "w": 2,
+              "x": 10,
+              "y": 4,
+              "autoPos": 0,
+              "minH": 2,
+              "minW": 1
+            },
+            "widgetUniqueId": "1697016648_e39d9_ce6b"
+          },
+          {
+            "fv": 2,
+            "id": 20004,
+            "config": {
+              "isOpen": true,
+              "activeDisplay": "tileXs",
+              "isPlaceholder": 1,
+              "isHiddenOnMobile": false
+            },
+            "data": {},
+            "layout": {
+              "h": 6,
+              "w": 2,
+              "x": 0,
+              "y": 7,
+              "autoPos": 0,
+              "minH": 2,
+              "minW": 1
+            },
+            "widgetUniqueId": "1697016648_79904_a334"
+          },
+          {
+            "fv": 2,
+            "id": 20005,
+            "config": {
+              "isOpen": true,
+              "activeDisplay": "tileXs",
+              "isPlaceholder": 1,
+              "isHiddenOnMobile": false
+            },
+            "data": {},
+            "layout": {
+              "h": 6,
+              "w": 4,
+              "x": 2,
+              "y": 7,
+              "autoPos": 0,
+              "minH": 2,
+              "minW": 1
+            },
+            "widgetUniqueId": "1697016648_da9cc_0268"
+          },
+          {
+            "fv": 2,
+            "id": 20006,
+            "config": {
+              "isOpen": true,
+              "activeDisplay": "tileXs",
+              "isPlaceholder": 1,
+              "isHiddenOnMobile": false
+            },
+            "data": {},
+            "layout": {
+              "h": 6,
+              "w": 6,
+              "x": 6,
+              "y": 7,
+              "autoPos": 0,
+              "minH": 2,
+              "minW": 1
+            },
+            "widgetUniqueId": "1697016648_11bef_1fc1"
+          }
+        ]
+      },
+      "version": "1.29",
+      "uuid": "5bd8248b-e55f-4c43-8359-354f43d58843",
+      "data": {
+        "folderName": "/dashboard_libraries_12/dashboard_folder_9",
+        "subFolderName": "dashboard_folder_9",
+        "libraryName": "dashboard_libraries_12"
+      },
+      "currentUserRole": "Contribute",
+      "locked": true,
+      "updateMessageConfig": null,
+      "shareOptions": {
+        "id": 1062,
+        "title": "Test partage 1",
+        "description": null,
+        "lastUpdateDate": "2023-10-30T10:13:59.000Z",
+        "publicationDate": "2023-10-30T10:05:59.000Z",
+        "locked": true,
+        "lockStatus": {},
+        "admins": [],
+        "users": [
+          3562
+        ],
+        "editors": [],
+        "version": 8,
+        "sendEmail": true,
+        "isAutoAdded": true,
+        "author": {
+          "id": 3561,
+          "name": "name"
+        }
+      },
+      "shareOptionsBackup": null
+    },
+    {
+      "id": 6,
+      "label": "2Custom color EDITOR",
+      "title": "2Custom color EDITOR",
+      "config": {
+        "layout": [
+          {
+            "fv": 2,
+            "id": 80000,
+            "config": {
+              "hasHeaderHidden": false,
+              "hasDisplayOptionsHidden": false,
+              "hasBorderHidden": false,
+              "isOpen": true,
+              "activeDisplay": "listLarge",
+              "theme": false,
+              "customColor": "lobsterOrange",
+              "isHiddenOnMobile": false,
+              "isReadOnly": true,
+              "title": "Files"
+            },
+            "data": {
+              "list": [],
+              "isReadOnlyRights": true,
+              "widgetFolder": "Files-9e378af7",
+              "widgetBaseFolder": "/dashboard_libraries_0/lib_210113_4b3d1b5",
+              "rootFolderServerRelativeUrl": "/dashboarddocuments/dashboard_libraries_0/lib_210113_4b3d1b5/Files-9e378af7"
+            },
+            "layout": {
+              "h": 7,
+              "w": 6,
+              "x": 0,
+              "y": 0,
+              "autoPos": 0,
+              "minH": 2,
+              "minW": 1
+            },
+            "widgetUniqueId": "1610525132_845e3_4a78",
+            "name": "doc"
+          },
+          {
+            "fv": 2,
+            "id": 80001,
+            "config": {
+              "hasHeaderHidden": false,
+              "hasDisplayOptionsHidden": false,
+              "hasBorderHidden": false,
+              "isOpen": true,
+              "activeDisplay": "tileXs",
+              "theme": false,
+              "customColor": "lobsterOrange",
+              "isHiddenOnMobile": false,
+              "isReadOnly": true,
+              "title": "External News"
+            },
+            "data": {
+              "list": [
+                {
+                  "ref": "CNNW",
+                  "name": "CNN World",
+                  "tsFeed": true,
+                  "description": "",
+                  "photo": "/Style%20Library/TSImg/Icons/default_CNNW.png",
+                  "href": "//rss.wsintranet.dts.corp.local/Widgets/Total/NewRss/rss_out.xml",
+                  "icon": "/Style%20Library/TSImg/Icons/default_CNNW.png",
+                  "bgColor": "#eaeaea"
+                }
+              ]
+            },
+            "layout": {
+              "h": 14,
+              "w": 4,
+              "x": 6,
+              "y": 0,
+              "autoPos": 0,
+              "minH": 2,
+              "minW": 1
+            },
+            "widgetUniqueId": "1610525132_a1f24_379f",
+            "name": "newsfeed"
+          },
+          {
+            "fv": 2,
+            "id": 80002,
+            "config": {
+              "isOpen": true,
+              "activeDisplay": "tileXs",
+              "isPlaceholder": 1,
+              "isHiddenOnMobile": false
+            },
+            "data": {},
+            "layout": {
+              "h": 4,
+              "w": 2,
+              "x": 10,
+              "y": 0,
+              "autoPos": 0,
+              "minH": 2,
+              "minW": 1
+            },
+            "widgetUniqueId": "1610525132_f76cb_2bf7"
+          },
+          {
+            "fv": 2,
+            "id": 80003,
+            "config": {
+              "isOpen": true,
+              "activeDisplay": "tileXs",
+              "isPlaceholder": 1,
+              "isHiddenOnMobile": false
+            },
+            "data": {},
+            "layout": {
+              "h": 3,
+              "w": 2,
+              "x": 10,
+              "y": 4,
+              "autoPos": 0,
+              "minH": 2,
+              "minW": 1
+            },
+            "widgetUniqueId": "1610525132_2fe62_96d8"
+          },
+          {
+            "fv": 2,
+            "id": 80004,
+            "config": {
+              "isOpen": true,
+              "activeDisplay": "tileXs",
+              "isPlaceholder": 1,
+              "isHiddenOnMobile": false
+            },
+            "data": {},
+            "layout": {
+              "h": 6,
+              "w": 2,
+              "x": 0,
+              "y": 7,
+              "autoPos": 0,
+              "minH": 2,
+              "minW": 1
+            },
+            "widgetUniqueId": "1610525132_576bb_fdd7"
+          },
+          {
+            "fv": 2,
+            "id": 80005,
+            "config": {
+              "isOpen": true,
+              "activeDisplay": "tileXs",
+              "isPlaceholder": 1,
+              "isHiddenOnMobile": false
+            },
+            "data": {},
+            "layout": {
+              "h": 6,
+              "w": 4,
+              "x": 2,
+              "y": 7,
+              "autoPos": 0,
+              "minH": 2,
+              "minW": 1
+            },
+            "widgetUniqueId": "1610525132_433bd_8e09"
+          },
+          {
+            "fv": 2,
+            "id": 80006,
+            "config": {
+              "isOpen": true,
+              "activeDisplay": "tileXs",
+              "isPlaceholder": 1,
+              "isHiddenOnMobile": false
+            },
+            "data": {},
+            "layout": {
+              "h": 6,
+              "w": 6,
+              "x": 6,
+              "y": 14,
+              "autoPos": 0,
+              "minH": 2,
+              "minW": 1
+            },
+            "widgetUniqueId": "1610525132_c4427_b8bb"
+          }
+        ],
+        "version": "1.29"
+      },
+      "data": {
+        "folderNameInCreation": null,
+        "folderName": "dashboard_libraries_0/lib_210113_4b3d1b5",
+        "legacyFolderName": "/lib_210113_4b3d1b5",
+        "subFolderName": "lib_210113_4b3d1b5",
+        "libraryName": "dashboard_libraries_0"
+      },
+      "locked": true,
+      "shareOptions": {
+        "id": 744,
+        "title": "2Custom color EDITOR",
+        "description": null,
+        "lastUpdateDate": "2023-03-07T16:22:16.000Z",
+        "publicationDate": "2021-01-13T08:06:27.000Z",
+        "locked": true,
+        "lockStatus": {},
+        "admins": [
+          992
+        ],
+        "users": [],
+        "editors": [
+          1406,
+          271
+        ],
+        "version": 24,
+        "sendEmail": true,
+        "isAutoAdded": true,
+        "author": {
+          "id": 992,
+          "name": "name"
+        }
+      },
+      "shareOptionsBackup": null,
+      "updateMessageConfig": null,
+      "backgroundUrl": "/TSBackgroundImages/Team.jpg",
+      "updateMessages": [
+        {
+          "v": 3,
+          "message": ""
+        },
+        {
+          "v": 9,
+          "message": ""
+        },
+        {
+          "v": 14,
+          "message": ""
+        },
+        {
+          "v": 18,
+          "message": ""
+        }
+      ],
+      "dateAdded": "2021-01-13T08:42:05.777Z",
+      "description": "There is no message or description",
+      "uuid": "5163d2fe-5e5c-4446-b719-e792e30113dd",
+      "version": "1.29"
+    },
+    {
+      "id": 6,
+      "label": "1Custom color READER",
+      "title": "1Custom color READER",
+      "config": {
+        "layout": [
+          {
+            "fv": 2,
+            "id": 30000,
+            "config": {
+              "hasHeaderHidden": false,
+              "hasDisplayOptionsHidden": false,
+              "hasBorderHidden": false,
+              "isOpen": true,
+              "activeDisplay": "listLarge",
+              "theme": false,
+              "customColor": "green",
+              "isHiddenOnMobile": false,
+              "isReadOnly": true,
+              "title": "Files"
+            },
+            "data": {
+              "list": [],
+              "isReadOnlyRights": true,
+              "widgetFolder": "Files-7685a63b",
+              "widgetBaseFolder": "/dashboard_libraries_0/lib_210113_bfa0cec",
+              "rootFolderServerRelativeUrl": "/dashboarddocuments/dashboard_libraries_0/lib_210113_bfa0cec/Files-7685a63b"
+            },
+            "layout": {
+              "h": 7,
+              "w": 6,
+              "x": 0,
+              "y": 0,
+              "autoPos": 0,
+              "minH": 2,
+              "minW": 1
+            },
+            "widgetUniqueId": "1607349234_2324c_f713",
+            "name": "doc"
+          },
+          {
+            "fv": 2,
+            "id": 30001,
+            "config": {
+              "hasHeaderHidden": false,
+              "hasDisplayOptionsHidden": false,
+              "hasBorderHidden": false,
+              "isOpen": true,
+              "activeDisplay": "tileXs",
+              "theme": false,
+              "customColor": "green",
+              "isHiddenOnMobile": false,
+              "isReadOnly": true,
+              "title": "External News"
+            },
+            "data": {
+              "list": [
+                {
+                  "ref": "CNNW",
+                  "name": "CNN World",
+                  "tsFeed": true,
+                  "description": "",
+                  "photo": "/Style%20Library/TSImg/Icons/default_CNNW.png",
+                  "href": "//rss.wsintranet.dts.corp.local/Widgets/Total/NewRss/rss_out.xml",
+                  "icon": "/Style%20Library/TSImg/Icons/default_CNNW.png",
+                  "bgColor": "#eaeaea"
+                }
+              ]
+            },
+            "layout": {
+              "h": 7,
+              "w": 4,
+              "x": 6,
+              "y": 0,
+              "autoPos": 0,
+              "minH": 2,
+              "minW": 1
+            },
+            "widgetUniqueId": "1607349234_d7f1a_b95f",
+            "name": "newsfeed"
+          },
+          {
+            "fv": 2,
+            "id": 30002,
+            "config": {
+              "isOpen": true,
+              "activeDisplay": "tileXs",
+              "isPlaceholder": 1,
+              "isHiddenOnMobile": false
+            },
+            "data": {},
+            "layout": {
+              "h": 4,
+              "w": 2,
+              "x": 10,
+              "y": 0,
+              "autoPos": 0,
+              "minH": 2,
+              "minW": 1
+            },
+            "widgetUniqueId": "1607349234_e3e6c_99be"
+          },
+          {
+            "fv": 2,
+            "id": 30003,
+            "config": {
+              "isOpen": true,
+              "activeDisplay": "tileXs",
+              "isPlaceholder": 1,
+              "isHiddenOnMobile": false
+            },
+            "data": {},
+            "layout": {
+              "h": 3,
+              "w": 2,
+              "x": 10,
+              "y": 4,
+              "autoPos": 0,
+              "minH": 2,
+              "minW": 1
+            },
+            "widgetUniqueId": "1607349234_53076_e3eb"
+          },
+          {
+            "fv": 2,
+            "id": 30004,
+            "config": {
+              "isOpen": true,
+              "activeDisplay": "tileXs",
+              "isPlaceholder": 1,
+              "isHiddenOnMobile": false
+            },
+            "data": {},
+            "layout": {
+              "h": 6,
+              "w": 2,
+              "x": 0,
+              "y": 7,
+              "autoPos": 0,
+              "minH": 2,
+              "minW": 1
+            },
+            "widgetUniqueId": "1607349234_0039c_ea59"
+          },
+          {
+            "fv": 2,
+            "id": 30005,
+            "config": {
+              "isOpen": true,
+              "activeDisplay": "tileXs",
+              "isPlaceholder": 1,
+              "isHiddenOnMobile": false
+            },
+            "data": {},
+            "layout": {
+              "h": 6,
+              "w": 4,
+              "x": 2,
+              "y": 7,
+              "autoPos": 0,
+              "minH": 2,
+              "minW": 1
+            },
+            "widgetUniqueId": "1607349234_5794e_7218"
+          },
+          {
+            "fv": 2,
+            "id": 30006,
+            "config": {
+              "isOpen": true,
+              "activeDisplay": "tileXs",
+              "isPlaceholder": 1,
+              "isHiddenOnMobile": false
+            },
+            "data": {},
+            "layout": {
+              "h": 6,
+              "w": 6,
+              "x": 6,
+              "y": 7,
+              "autoPos": 0,
+              "minH": 2,
+              "minW": 1
+            },
+            "widgetUniqueId": "1607349234_ecc16_06bb"
+          }
+        ],
+        "version": "1.29"
+      },
+      "locked": true,
+      "shareOptions": {
+        "id": 734,
+        "title": "1Custom color READER",
+        "description": null,
+        "lastUpdateDate": "2023-11-01T15:22:55.000Z",
+        "publicationDate": "2020-12-07T13:54:38.000Z",
+        "locked": true,
+        "lockStatus": {},
+        "admins": [
+          992
+        ],
+        "users": [
+          1406,
+          271,
+          3562
+        ],
+        "editors": [],
+        "version": 31,
+        "sendEmail": true,
+        "isAutoAdded": true,
+        "author": {
+          "id": 992,
+          "name": "name"
+        }
+      },
+      "shareOptionsBackup": null,
+      "updateMessageConfig": null,
+      "updateMessages": [
+        {
+          "v": 3,
+          "message": ""
+        },
+        {
+          "v": 5,
+          "message": ""
+        },
+        {
+          "v": 9,
+          "message": ""
+        },
+        {
+          "v": 15,
+          "message": ""
+        },
+        {
+          "v": 18,
+          "message": ""
+        }
+      ],
+      "data": {
+        "folderNameInCreation": null,
+        "folderName": "dashboard_libraries_0/lib_210113_bfa0cec",
+        "legacyFolderName": "/lib_210113_bfa0cec",
+        "subFolderName": "lib_210113_bfa0cec",
+        "libraryName": "dashboard_libraries_0"
+      },
+      "backgroundUrl": "/TSBackgroundImages/Mountains.jpg",
+      "uuid": "cfcebc1a-5227-45ca-8274-6c1bfd5991d1",
+      "version": "1.29"
+    },
+    {
+      "id": 2,
+      "label": "Perso SharedDashboard",
+      "title": "Perso SharedDashboard",
+      "config": {
+        "layout": [
+          {
+            "fv": 2,
+            "id": 20004,
+            "config": {
+              "activeDisplay": "tileXs",
+              "hasHeaderHidden": false,
+              "isHiddenOnMobile": false,
+              "isOpen": true,
+              "isReadOnly": true,
+              "title": "Applications",
+              "sharedWidgetUpdated": 2
+            },
+            "data": {
+              "list": [
+                {
+                  "ref": 4,
+                  "listItemId": "4",
+                  "name": "360T RFS Client",
+                  "description": null,
+                  "href": "https://tex.360t.com/tex.jnlp",
+                  "icon": "/Style%20Library/TSImg/TilesIcons/ic_sp-apps.svg",
+                  "bgColor": "#0096AA",
+                  "disabled": false
+                },
+                {
+                  "ref": 351,
+                  "listItemId": "351",
+                  "name": "ACME CI",
+                  "description": null,
+                  "href": "https://acme.client-integration.acme.vtest.info",
+                  "icon": "/Style%20Library/TSImg/TilesIcons/vakt.svg",
+                  "bgColor": "#00C18C",
+                  "disabled": false
+                },
+                {
+                  "ref": 5,
+                  "listItemId": "5",
+                  "name": "AQB private",
+                  "description": "Private site for AQB team",
+                  "href": "http://portal.dts.corp.local/dpts/AQB/private/",
+                  "icon": "/Style%20Library/TSImg/TilesIcons/ic_private-sites.svg",
+                  "bgColor": "#0096AA",
+                  "disabled": false
+                },
+                {
+                  "ref": 199,
+                  "listItemId": "199",
+                  "name": "ATMI ERP",
+                  "description": "Emergency Response Plan for Houston Shipping",
+                  "href": "http://portal.dts.corp.local/dpts/shp/atmierp/SitePages/Home.aspx",
+                  "icon": "/Style%20Library/TSImg/TilesIcons/ic_alert-bell.svg",
+                  "bgColor": "#004B98",
+                  "disabled": false
+                },
+                {
+                  "ref": 273,
+                  "listItemId": "273",
+                  "name": "Absence Notice",
+                  "description": "Absence Notice site",
+                  "href": "http://applications.dts.corp.local/adm/abs",
+                  "icon": "/Style%20Library/TSImg/TilesIcons/ic_holidays_logo.svg",
+                  "bgColor": "#702082",
+                  "disabled": false
+                },
+                {
+                  "ref": 212,
+                  "listItemId": "212",
+                  "name": "Accounting Payroll Houston",
+                  "description": "Accouting Payroll folder in HR Management drive in Houston",
+                  "href": "file://dts.corp.local/r$/USHOU/Shared/Services/HR%20Management/Payroll/Accounting_Payroll",
+                  "icon": "/Style%20Library/TSImg/TilesIcons/ic_folder.svg",
+                  "bgColor": "#B41A83",
+                  "disabled": false
+                }
+              ]
+            },
+            "layout": {
+              "h": 6,
+              "w": 2,
+              "x": 0,
+              "y": 0,
+              "autoPos": 0,
+              "minH": 2,
+              "minW": 1
+            },
+            "widgetUniqueId": "1699268167_f8c54_0b85",
+            "name": "apps"
+          },
+          {
+            "fv": 2,
+            "id": 20005,
+            "config": {
+              "isOpen": true,
+              "activeDisplay": "tileXs",
+              "isPlaceholder": 1,
+              "isHiddenOnMobile": false
+            },
+            "data": {},
+            "layout": {
+              "h": 6,
+              "w": 4,
+              "x": 2,
+              "y": 0,
+              "autoPos": 0,
+              "minH": 2,
+              "minW": 1
+            },
+            "widgetUniqueId": "1699268167_de318_c67e"
+          },
+          {
+            "fv": 2,
+            "id": 20001,
+            "config": {
+              "isOpen": true,
+              "activeDisplay": "tileXs",
+              "isPlaceholder": 1,
+              "isHiddenOnMobile": false
+            },
+            "data": {},
+            "layout": {
+              "h": 7,
+              "w": 4,
+              "x": 6,
+              "y": 0,
+              "autoPos": 0,
+              "minH": 2,
+              "minW": 1
+            },
+            "widgetUniqueId": "1699268167_8a23d_2fec"
+          },
+          {
+            "fv": 2,
+            "id": 20002,
+            "config": {
+              "isOpen": true,
+              "activeDisplay": "tileXs",
+              "isPlaceholder": 1,
+              "isHiddenOnMobile": false
+            },
+            "data": {},
+            "layout": {
+              "h": 4,
+              "w": 2,
+              "x": 10,
+              "y": 0,
+              "autoPos": 0,
+              "minH": 2,
+              "minW": 1
+            },
+            "widgetUniqueId": "1699268167_1811f_3f3c"
+          },
+          {
+            "fv": 2,
+            "id": 20003,
+            "config": {
+              "isOpen": true,
+              "activeDisplay": "tileXs",
+              "isPlaceholder": 1,
+              "isHiddenOnMobile": false
+            },
+            "data": {},
+            "layout": {
+              "h": 3,
+              "w": 2,
+              "x": 10,
+              "y": 4,
+              "autoPos": 0,
+              "minH": 2,
+              "minW": 1
+            },
+            "widgetUniqueId": "1699268167_7a80d_a821"
+          },
+          {
+            "fv": 2,
+            "id": 20006,
+            "config": {
+              "isOpen": true,
+              "activeDisplay": "tileXs",
+              "isPlaceholder": 1,
+              "isHiddenOnMobile": false
+            },
+            "data": {},
+            "layout": {
+              "h": 6,
+              "w": 6,
+              "x": 6,
+              "y": 7,
+              "autoPos": 0,
+              "minH": 2,
+              "minW": 1
+            },
+            "widgetUniqueId": "1699268167_bd96f_3e1c"
+          }
+        ]
+      },
+      "version": "1.29",
+      "data": {
+        "folderName": "/dashboard_libraries_12/dashboard_folder_17",
+        "subFolderName": "dashboard_folder_17",
+        "libraryName": "dashboard_libraries_12"
+      },
+      "uuid": "b4163cd3-ff02-4a11-bde8-0d154db8ef2b",
+      "locked": true,
+      "shareOptions": {
+        "id": 1091,
+        "title": "Perso SharedDashboard",
+        "description": null,
+        "lastUpdateDate": "2024-02-21T12:59:12.000Z",
+        "publicationDate": "2024-02-21T12:59:11.000Z",
+        "locked": true,
+        "lockStatus": null,
+        "admins": [],
+        "users": [],
+        "editors": [],
+        "version": 2,
+        "sendEmail": true,
+        "isAutoAdded": true,
+        "author": {
+          "id": 3561,
+          "name": "name"
+        }
+      }
+    },
+    {
+      "id": 2,
+      "label": "test",
+      "title": "test",
+      "config": {
+        "layout": [
+          {
+            "fv": 2,
+            "id": 20000,
+            "config": {
+              "isOpen": true,
+              "activeDisplay": "tileXs",
+              "isPlaceholder": 1,
+              "isHiddenOnMobile": false
+            },
+            "data": {},
+            "layout": {
+              "h": 7,
+              "w": 6,
+              "x": 0,
+              "y": 0,
+              "autoPos": 0,
+              "minH": 2,
+              "minW": 1
+            },
+            "widgetUniqueId": "1708941492_dc746_6a09"
+          },
+          {
+            "fv": 2,
+            "id": 20001,
+            "config": {
+              "isOpen": true,
+              "activeDisplay": "tileXs",
+              "isPlaceholder": 1,
+              "isHiddenOnMobile": false
+            },
+            "data": {},
+            "layout": {
+              "h": 7,
+              "w": 4,
+              "x": 6,
+              "y": 0,
+              "autoPos": 0,
+              "minH": 2,
+              "minW": 1
+            },
+            "widgetUniqueId": "1708941492_67ee7_fb3e"
+          },
+          {
+            "fv": 2,
+            "id": 20002,
+            "config": {
+              "isOpen": true,
+              "activeDisplay": "tileXs",
+              "isPlaceholder": 1,
+              "isHiddenOnMobile": false
+            },
+            "data": {},
+            "layout": {
+              "h": 4,
+              "w": 2,
+              "x": 10,
+              "y": 0,
+              "autoPos": 0,
+              "minH": 2,
+              "minW": 1
+            },
+            "widgetUniqueId": "1708941492_2db79_9c57"
+          },
+          {
+            "fv": 2,
+            "id": 20003,
+            "config": {
+              "isOpen": true,
+              "activeDisplay": "tileXs",
+              "isPlaceholder": 1,
+              "isHiddenOnMobile": false
+            },
+            "data": {},
+            "layout": {
+              "h": 3,
+              "w": 2,
+              "x": 10,
+              "y": 4,
+              "autoPos": 0,
+              "minH": 2,
+              "minW": 1
+            },
+            "widgetUniqueId": "1708941492_509f2_ad62"
+          },
+          {
+            "fv": 2,
+            "id": 20004,
+            "config": {
+              "isOpen": true,
+              "activeDisplay": "tileXs",
+              "isPlaceholder": 1,
+              "isHiddenOnMobile": false
+            },
+            "data": {},
+            "layout": {
+              "h": 6,
+              "w": 2,
+              "x": 0,
+              "y": 7,
+              "autoPos": 0,
+              "minH": 2,
+              "minW": 1
+            },
+            "widgetUniqueId": "1708941492_a335d_87ba"
+          },
+          {
+            "fv": 2,
+            "id": 20005,
+            "config": {
+              "isOpen": true,
+              "activeDisplay": "tileXs",
+              "isPlaceholder": 1,
+              "isHiddenOnMobile": false
+            },
+            "data": {},
+            "layout": {
+              "h": 6,
+              "w": 4,
+              "x": 2,
+              "y": 7,
+              "autoPos": 0,
+              "minH": 2,
+              "minW": 1
+            },
+            "widgetUniqueId": "1708941492_a0fc9_5368"
+          },
+          {
+            "fv": 2,
+            "id": 20006,
+            "config": {
+              "isOpen": true,
+              "activeDisplay": "tileXs",
+              "isPlaceholder": 1,
+              "isHiddenOnMobile": false
+            },
+            "data": {},
+            "layout": {
+              "h": 6,
+              "w": 6,
+              "x": 6,
+              "y": 7,
+              "autoPos": 0,
+              "minH": 2,
+              "minW": 1
+            },
+            "widgetUniqueId": "1708941492_54f5f_6e44"
+          }
+        ]
+      },
+      "version": "1.29",
+      "uuid": "7f40c4bd-b911-49ec-9bb1-5dfa479f4ca3",
+      "data": {
+        "folderName": "/dashboard_libraries_13/dashboard_folder_7",
+        "subFolderName": "dashboard_folder_7",
+        "libraryName": "dashboard_libraries_13"
+      },
+      "locked": true,
+      "shareOptions": {
+        "id": 1102,
+        "title": "test",
+        "description": null,
+        "lastUpdateDate": "2024-02-26T09:59:19.000Z",
+        "publicationDate": "2024-02-26T09:59:19.000Z",
+        "locked": true,
+        "lockStatus": null,
+        "admins": [],
+        "users": [],
+        "editors": [],
+        "version": 2,
+        "sendEmail": true,
+        "isAutoAdded": true,
+        "author": {
+          "id": 3561,
+          "name": "name"
+        }
+      }
+    },
+    {
+      "id": 2,
+      "label": "mtest",
+      "title": "mtest",
+      "config": {
+        "layout": [
+          {
+            "fv": 2,
+            "id": 20000,
+            "config": {
+              "activeDisplay": "tileXs",
+              "hasHeaderHidden": false,
+              "isHiddenOnMobile": false,
+              "isOpen": true,
+              "isReadOnly": true,
+              "title": "Events generic"
+            },
+            "data": {
+              "list": []
+            },
+            "layout": {
+              "h": 7,
+              "w": 6,
+              "x": 0,
+              "y": 0,
+              "autoPos": 0,
+              "minH": 2,
+              "minW": 1
+            },
+            "widgetUniqueId": "1708942750_906d3_d06a",
+            "name": "events"
+          },
+          {
+            "fv": 2,
+            "id": 20001,
+            "config": {
+              "isOpen": true,
+              "activeDisplay": "tileXs",
+              "isPlaceholder": 1,
+              "isHiddenOnMobile": false
+            },
+            "data": {},
+            "layout": {
+              "h": 7,
+              "w": 4,
+              "x": 6,
+              "y": 0,
+              "autoPos": 0,
+              "minH": 2,
+              "minW": 1
+            },
+            "widgetUniqueId": "1708942750_a32cb_c67c"
+          },
+          {
+            "fv": 2,
+            "id": 20002,
+            "config": {
+              "isOpen": true,
+              "activeDisplay": "tileXs",
+              "isPlaceholder": 1,
+              "isHiddenOnMobile": false
+            },
+            "data": {},
+            "layout": {
+              "h": 4,
+              "w": 2,
+              "x": 10,
+              "y": 0,
+              "autoPos": 0,
+              "minH": 2,
+              "minW": 1
+            },
+            "widgetUniqueId": "1708942750_1a08f_4c9c"
+          },
+          {
+            "fv": 2,
+            "id": 20003,
+            "config": {
+              "isOpen": true,
+              "activeDisplay": "tileXs",
+              "isPlaceholder": 1,
+              "isHiddenOnMobile": false
+            },
+            "data": {},
+            "layout": {
+              "h": 3,
+              "w": 2,
+              "x": 10,
+              "y": 4,
+              "autoPos": 0,
+              "minH": 2,
+              "minW": 1
+            },
+            "widgetUniqueId": "1708942750_0cae3_2f33"
+          },
+          {
+            "fv": 2,
+            "id": 20004,
+            "config": {
+              "isOpen": true,
+              "activeDisplay": "tileXs",
+              "isPlaceholder": 1,
+              "isHiddenOnMobile": false
+            },
+            "data": {},
+            "layout": {
+              "h": 6,
+              "w": 2,
+              "x": 0,
+              "y": 7,
+              "autoPos": 0,
+              "minH": 2,
+              "minW": 1
+            },
+            "widgetUniqueId": "1708942750_2f556_ed71"
+          },
+          {
+            "fv": 2,
+            "id": 20005,
+            "config": {
+              "isOpen": true,
+              "activeDisplay": "tileXs",
+              "isPlaceholder": 1,
+              "isHiddenOnMobile": false
+            },
+            "data": {},
+            "layout": {
+              "h": 6,
+              "w": 4,
+              "x": 2,
+              "y": 7,
+              "autoPos": 0,
+              "minH": 2,
+              "minW": 1
+            },
+            "widgetUniqueId": "1708942750_1955e_751e"
+          },
+          {
+            "fv": 2,
+            "id": 20006,
+            "config": {
+              "isOpen": true,
+              "activeDisplay": "tileXs",
+              "isPlaceholder": 1,
+              "isHiddenOnMobile": false
+            },
+            "data": {},
+            "layout": {
+              "h": 6,
+              "w": 6,
+              "x": 6,
+              "y": 7,
+              "autoPos": 0,
+              "minH": 2,
+              "minW": 1
+            },
+            "widgetUniqueId": "1708942750_33c7d_eb5f"
+          }
+        ]
+      },
+      "version": "1.29",
+      "uuid": "1c62ef46-dd30-436a-860d-dd3db745a5b8",
+      "data": {
+        "folderName": "/dashboard_libraries_13/dashboard_folder_8",
+        "subFolderName": "dashboard_folder_8",
+        "libraryName": "dashboard_libraries_13"
+      },
+      "locked": true,
+      "shareOptions": {
+        "id": 1103,
+        "title": "mtest",
+        "description": null,
+        "lastUpdateDate": "2024-04-25T11:26:11.000Z",
+        "publicationDate": "2024-02-26T10:19:48.000Z",
+        "locked": true,
+        "lockStatus": {},
+        "admins": [
+          3561
+        ],
+        "users": [
+          3562
+        ],
+        "editors": [],
+        "version": 15,
+        "sendEmail": true,
+        "isAutoAdded": true,
+        "author": {
+          "id": 3561,
+          "name": "name"
+        }
+      },
+      "shareOptionsBackup": null,
+      "updateMessageConfig": null
+    },
+    {
+      "id": 2,
+      "label": "Test Widget Generic",
+      "title": "Test Widget Generic",
+      "config": {
+        "layout": [
+          {
+            "name": "powerbi",
+            "fv": 2,
+            "data": {
+              "url": "https://app.powerbi.com/groups/6b13f935-13b1-4e81-a980-6e5ff582a04a/reports/d1071ea2-fa75-465d-9166-f32e6d9dbffa/ReportSection?experience=power-bi",
+              "pageId": "ReportSection",
+              "shapeId": "4c3a104845c6690670af",
+              "hideTabs": true,
+              "hideFilters": true
+            },
+            "config": {
+              "activeDisplay": "tileXs",
+              "hasHeaderHidden": false,
+              "isHiddenOnMobile": false,
+              "isOpen": true,
+              "isReadOnly": true,
+              "title": "Power BI"
+            },
+            "layout": {
+              "autoPos": 0,
+              "w": 8,
+              "h": 8,
+              "minH": 2,
+              "minW": 1,
+              "x": 0,
+              "y": 0
+            },
+            "id": 20001,
+            "widgetUniqueId": "1712774067_7e035_16b9",
+            "mode": "standard"
+          }
+        ]
+      },
+      "version": "1.29",
+      "uuid": "7f4f31f1-26a6-4764-bcef-84784480d258",
+      "data": {
+        "folderName": "/dashboard_libraries_13/dashboard_folder_9",
+        "subFolderName": "dashboard_folder_9",
+        "libraryName": "dashboard_libraries_13"
+      }
+    },
+    {
+      "id": 2,
+      "label": "Shared",
+      "title": "Shared",
+      "config": {
+        "layout": [
+          {
+            "fv": 2,
+            "id": 20000,
+            "config": {
+              "activeDisplay": "tileXs",
+              "hasHeaderHidden": false,
+              "isHiddenOnMobile": false,
+              "isOpen": true,
+              "isReadOnly": true,
+              "title": "MS Office Viewer"
+            },
+            "data": {
+              "list": [],
+              "folder": "ms-viewer-1715170581a",
+              "link": {
+                "href": "http://home-dev.dts.corp.local/dashboarddocuments/dashboard_libraries_13/dashboard_folder_21/ms-viewer-1715170581a/TS_PeoplemovesPrint_202302 v0.1-EN.pdf",
+                "embed": "http://home-dev.dts.corp.local/Style%20Library/apps/viewer/simple.html#http://home-dev.dts.corp.local/dashboarddocuments/dashboard_libraries_13/dashboard_folder_21/ms-viewer-1715170581a/TS_PeoplemovesPrint_202302%20v0.1-EN.pdf",
+                "open": "http://home-dev.dts.corp.local/Style%20Library/apps/viewer/simple.html#http://home-dev.dts.corp.local/dashboarddocuments/dashboard_libraries_13/dashboard_folder_21/ms-viewer-1715170581a/TS_PeoplemovesPrint_202302%20v0.1-EN.pdf"
+              }
+            },
+            "layout": {
+              "h": 7,
+              "w": 6,
+              "x": 0,
+              "y": 0,
+              "autoPos": 0,
+              "minH": 2,
+              "minW": 1
+            },
+            "widgetUniqueId": "1714983545_e6ec3_4c95",
+            "name": "msviewer"
+          },
+          {
+            "fv": 2,
+            "id": 20001,
+            "config": {
+              "isOpen": true,
+              "activeDisplay": "tileXs",
+              "isPlaceholder": 1,
+              "isHiddenOnMobile": false
+            },
+            "data": {},
+            "layout": {
+              "h": 7,
+              "w": 4,
+              "x": 6,
+              "y": 0,
+              "autoPos": 0,
+              "minH": 2,
+              "minW": 1
+            },
+            "widgetUniqueId": "1714983545_35213_3794"
+          },
+          {
+            "fv": 2,
+            "id": 20002,
+            "config": {
+              "isOpen": true,
+              "activeDisplay": "tileXs",
+              "isPlaceholder": 1,
+              "isHiddenOnMobile": false
+            },
+            "data": {},
+            "layout": {
+              "h": 4,
+              "w": 2,
+              "x": 10,
+              "y": 0,
+              "autoPos": 0,
+              "minH": 2,
+              "minW": 1
+            },
+            "widgetUniqueId": "1714983545_f3b43_9e9a"
+          },
+          {
+            "fv": 2,
+            "id": 20003,
+            "config": {
+              "isOpen": true,
+              "activeDisplay": "tileXs",
+              "isPlaceholder": 1,
+              "isHiddenOnMobile": false
+            },
+            "data": {},
+            "layout": {
+              "h": 3,
+              "w": 2,
+              "x": 10,
+              "y": 4,
+              "autoPos": 0,
+              "minH": 2,
+              "minW": 1
+            },
+            "widgetUniqueId": "1714983545_05d0b_ce3c"
+          },
+          {
+            "fv": 2,
+            "id": 20004,
+            "config": {
+              "isOpen": true,
+              "activeDisplay": "tileXs",
+              "isPlaceholder": 1,
+              "isHiddenOnMobile": false
+            },
+            "data": {},
+            "layout": {
+              "h": 6,
+              "w": 2,
+              "x": 0,
+              "y": 7,
+              "autoPos": 0,
+              "minH": 2,
+              "minW": 1
+            },
+            "widgetUniqueId": "1714983545_8c01a_ae65"
+          },
+          {
+            "fv": 2,
+            "id": 20005,
+            "config": {
+              "isOpen": true,
+              "activeDisplay": "tileXs",
+              "isPlaceholder": 1,
+              "isHiddenOnMobile": false
+            },
+            "data": {},
+            "layout": {
+              "h": 6,
+              "w": 4,
+              "x": 2,
+              "y": 7,
+              "autoPos": 0,
+              "minH": 2,
+              "minW": 1
+            },
+            "widgetUniqueId": "1714983545_4ed44_88c3"
+          },
+          {
+            "fv": 2,
+            "id": 20006,
+            "config": {
+              "isOpen": true,
+              "activeDisplay": "tileXs",
+              "isPlaceholder": 1,
+              "isHiddenOnMobile": false
+            },
+            "data": {},
+            "layout": {
+              "h": 6,
+              "w": 6,
+              "x": 6,
+              "y": 7,
+              "autoPos": 0,
+              "minH": 2,
+              "minW": 1
+            },
+            "widgetUniqueId": "1714983545_fabbe_e349"
+          }
+        ]
+      },
+      "version": "1.29",
+      "uuid": "91dd17ce-dead-4113-ae1f-6d653ac95fab",
+      "data": {
+        "folderName": "/dashboard_libraries_13/dashboard_folder_21",
+        "subFolderName": "dashboard_folder_21",
+        "libraryName": "dashboard_libraries_13"
+      },
+      "locked": true,
+      "updateMessageConfig": null,
+      "shareOptions": {
+        "id": 1113,
+        "title": "Shared",
+        "description": null,
+        "lastUpdateDate": "2024-05-08T12:16:35.000Z",
+        "publicationDate": "2024-05-08T12:13:27.000Z",
+        "locked": true,
+        "lockStatus": {},
+        "admins": [
+          765
+        ],
+        "users": [
+          3561
+        ],
+        "editors": [],
+        "version": 8,
+        "sendEmail": true,
+        "isAutoAdded": true,
+        "author": {
+          "id": 765,
+          "name": "name"
+        }
+      },
+      "shareOptionsBackup": null,
+      "dateAdded": "2024-05-08T12:17:51.798Z"
+    }
+  ],
+  "lastUpdate": "2024-05-08T12:17:58.471Z",
+  "tabsUserConfig": {
+    "folders": [],
+    "tabs": [
+      {
+        "type": "board",
+        "contentUuid": "56bc3d07-0b77-4df2-82e9-66d943cfc533"
+      },
+      {
+        "type": "board",
+        "contentUuid": "e39778e8-0f87-4fe9-9635-3d4a018bf0c5"
+      },
+      {
+        "type": "board",
+        "contentUuid": "783e8688-8c6e-45c6-9494-72f553df4af4"
+      },
+      {
+        "type": "board",
+        "contentUuid": "ce33b9aa-5c8c-4c16-9d84-4901f0346a22"
+      },
+      {
+        "type": "board",
+        "contentUuid": "6a310e09-922f-4b78-9703-af726a88f111"
+      },
+      {
+        "type": "board",
+        "contentUuid": "5bd8248b-e55f-4c43-8359-354f43d58843"
+      },
+      {
+        "type": "board",
+        "contentUuid": "5163d2fe-5e5c-4446-b719-e792e30113dd"
+      },
+      {
+        "type": "board",
+        "contentUuid": "cfcebc1a-5227-45ca-8274-6c1bfd5991d1"
+      },
+      {
+        "type": "board",
+        "contentUuid": "b4163cd3-ff02-4a11-bde8-0d154db8ef2b"
+      },
+      {
+        "type": "board",
+        "contentUuid": "7f40c4bd-b911-49ec-9bb1-5dfa479f4ca3"
+      },
+      {
+        "type": "board",
+        "contentUuid": "1c62ef46-dd30-436a-860d-dd3db745a5b8"
+      },
+      {
+        "type": "board",
+        "contentUuid": "7f4f31f1-26a6-4764-bcef-84784480d258"
+      },
+      {
+        "type": "board",
+        "contentUuid": "91dd17ce-dead-4113-ae1f-6d653ac95fab"
+      }
+    ]
+  }
+}

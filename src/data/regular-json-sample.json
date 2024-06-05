@@ -1,0 +1,48 @@
+{
+  "otherField": false,
+  "count": 3,
+  "parameters": {
+    "entities": [
+      "TS",
+      "External - TS"
+    ],
+    "entitiesByDepartment": [],
+    "sites": [
+      "Geneva",
+      "Geneva TSMS"
+    ],
+    "collaborators": null
+  },
+  "users": [
+    {
+      "label": "Abdelaalim KEDDAD",
+      "item": {
+        "Email": "abdelaalim.keddad@totsa.com",
+        "TypeId": "{c956ab54-16bd-4c18-89d2-996f57282a6f}",
+        "LookupId": 3166,
+        "LookupValue": "Abdelaalim KEDDAD"
+      },
+      "value": "akedda"
+    },
+    {
+      "label": "2Nicholas CHEE",
+      "item": {
+        "Email": "",
+        "TypeId": "{c956ab54-16bd-4c18-89d2-996f57282a6f}",
+        "LookupId": 4347,
+        "LookupValue": "2Nicholas CHEE"
+      },
+      "value": "2nchee"
+    },
+    {
+      "label": "Adam LUTZNO",
+      "item": {
+        "Email": "adam.lutzno@totsa.com",
+        "TypeId": "{c956ab54-16bd-4c18-89d2-996f57282a6f}",
+        "LookupId": 3174,
+        "LookupValue": "Adam LUTZNO"
+      },
+      "value": "alutzn"
+    }
+  ]
+}
