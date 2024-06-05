@@ -16,10 +16,7 @@ export default function Sidebar(props: SidebarProps) {
               Create a new json
             </Button>
           </div>
-          <JsonPreviews onEditJson={(item) => {
-            console.log('clicked - Sidebar', item)
-            return props.onEditJson2(item)
-          }} />
+          <JsonPreviews onEditJson={(item) => props.onEditJson2(item)} />
         </div>
       </>
   )

@@ -7,7 +7,7 @@ export default function JsonPreviewsFullPage(props: JsonPreviewsFullPageProps) {
 
   const viewerConfig: Omit<JsonViewerProps, 'value'> = {
     editable: true,
-    enableClipboard: true,
+    enableClipboard: false,
     displayDataTypes: true,
     displaySize: true,
     maxDisplayLength: 10,
