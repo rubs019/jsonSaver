@@ -3,6 +3,7 @@ import React from "react";
 type Colors = 'primary' | 'secondary' | 'success' | 'warning'
 export type ButtonProps = {
   type: Colors
+  onClick?: () => void
 }
 
 export default function Button(data: React.PropsWithChildren<ButtonProps>) {
@@ -18,5 +19,5 @@ export default function Button(data: React.PropsWithChildren<ButtonProps>) {
     }
     return colors[type]
   }
-  return (<button className={`p-3 w-full rounded cursor transition ease-in-out text-white ${buttonColor}`}>{data.children}</button>)
+  return (<button onClick={data.onClick} className={`p-3 w-full rounded cursor transition ease-in-out text-white ${buttonColor}`}>{data.children}</button>)
 }
