@@ -1,6 +1,5 @@
 'use client'
 import React, {useEffect} from "react";
-import Button from "@/components/ui/button/Button";
 import JsonPreviews from '../json-previews/jsonPreviews';
 import JsonFile from "@/shared/types/JsonFile";
 import {JsonOutput} from "@/services/JsonManager";
@@ -18,11 +17,8 @@ export default function Sidebar(props: SidebarProps) {
       <>
         <div className={`h-full w-full max-w-lg bg-gray-100 flex flex-col p-16 border-r border-r-gray-200`}>
           <div className={'mb-3 w-full'}>
-            <Button type={'primary'} onClick={() => props.updateCurrentStatus('edit')}>
-              Create a new json
-            </Button>
           </div>
-          <JsonPreviews values={props.values} onEditJson={(item) => props.onEditJson(item)} />
+          <JsonPreviews values={props.values} onEditJson={(item) => props.onEditJson(item)}/>
         </div>
       </>
   )

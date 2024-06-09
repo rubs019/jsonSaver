@@ -12,7 +12,7 @@ export type JsonOutput = {
 export default class JsonManager {
   save(payload: JsonInput): void {
     const result = this.getAll()
-    if(!result) {
+    if (!result) {
       console.log('No local storage returned')
       return
     }
@@ -22,7 +22,7 @@ export default class JsonManager {
 
   get(id: string): string | null {
     const item = localStorage.getItem('json-saved')
-    if(!item) {
+    if (!item) {
       console.log('No local storage returned')
       return null
     }
@@ -39,9 +39,26 @@ export default class JsonManager {
         return null
       }
       return JSON.parse(item)
-    } catch(e) {
+    } catch (e) {
       console.log(e)
       return null
+    }
+  }
+
+  delete(id: string): void {
+    try {
+      const item = localStorage.getItem('json-saved')
+
+      if (!item) {
+        console.log('No item was founded')
+        return
+      }
+      const items = JSON.parse(item)
+      delete items[id]
+      localStorage.setItem('json-saved', JSON.stringify(items))
+    } catch (e) {
+      console.log(e)
+      return
     }
   }
 }

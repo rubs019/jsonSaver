@@ -6,11 +6,16 @@ export type JSONEditorProps = {
   onChange: (data: any) => void
 }
 export default function JsonEditor(props: JSONEditorProps) {
-  const isEditActive = useRef<boolean>(false);
+  const isEditorLoaded = useRef<boolean>(false);
   let editor = useRef<JSONEditor | null>(null);
 
   useEffect(() => {
-    if (isEditActive.current) {
+    console.log('props.values JsonEditor', props.data);
+    editor.current?.set(props.data)
+  }, [props.data]);
+  useEffect(() => {
+    console.log('JsonEditor', isEditorLoaded.current)
+    if (isEditorLoaded.current) {
       return
     }
     const container = document.getElementById("jsoneditor")
@@ -18,7 +23,6 @@ export default function JsonEditor(props: JSONEditorProps) {
       console.log("Could not find JSON Editor")
       return
     }
-    ;
     const options: JSONEditorOptions = {
       mode: "code",
       onChange: async () => {
@@ -32,8 +36,8 @@ export default function JsonEditor(props: JSONEditorProps) {
       }
     }
     editor.current = new JSONEditor(container, options, props.data)
-    isEditActive.current = true
+    isEditorLoaded.current = true
   }, [])
 
-  return <div id="jsoneditor" className={'w-full h-3/4'}></div>
+  return <div id="jsoneditor" className={'w-full h-full'}></div>
 }
