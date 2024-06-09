@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faPenToSquare} from "@fortawesome/free-solid-svg-icons/faPenToSquare";
@@ -7,9 +7,11 @@ import bigJson2 from '../../data/big-json-sample-2.json'
 import regularJson from '../../data/regular-json-sample.json'
 import {JsonViewer, JsonViewerProps} from "@textea/json-viewer";
 import JsonFile from "@/shared/types/JsonFile";
+import JsonManager, {JsonOutput} from "@/services/JsonManager";
 
 export interface JsonPreviewsProps {
   onEditJson: (item: JsonFile) => string
+  values: JsonOutput | null
 }
 export default function JsonPreviews (props: JsonPreviewsProps) {
   const [selectedId, setSelectedId] = React.useState<number | null>(null);
@@ -27,6 +29,11 @@ export default function JsonPreviews (props: JsonPreviewsProps) {
       title: 'REGULAR JSON',
       data: regularJson
     }]
+
+  useEffect(() => {
+    console.log('props.values', props.values)
+  }, [props.values]);
+
   const viewerConfig: Omit<JsonViewerProps, 'value'> = {
     editable: false,
     enableClipboard: false,
@@ -39,7 +46,7 @@ export default function JsonPreviews (props: JsonPreviewsProps) {
   return (
       <div className={`bg-white text-gray-600 rounded p-4`}>
         <p className={`text-2xl mb-4`}>Récents</p>
-        {mockData.map((item, i) => (
+        {props.values && Object.entries(props.values).map(([key, item], i) => (
                 <div key={i}
                      className={`flex flex-col w-full mb-6 
                      hover:bg-blue-200 hover:text-white

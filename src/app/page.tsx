@@ -8,15 +8,22 @@ import JsonPreviewsFullPage from "@/components/json-previews/jsonPreviewsFullPag
 import JsonFile from "@/shared/types/JsonFile";
 import LocalstorageRepository from "@/services/localstorage.repository";
 import JsonCreate from "@/components/json-create/jsonCreate";
+import JsonManager, {JsonOutput} from "@/services/JsonManager";
 
 export default function Home() {
   const [currentJson, setCurrentJson] = React.useState<JsonFile[]>([]);
   const localStorageRepository = new LocalstorageRepository();
   const [currentStatus, setCurrentStatus] = useState<'view' | 'edit'>('edit')
+  const [data, setData] = React.useState<JsonOutput | null>(null)
+  const jsonManager = new JsonManager()
 
   useEffect(() => {
     console.log('status updated', currentStatus)
   }, [currentStatus])
+
+  useEffect(() => {
+    refresh()
+  }, []);
 
   function updateJson(item: JsonFile): any {
     if (!item) {
@@ -24,7 +31,7 @@ export default function Home() {
       return
     }
     setCurrentStatus('view')
-    setCurrentJson((val) => [...val, item]);
+    setCurrentJson((val) => [item]);
 
     save(item)
   }
@@ -40,6 +47,18 @@ export default function Home() {
 
     console.log('localStorageRepository', result2)
   }
+
+  const onAddJson = (id: string) => {
+    console.log('onAddJson', id)
+    refresh()
+  }
+
+  const refresh = () => {
+    const items = jsonManager.getAll()
+    if (items) {
+      setData(items)
+    }
+  }
   return (
       <main>
         <nav className={`py-2 border-b border-gray-200 pr-12 flex items-center gap-12 justify-end w-full bg-white`}>
@@ -52,9 +71,9 @@ export default function Home() {
         </nav>
 
         <div className={`flex h-full`}>
-          <Sidebar updateCurrentStatus={(status) => setCurrentStatus(status)} onEditJson={(item) => updateJson(item)} />
+          <Sidebar values={data} updateCurrentStatus={(status) => setCurrentStatus(status)} onEditJson={(item) => updateJson(item)} />
 
-          <div className={`w-full`}>
+          <div className={`w-full h-full`}>
             <div className={`bg-green-300 w-full p-4`}>
               <h1 className={`text-white text-center text-4xl`}>JSON Viewer</h1>
             </div>
@@ -65,7 +84,7 @@ export default function Home() {
                     ?
                       <div className={`flex`}>
                         {currentJson.map((item, i) => (
-                            <div key={i} className={`w-1/2`}><JsonPreviewsFullPage {...item} /></div>
+                            <div key={i} className={`w-full`}><JsonPreviewsFullPage {...item} /></div>
                         ))}
                       </div>
                     :
@@ -76,7 +95,7 @@ export default function Home() {
                 </div>
               }
 
-              {currentStatus === 'edit' && <div className={'w-full h-full'}><JsonCreate/></div>}
+              {currentStatus === 'edit' && <div className={'w-full h-full'}><JsonCreate data={currentJson[0]?.data} onAdd={onAddJson}/></div>}
             </div>
           </div>
         </div>
