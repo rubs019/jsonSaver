@@ -1,10 +1,10 @@
 import React, {useEffect, useRef, useState} from "react";
 import Button from "../ui/button/Button";
-import JsonManager, {JsonInput} from "@/services/JsonManager";
 import JsonEditor from "../jsonEditor";
-import JsonFile from "@/shared/types/JsonFile";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faXmark} from "@fortawesome/free-solid-svg-icons/faXmark";
+import JsonFile from "@/app/shared/types/JsonFile";
+import JsonManager, { JsonInput } from "@/app/services/JsonManager";
 
 export type JSONCreateProps = {
   data?: JsonFile

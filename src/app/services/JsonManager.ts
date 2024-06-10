@@ -1,4 +1,4 @@
-import JsonFile from "@/shared/types/JsonFile";
+import JsonFile from "../shared/types/JsonFile"
 
 export type JsonInput = {
   id: string

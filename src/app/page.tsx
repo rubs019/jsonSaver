@@ -1,24 +1,18 @@
 'use client'
 
-import Sidebar from "@/components/sidebar/Sidebar";
-import Button from "@/components/ui/button/Button";
 import Link from "next/link";
-import React, {useEffect, useState} from "react";
-import JsonFile from "@/shared/types/JsonFile";
-import LocalstorageRepository from "@/services/localstorage.repository";
-import JsonCreate from "@/components/json-create/jsonCreate";
-import JsonManager, {JsonOutput} from "@/services/JsonManager";
+import React, { useEffect, useState } from "react";
+import JsonFile from "@/app/shared/types/JsonFile";
+import JsonManager, { JsonOutput } from "./services/JsonManager";
+import Button from "@/app/components/ui/button/Button";
+import Sidebar from "./components/sidebar/Sidebar";
+import JsonCreate from "./components/json-create/jsonCreate";
 
 export default function Home() {
-  const [currentJson, setCurrentJson] = React.useState<JsonFile[]>([]);
-  const localStorageRepository = new LocalstorageRepository();
+  const [currentJson, setCurrentJson] = useState<JsonFile[]>([]);
   const [currentStatus, setCurrentStatus] = useState<'view' | 'edit'>('edit')
-  const [data, setData] = React.useState<JsonOutput | null>(null)
+  const [data, setData] = useState<JsonOutput | null>(null)
   const jsonManager = new JsonManager()
-
-  useEffect(() => {
-    console.log('status updated', currentStatus)
-  }, [currentStatus])
 
   useEffect(() => {
     refresh()
@@ -29,19 +23,15 @@ export default function Home() {
       console.log('No item to display')
       return
     }
-
-    console.log('item', item)
     setCurrentStatus('view')
     setCurrentJson((val) => [item]);
   }
 
   const onAddJson = (id: string) => {
-    console.log('onAddJson', id)
     refresh()
   }
 
   const onDeleteJson = (id: string) => {
-    console.log('onDeleteJson', id)
     jsonManager.delete(id)
     refresh()
   }

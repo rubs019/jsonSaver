@@ -1,5 +1,5 @@
-import {useEffect, useRef} from "react";
 import JSONEditor, {JSONEditorOptions} from "jsoneditor";
+import { useEffect, useRef } from "react";
 
 export type JSONEditorProps = {
   data: unknown
@@ -15,9 +15,7 @@ export default function JsonEditor(props: JSONEditorProps) {
   }, [props.data]);
   useEffect(() => {
     console.log('JsonEditor', isEditorLoaded.current)
-    if (isEditorLoaded.current) {
-      return
-    }
+    if (isEditorLoaded.current) { return }
     const container = document.getElementById("jsoneditor")
     if (!container) {
       console.log("Could not find JSON Editor")

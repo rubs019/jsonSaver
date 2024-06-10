@@ -1,8 +1,8 @@
 'use client'
 import React, {useEffect} from "react";
 import JsonPreviews from '../json-previews/jsonPreviews';
-import JsonFile from "@/shared/types/JsonFile";
-import {JsonOutput} from "@/services/JsonManager";
+import JsonFile from "@/app/shared/types/JsonFile";
+import { JsonOutput } from "@/app/services/JsonManager";
 
 export type SidebarProps = {
   onEditJson: (item: JsonFile) => string

@@ -6,8 +6,8 @@ import bigJson from '../../data/big-json-sample.json'
 import bigJson2 from '../../data/big-json-sample-2.json'
 import regularJson from '../../data/regular-json-sample.json'
 import {JsonViewer, JsonViewerProps} from "@textea/json-viewer";
-import JsonFile from "@/shared/types/JsonFile";
-import {JsonOutput} from "@/services/JsonManager";
+import JsonFile from "@/app/shared/types/JsonFile";
+import { JsonOutput } from "@/app/services/JsonManager";
 
 export interface JsonPreviewsProps {
   onEditJson: (item: JsonFile) => string
