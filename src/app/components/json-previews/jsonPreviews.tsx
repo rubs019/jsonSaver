@@ -6,8 +6,8 @@ import bigJson from '../../data/big-json-sample.json'
 import bigJson2 from '../../data/big-json-sample-2.json'
 import regularJson from '../../data/regular-json-sample.json'
 import {JsonViewer, JsonViewerProps} from "@textea/json-viewer";
-import JsonFile from "@/app/shared/types/JsonFile";
 import { JsonOutput } from "@/app/services/JsonManager";
+import {JsonFile} from "@/app/page";
 
 export interface JsonPreviewsProps {
   onEditJson: (item: JsonFile) => string
@@ -46,7 +46,7 @@ export default function JsonPreviews(props: JsonPreviewsProps) {
   return (
       <>
         <div className={'bg-gray-200'}>
-          <p className={`text-2xl m-4 text-black`}>Récents</p>
+          <p className={`text-2xl m-4 h-10 text-black`}>Récents</p>
         </div>
         <div className={`bg-white text-gray-600 rounded p-4 h-2/3 overflow-scroll`}>
           <div className={'h-full'}>
@@ -62,7 +62,9 @@ export default function JsonPreviews(props: JsonPreviewsProps) {
                          }}
                     >
                       <div className={`flex flex-row justify-between mb-2`}>
-                        <span>{item.title.slice(0, 24)}...</span>
+                        <span>{item.title.length > 24
+                            ? item.title.slice(0, 24) + '...'
+                            : item.title }</span>
                         <div className={`flex gap-4`}>
                           <div className={`flex gap-1 items-center cursor-pointer`}>
                             <FontAwesomeIcon icon={faPenToSquare}/>

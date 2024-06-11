@@ -1,6 +1,6 @@
-import JsonFile from "@/app/shared/types/JsonFile";
 import {JsonViewer, JsonViewerProps} from "@textea/json-viewer";
 import React from "react";
+import {JsonFile} from "@/app/page";
 
 export type JsonPreviewsFullPageProps = JsonFile
 export default function JsonPreviewsFullPage(props: JsonPreviewsFullPageProps) {

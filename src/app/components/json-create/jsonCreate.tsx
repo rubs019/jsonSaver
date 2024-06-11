@@ -3,8 +3,8 @@ import Button from "../ui/button/Button";
 import JsonEditor from "../jsonEditor";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faXmark} from "@fortawesome/free-solid-svg-icons/faXmark";
-import JsonFile from "@/app/shared/types/JsonFile";
 import JsonManager, { JsonInput } from "@/app/services/JsonManager";
+import {JsonFile} from "@/app/page";
 
 export type JSONCreateProps = {
   data?: JsonFile
@@ -22,10 +22,12 @@ export default function JsonCreate(props: JSONCreateProps) {
     if (!titleInput.current || !props.data?.title) return
 
     titleInput.current.value = props.data.title
+    console.log('JsonCreate --- props.data', props.data)
     setContent(props.data.data)
   }, [props.data]);
 
   const onChange = (item: string) => {
+    console.log('onChange', item)
     data.current = item
   }
   const save = () => {
@@ -36,7 +38,10 @@ export default function JsonCreate(props: JSONCreateProps) {
       errorTitle.current?.classList.remove("hidden")
       return
     }
-    const payloadData = data.current
+
+    // In case if the title only has changed
+    const payloadData = data.current || content
+
     if (!payloadData) {
       console.log('Data is required', payloadData)
       return
@@ -82,12 +87,15 @@ export default function JsonCreate(props: JSONCreateProps) {
           }} ref={titleInput} className={'w-2/4 border-none bg-gray-100 rounded h-full pl-3'} type="text"
                  maxLength={200}
                  placeholder={'Enter a new title'}/>
-          <div className={'w-1/4'}>
-            <Button type={'secondary'} onClick={save}>Save</Button>
-          </div>
-          <div className={'w-24'}>
-            <Button type={'danger'} onClick={remove}><span className={'flex items-center gap-1'}><FontAwesomeIcon
-                icon={faXmark}/>Delete</span></Button>
+          <div className={'flex gap-4'}>
+            <div className={'w-24'}>
+              <Button type={'primary'} onClick={save}>Save</Button>
+            </div>
+            <div className={'w-24'}>
+              <Button type={'danger'} onClick={remove}><span className={'flex items-center gap-2'}>
+                <FontAwesomeIcon icon={faXmark} size={'xl'}/>Delete</span>
+              </Button>
+            </div>
           </div>
         </div>
         <div className={'my-3'}>

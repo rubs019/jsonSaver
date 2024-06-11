@@ -1,4 +1,5 @@
-import JsonFile from "../shared/types/JsonFile"
+import {JsonFile} from "@/app/page";
+
 
 export type JsonInput = {
   id: string

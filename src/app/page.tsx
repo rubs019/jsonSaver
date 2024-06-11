@@ -2,12 +2,16 @@
 
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import JsonFile from "@/app/shared/types/JsonFile";
 import JsonManager, { JsonOutput } from "./services/JsonManager";
-import Button from "@/app/components/ui/button/Button";
+import Button from "./components/ui/button/Button";
 import Sidebar from "./components/sidebar/Sidebar";
 import JsonCreate from "./components/json-create/jsonCreate";
 
+export interface JsonFile {
+  id: number
+  title: string
+  data: unknown
+}
 export default function Home() {
   const [currentJson, setCurrentJson] = useState<JsonFile[]>([]);
   const [currentStatus, setCurrentStatus] = useState<'view' | 'edit'>('edit')
@@ -58,7 +62,7 @@ export default function Home() {
                    onEditJson={(item) => updateJson(item)}/>
 
           <div className={`w-full h-full`}>
-            <div className={`bg-green-300 w-full p-4`}>
+            <div className={`bg-gray-500 w-full p-4`}>
               <h1 className={`text-white text-center text-4xl`}>JSON Saver</h1>
             </div>
             <div className={'h-full p-3'}>
@@ -68,8 +72,9 @@ export default function Home() {
                         ?
                         <div className={`flex h-full`}>
                           {currentJson.map((item, i) => (
-                              <div key={i} className={'w-full h-full'}><JsonCreate data={item} onAdd={onAddJson}
-                                                                                   onDelete={onDeleteJson}/></div>
+                              <div key={i} className={'w-full h-full'}>
+                                <JsonCreate data={item} onAdd={onAddJson} onDelete={onDeleteJson}/>
+                              </div>
                           ))}
                         </div>
                         :

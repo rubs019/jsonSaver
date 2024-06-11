@@ -1,8 +1,8 @@
 'use client'
 import React, {useEffect} from "react";
 import JsonPreviews from '../json-previews/jsonPreviews';
-import JsonFile from "@/app/shared/types/JsonFile";
 import { JsonOutput } from "@/app/services/JsonManager";
+import {JsonFile} from "@/app/page";
 
 export type SidebarProps = {
   onEditJson: (item: JsonFile) => string
@@ -15,9 +15,7 @@ export default function Sidebar(props: SidebarProps) {
   }, [props.values]);
   return (
       <>
-        <div className={`h-full w-full max-w-lg bg-gray-100 flex flex-col p-16 border-r border-r-gray-200`}>
-          <div className={'mb-3 w-full'}>
-          </div>
+        <div className={`h-full w-full max-w-lg bg-gray-100 flex flex-col border-r border-r-gray-200`}>
           <JsonPreviews values={props.values} onEditJson={(item) => props.onEditJson(item)}/>
         </div>
       </>
