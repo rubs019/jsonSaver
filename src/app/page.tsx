@@ -2,10 +2,10 @@
 
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import JsonManager, { JsonOutput } from "./services/JsonManager";
-import Button from "./components/ui/button/Button";
-import Sidebar from "./components/sidebar/Sidebar";
-import JsonCreate from "./components/json-create/jsonCreate";
+import JsonManager, { JsonOutput } from "@/services/JsonManager";
+import Button from "@/components/ui/button/Button";
+import Sidebar from "@/components/sidebar/Sidebar";
+import JsonCreate from "@/components/json-create/jsonCreate";
 
 export interface JsonFile {
   id: number

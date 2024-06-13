@@ -3,7 +3,7 @@ import Button from "../ui/button/Button";
 import JsonEditor from "../jsonEditor";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faXmark} from "@fortawesome/free-solid-svg-icons/faXmark";
-import JsonManager, { JsonInput } from "@/app/services/JsonManager";
+import JsonManager, { JsonInput } from "@/services/JsonManager";
 import {JsonFile} from "@/app/page";
 
 export type JSONCreateProps = {

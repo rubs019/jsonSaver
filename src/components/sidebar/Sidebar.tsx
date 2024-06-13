@@ -1,7 +1,7 @@
 'use client'
 import React, {useEffect} from "react";
 import JsonPreviews from '../json-previews/jsonPreviews';
-import { JsonOutput } from "@/app/services/JsonManager";
+import { JsonOutput } from "@/services/JsonManager";
 import {JsonFile} from "@/app/page";
 
 export type SidebarProps = {
