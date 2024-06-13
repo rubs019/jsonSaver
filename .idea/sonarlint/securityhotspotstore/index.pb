@@ -64,3 +64,6 @@ W
 +src/app/services/localstorage.repository.ts,5/8/5826436c3d93c3fbfa59d69a63abbbd10cfa4cb8
 ?
 next.config.mjs,d/f/df8bd0b91ecb778bf2a1b031c7677390c7442bb4
+:
+
+index.html,f/6/f6013a00b362253c64368d6eebc50ea2131754e2
