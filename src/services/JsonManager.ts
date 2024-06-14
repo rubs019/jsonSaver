@@ -7,8 +7,12 @@ export type JsonInput = {
   data: unknown
 }
 
+export type JsonInputWithDate = JsonInput & {
+  lastUpdated: Date
+}
+
 export type JsonOutput = {
-  [key: string]: JsonFile
+  [key: string]: JsonInputWithDate
 }
 export default class JsonManager {
   save(payload: JsonInput): void {
@@ -17,7 +21,9 @@ export default class JsonManager {
       console.log('No local storage returned')
       return
     }
-    result[payload.id.toString()] = payload as unknown as JsonFile
+    const dataToInsert = payload as unknown as JsonInputWithDate
+    dataToInsert.lastUpdated = new Date()
+    result[payload.id] = dataToInsert
     localStorage.setItem('json-saved', JSON.stringify(result))
   }
 
