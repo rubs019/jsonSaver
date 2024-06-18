@@ -1,4 +1,4 @@
-import { PHASE_DEVELOPMENT_SERVER, PHASE_PRODUCTION_BUILD } from 'next/constants.js'
+import { PHASE_PRODUCTION_BUILD } from 'next/constants.js'
 
 // @ts-check
 const config = (phase, _) => {

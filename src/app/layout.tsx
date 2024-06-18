@@ -16,9 +16,6 @@ export default function RootLayout({
 }>) {
   return (
       <html lang="en">
-      <head>
-        <link href="/jsoneditor.css" rel="stylesheet" type="text/css"/>
-      </head>
       <body className={inter.className}>{children}</body>
       </html>
   );

@@ -20,7 +20,7 @@ export default function Home() {
 
   useEffect(() => {
     refresh()
-  }, []);
+  });
 
   function updateJson(item: JsonFile): any {
     if (!item) {
