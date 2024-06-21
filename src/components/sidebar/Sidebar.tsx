@@ -12,7 +12,7 @@ export type SidebarProps = {
 export default function Sidebar(props: SidebarProps) {
   return (
       <>
-        <div className={`h-full w-full max-w-lg bg-gray-100 flex flex-col border-r border-r-gray-200`}>
+        <div className={`h-full w-full flex flex-col border-r border-r-gray-200`}>
           <JsonPreviewsContainer values={props.values} onEditJson={(item) => props.onEditJson(item)}/>
         </div>
       </>

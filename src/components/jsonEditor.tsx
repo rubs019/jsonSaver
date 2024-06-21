@@ -19,6 +19,7 @@ export default function JsonEditor(props: JSONEditorProps) {
 
       import('jsoneditor').then((jsoneditor) => {  // <----------- Import if is browser
 
+        console.log('jsoneditor', jsoneditor)
         if (isEditorLoaded.current) { return }
         const JsonEditor = jsoneditor.default;
         const container = document.getElementById("jsoneditor")

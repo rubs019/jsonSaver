@@ -16,10 +16,10 @@ export type JsonOutput = {
 }
 export default class JsonManager {
   save(payload: JsonInput): void {
-    const result = this.getAll()
+    let result = this.getAll()
     if (!result) {
-      console.log('No local storage returned')
-      return
+      console.log('No local storage returned, this should be the first record')
+      result = {} as JsonOutput
     }
     const dataToInsert = payload as unknown as JsonInputWithDate
     dataToInsert.lastUpdated = new Date()

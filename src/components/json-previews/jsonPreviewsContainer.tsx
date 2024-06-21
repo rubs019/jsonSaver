@@ -21,25 +21,21 @@ export default function JsonPreviewsContainer(props: JsonPreviewsProps) {
   useEffect(() => {
     if (props.values) {
       const result = Object.entries(props.values).sort((a, b) => {
-        console.log('a', a[1].lastUpdated)
-        console.log('b', b)
-
         return a[1].lastUpdated < b[1].lastUpdated ? 1 : -1
       }).map(val => val[1])
       console.log('result', result)
 
       setSortedItems(result)
-
     }
   }, [props.values]);
   return (
       <>
-        <div className={'bg-gray-200'}>
-          <p className={`text-2xl m-4 h-10 text-black`}>Récents</p>
+        <div>
+          <p className={`text-xl m-4 h-10 text-black`}>Récents</p>
         </div>
-        <div className={`bg-white text-gray-600 rounded p-4 h-2/3 overflow-scroll`}>
+        <div className={`text-gray-600 rounded p-4 h-2/3 overflow-scroll`}>
           <div className={''}>
-            {sortedItems.map((item, i) => (
+            {sortedItems.length > 0 && sortedItems.map((item, i) => (
                 <div
                     key={i}
                     className={`flex flex-col w-full mb-6 
@@ -54,6 +50,7 @@ export default function JsonPreviewsContainer(props: JsonPreviewsProps) {
                   <JsonPreviewsItems data={item} />
                 </div>
             ))}
+            {sortedItems.length === 0 && <p>No json has been saved</p>}
           </div>
         </div>
       </>
