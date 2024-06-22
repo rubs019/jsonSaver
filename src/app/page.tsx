@@ -56,7 +56,7 @@ export default function Home() {
         <nav className={`py-2 border-b border-gray-200 p-3 flex items-center gap-12 justify-between w-full`}>
           <Link href={'/'} className={`text-black`}>JSON SAVER</Link>
           <div>
-            <Button type={'button'} variant={'outline'} onClick={() => setCurrentStatus('new')}>
+            <Button type={'button'} onClick={() => setCurrentStatus('new')}>
               Create a new JSON
             </Button>
           </div>
@@ -67,7 +67,7 @@ export default function Home() {
               direction="horizontal"
               className="w-full rounded-lg border"
           >
-            <ResizablePanel>
+            <ResizablePanel defaultSize={33} minSize={20} maxSize={100} >
               <Sidebar
                   values={data}
                   updateCurrentStatus={(status) => setCurrentStatus(status)}
@@ -75,7 +75,7 @@ export default function Home() {
               />
             </ResizablePanel>
             <ResizableHandle />
-            <ResizablePanel>
+            <ResizablePanel minSize={66}>
               <div className={`w-full h-full`}>
                 <div className={`bg-gray-500 w-full p-2`}>
                   <h1 className={`text-white text-center text-2xl`}>JSON Saver</h1>
