@@ -9,12 +9,14 @@ export type SidebarProps = {
   updateCurrentStatus: (status: 'view' | 'new') => void
   values: JsonOutput | null
   mode: EditStatus
+  onLoadMore: () => void
+  shouldDisplayLoadMore: boolean
 }
 export default function Sidebar(props: SidebarProps) {
   return (
       <>
         <div className={`h-full w-full flex flex-col border-r border-r-gray-200`}>
-          <JsonPreviewsContainer mode={props.mode} values={props.values} onEditJson={(item) => props.onEditJson(item)}/>
+          <JsonPreviewsContainer shouldDisplayLoadMore={props.shouldDisplayLoadMore} onLoadMore={props.onLoadMore} mode={props.mode} values={props.values} onEditJson={(item) => props.onEditJson(item)}/>
         </div>
       </>
   )

@@ -3,11 +3,14 @@ import React, {useEffect, useRef, useState} from "react";
 import { JsonInputWithDate, JsonOutput } from "@/services/JsonManager";
 import JsonPreviewsItems from "@/components/json-previews/jsonPreviewsItems";
 import { EditStatus } from "@/app/page";
+import { Button } from "../ui/button";
 
 export interface JsonPreviewsProps {
   onEditJson: (item: JsonInputWithDate) => string
   values: JsonOutput | null
   mode: EditStatus
+  onLoadMore: () => void
+  shouldDisplayLoadMore: boolean
 }
 
 export default function JsonPreviewsContainer(props: JsonPreviewsProps) {
@@ -16,9 +19,7 @@ export default function JsonPreviewsContainer(props: JsonPreviewsProps) {
   useEffect(() => {
     if (props.values) {
       // Sort by most recent updated
-      const result = Object.entries(props.values).sort((a, b) => {
-        return a[1].lastUpdated < b[1].lastUpdated ? 1 : -1
-      }).map(val => val[1])
+      const result = Object.entries(props.values).map(val => val[1])
 
       setSortedItems(result)
     }
@@ -30,7 +31,10 @@ export default function JsonPreviewsContainer(props: JsonPreviewsProps) {
         </div>
         <div className={`text-gray-600 rounded p-4 h-2/3 overflow-scroll`}>
           <div className={''}>
-            {sortedItems.length > 0 && sortedItems.map((item, i) => (
+            {
+              sortedItems.length > 0 && 
+              <>
+              {sortedItems.map((item, i) => (
                 <div
                     key={i}
                     className={`flex flex-col w-full mb-6 
@@ -44,7 +48,11 @@ export default function JsonPreviewsContainer(props: JsonPreviewsProps) {
                 >
                   <JsonPreviewsItems data={item} />
                 </div>
-            ))}
+                ))
+              }
+              {props.shouldDisplayLoadMore && <Button variant="outline" className={'w-full'} onClick={props.onLoadMore}>Load more...</Button>}
+              </>
+            }
             {sortedItems.length === 0 && <p>No json has been saved</p>}
           </div>
         </div>

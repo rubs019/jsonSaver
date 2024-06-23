@@ -1,7 +1,7 @@
 'use client'
 
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import JsonManager, { JsonOutput } from "@/services/JsonManager";
 import Sidebar from "@/components/sidebar/Sidebar";
 import JsonCreate from "@/components/json-create/jsonCreate";
@@ -20,6 +20,9 @@ export default function Home() {
   const [currentStatus, setCurrentStatus] = useState<EditStatus>('new')
   const [data, setData] = useState<JsonOutput | null>(null)
   const jsonManager = new JsonManager()
+  const maxItem = useRef<number | null>(null)
+  const currentPagination = useRef<[number, number]>([0, 2])
+  const [shouldDisplayMore, setShouldDisplayMore] = useState<boolean>(true)
 
   useEffect(() => {
     refresh()
@@ -45,12 +48,27 @@ export default function Home() {
     refresh()
   }
 
-  const refresh = () => {
-    console.log('refresh')
-    const items = jsonManager.getAll()
-    if (items) {
-      setData(items)
+  const refresh = (start = 0, end = 2) => {
+    console.log('refresh - ', start, end)
+    const result = jsonManager.getAllPaginated(start, end)
+    if (!result) { return }
+    
+    if (maxItem.current && maxItem.current <= end) {
+      setShouldDisplayMore(false)
     }
+    if (!maxItem.current && result.maxItem) {
+      console.log('currentLength', end, result.maxItem)
+      maxItem.current = result.maxItem
+    }
+    if (result.data) {
+      setData((prevState) => ({...prevState, ...result.data}))
+    }
+  }
+  
+  const loadMore = () => {
+    currentPagination.current[0] = currentPagination.current[0] + 2
+    currentPagination.current[1] = currentPagination.current[1] + 2
+    refresh(currentPagination.current[0], currentPagination.current[1])
   }
   return (
       <main>
@@ -74,6 +92,8 @@ export default function Home() {
                   updateCurrentStatus={(status) => setCurrentStatus(status)}
                   onEditJson={(item) => updateJson(item)}
                   mode={currentStatus}
+                  onLoadMore={loadMore}
+                  shouldDisplayLoadMore={shouldDisplayMore}
               />
             </ResizablePanel>
             <ResizableHandle />

@@ -52,6 +52,28 @@ export default class JsonManager {
     }
   }
 
+  getAllPaginated(start: number, end: number): { maxItem: number, currentLength: number, data: JsonOutput } | null {
+    const items = this.getAll()
+    if (!items) {
+      console.log('No item was founded')
+      return null
+    }
+    const itemEntries = Object.entries(items)
+    const paginatedItems = itemEntries
+        .sort((a, b) => {
+          return a[1].lastUpdated < b[1].lastUpdated ? 1 : -1
+        })
+        .slice(start, end)
+        .reduce((a, v) => ({ ...a, [v[0]]: v[1]}), {})
+    
+    console.log('paginatedItems', paginatedItems)
+    return {
+      maxItem: itemEntries.length,
+      currentLength: Object.entries(paginatedItems).length,
+      data: paginatedItems
+    }
+  }
+
   delete(id: string): void {
     try {
       const item = localStorage.getItem('json-saved')
