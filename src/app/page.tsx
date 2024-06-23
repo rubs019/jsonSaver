@@ -72,7 +72,7 @@ export default function Home() {
   }
   return (
       <main>
-        <nav className={`py-2 border-b border-gray-200 p-3 flex items-center gap-12 justify-between w-full`}>
+        <nav className={`h-14 py-2 border-b border-gray-200 p-3 flex items-center gap-12 justify-between w-full`}>
           <Link href={'/'} className={`text-black`}>JSON SAVER</Link>
           <div>
             <Button type={'button'} onClick={() => setCurrentStatus('new')}>
@@ -81,7 +81,7 @@ export default function Home() {
           </div>
         </nav>
 
-        <div className={`flex h-full`}>
+        <div className={`flex h-screen`}>
           <ResizablePanelGroup
               direction="horizontal"
               className="w-full rounded-lg border"

@@ -155,7 +155,7 @@ export default function JsonCreate(props: JSONCreateProps) {
               </AlertDescription>
             </Alert>
           </div>
-          <div className={`h-2/3`}>
+          <div className={`h-full`}>
             <JsonEditor data={content} onChange={onChange}/>
           </div>
         </div>

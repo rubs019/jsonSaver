@@ -29,7 +29,7 @@ export default function JsonPreviewsContainer(props: JsonPreviewsProps) {
         <div>
           <p className={`text-xl m-4 h-10 text-black`}>Récents</p>
         </div>
-        <div className={`text-gray-600 rounded p-4 h-2/3 overflow-scroll`}>
+        <div className={`text-gray-600 rounded p-4 overflow-scroll`}>
           <div className={''}>
             {
               sortedItems.length > 0 && 
@@ -38,7 +38,7 @@ export default function JsonPreviewsContainer(props: JsonPreviewsProps) {
                 <div
                     key={i}
                     className={`flex flex-col w-full mb-6 
-                     hover:bg-blue-200 hover:text-white
+                     transition hover:bg-blue-200 hover:text-white hover:ease-out duration-100
                      ${selectedId === item.id && props.mode === 'view' ? `bg-blue-300 text-white` : ``} 
                      cursor-pointer p-2 rounded`}
                     onClick={() => {
