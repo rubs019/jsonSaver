@@ -43,7 +43,10 @@ export default function JsonCreate(props: JSONCreateProps) {
   }, [props.data]);
 
   useEffect(() => {
-    if (props.mode === 'new') cleanData()
+    if (props.mode === 'new') {
+      cleanData()
+      titleInput.current?.focus()
+    }
   }, [props.mode]);
 
   const onChange = (item: string) => {

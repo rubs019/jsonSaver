@@ -14,9 +14,10 @@ export interface JsonFile {
   title: string
   data: unknown
 }
+export type EditStatus = 'view' | 'new'
 export default function Home() {
   const [currentJson, setCurrentJson] = useState<JsonFile | null>(null);
-  const [currentStatus, setCurrentStatus] = useState<'view' | 'new'>('new')
+  const [currentStatus, setCurrentStatus] = useState<EditStatus>('new')
   const [data, setData] = useState<JsonOutput | null>(null)
   const jsonManager = new JsonManager()
 
@@ -72,6 +73,7 @@ export default function Home() {
                   values={data}
                   updateCurrentStatus={(status) => setCurrentStatus(status)}
                   onEditJson={(item) => updateJson(item)}
+                  mode={currentStatus}
               />
             </ResizablePanel>
             <ResizableHandle />

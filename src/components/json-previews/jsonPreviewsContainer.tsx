@@ -2,10 +2,12 @@ import React, {useEffect, useRef, useState} from "react";
 
 import { JsonInputWithDate, JsonOutput } from "@/services/JsonManager";
 import JsonPreviewsItems from "@/components/json-previews/jsonPreviewsItems";
+import { EditStatus } from "@/app/page";
 
 export interface JsonPreviewsProps {
   onEditJson: (item: JsonInputWithDate) => string
   values: JsonOutput | null
+  mode: EditStatus
 }
 
 export default function JsonPreviewsContainer(props: JsonPreviewsProps) {
@@ -13,10 +15,10 @@ export default function JsonPreviewsContainer(props: JsonPreviewsProps) {
   const [sortedItems, setSortedItems] = useState<JsonInputWithDate[]>([])
   useEffect(() => {
     if (props.values) {
+      // Sort by most recent updated
       const result = Object.entries(props.values).sort((a, b) => {
         return a[1].lastUpdated < b[1].lastUpdated ? 1 : -1
       }).map(val => val[1])
-      console.log('result', result)
 
       setSortedItems(result)
     }
@@ -33,7 +35,7 @@ export default function JsonPreviewsContainer(props: JsonPreviewsProps) {
                     key={i}
                     className={`flex flex-col w-full mb-6 
                      hover:bg-blue-200 hover:text-white
-                     ${selectedId === item.id? `bg-blue-300 text-white` : ``} 
+                     ${selectedId === item.id && props.mode === 'view' ? `bg-blue-300 text-white` : ``} 
                      cursor-pointer p-2 rounded`}
                     onClick={() => {
                       setSelectedId(item.id)
