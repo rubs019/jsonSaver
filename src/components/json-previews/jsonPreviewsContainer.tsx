@@ -1,13 +1,6 @@
 import React, {useEffect, useRef, useState} from "react";
 
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faPenToSquare} from "@fortawesome/free-solid-svg-icons/faPenToSquare";
-import bigJson from '@/data/big-json-sample.json'
-import bigJson2 from '@/data/big-json-sample-2.json'
-import regularJson from '@/data/regular-json-sample.json'
-import {JsonViewer, JsonViewerProps} from "@textea/json-viewer";
-import {JsonInput, JsonInputWithDate, JsonOutput} from "@/services/JsonManager";
-import {JsonFile} from "@/app/page";
+import { JsonInputWithDate, JsonOutput } from "@/services/JsonManager";
 import JsonPreviewsItems from "@/components/json-previews/jsonPreviewsItems";
 
 export interface JsonPreviewsProps {

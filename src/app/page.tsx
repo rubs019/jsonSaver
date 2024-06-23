@@ -75,7 +75,7 @@ export default function Home() {
               />
             </ResizablePanel>
             <ResizableHandle />
-            <ResizablePanel minSize={66}>
+            <ResizablePanel minSize={66} defaultSize={80}>
               <div className={`w-full h-full`}>
                 <div className={`bg-gray-500 w-full p-2`}>
                   <h1 className={`text-white text-center text-2xl`}>JSON Saver</h1>

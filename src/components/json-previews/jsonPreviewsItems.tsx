@@ -3,6 +3,7 @@ import {faPenToSquare} from "@fortawesome/free-solid-svg-icons/faPenToSquare";
 import {JsonViewer, JsonViewerProps} from "@textea/json-viewer";
 import React from "react";
 import {JsonInputWithDate} from "@/services/JsonManager";
+import dayjs from 'dayjs'
 
 export type JsonPreviewsItemProps = {
   data: JsonInputWithDate
@@ -22,10 +23,10 @@ export default function JsonPreviewsItems(props: JsonPreviewsItemProps): JSX.Ele
   const showLastUpdate = () => {
     console.log("showLastUpdate", props.data.lastUpdated);
 
-    return new Date(props.data.lastUpdated)
+    return dayjs(props.data.lastUpdated).format("YYYY-MM-DD HH:mm:ss")
   }
   const displayLastUpdate = () => {
-    return <span className={`self-end text-xs`}>Last updated : {showLastUpdate().toISOString()}</span>
+    return <span className={`self-end text-xs`}>Last updated : {showLastUpdate()}</span>
   }
   return (<>
     <div className={`flex flex-row justify-between mb-2`}>

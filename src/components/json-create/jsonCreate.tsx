@@ -29,7 +29,7 @@ export default function JsonCreate(props: JSONCreateProps) {
   const [content, setContent] = useState<unknown>({});
   const currentId = useRef<string | null>(null);
   const errorTitle = useRef<HTMLDivElement | null>(null);
-  const [btnSaveIsDisabled, setBtnSaveIsDisabled] = useState<boolean>(true);
+  const [btnSaveIsDisabled, setBtnSaveIsDisabled] = useState<boolean>(false);
 
   const { toast } = useToast()
 
