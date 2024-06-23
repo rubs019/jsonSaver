@@ -43,7 +43,7 @@ export default function JsonEditor(props: JSONEditorProps) {
         isEditorLoaded.current = true
       })
     }
-  }, [props])
+  }, [props.data])
 
   return <div id="jsoneditor" className={'w-full h-full'}></div>
 }

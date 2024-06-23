@@ -16,10 +16,10 @@ export type JsonOutput = {
 }
 export default class JsonManager {
   save(payload: JsonInput): void {
-    const result = this.getAll()
+    let result = this.getAll()
     if (!result) {
-      console.log('No local storage returned')
-      return
+      console.log('No local storage returned, this should be the first record')
+      result = {} as JsonOutput
     }
     const dataToInsert = payload as unknown as JsonInputWithDate
     dataToInsert.lastUpdated = new Date()
@@ -49,6 +49,28 @@ export default class JsonManager {
     } catch (e) {
       console.log(e)
       return null
+    }
+  }
+
+  getAllPaginated(start: number, end: number): { maxItem: number, currentLength: number, data: JsonOutput } | null {
+    const items = this.getAll()
+    if (!items) {
+      console.log('No item was founded')
+      return null
+    }
+    const itemEntries = Object.entries(items)
+    const paginatedItems = itemEntries
+        .sort((a, b) => {
+          return a[1].lastUpdated < b[1].lastUpdated ? 1 : -1
+        })
+        .slice(start, end)
+        .reduce((a, v) => ({ ...a, [v[0]]: v[1]}), {})
+    
+    console.log('paginatedItems', paginatedItems)
+    return {
+      maxItem: itemEntries.length,
+      currentLength: Object.entries(paginatedItems).length,
+      data: paginatedItems
     }
   }
 
