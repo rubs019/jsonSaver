@@ -11,19 +11,23 @@ export type JsonInputWithDate = JsonInput & {
   lastUpdated: Date
 }
 
-export type JsonOutput = {
-  [key: string]: JsonInputWithDate
-}
+export type JsonOutput = Array<JsonInputWithDate>
+
 export default class JsonManager {
   save(payload: JsonInput): void {
-    const result = this.getAll()
+    let result = this.getAll()
     if (!result) {
-      console.log('No local storage returned')
-      return
+      console.log('No local storage returned, this should be the first record')
+      result = {} as JsonOutput
     }
     const dataToInsert = payload as unknown as JsonInputWithDate
     dataToInsert.lastUpdated = new Date()
-    result[payload.id] = dataToInsert
+    const id = dataToInsert.id
+    console.log("payload", payload, id)
+    console.log("result previous", result)
+    // @ts-ignore
+    result[dataToInsert.id] = dataToInsert
+    console.log("result", result)
     localStorage.setItem('json-saved', JSON.stringify(result))
   }
 
@@ -49,6 +53,29 @@ export default class JsonManager {
     } catch (e) {
       console.log(e)
       return null
+    }
+  }
+
+  getAllPaginated(start: number, end: number): { maxItem: number, currentLength: number, data: JsonOutput } | null {
+    const items = this.getAll()
+    if (!items) {
+      console.log('No item was founded')
+      return null
+    }
+    const itemEntries = Object.entries(items)
+    let paginatedItems = itemEntries
+        .map((value) => value[1])
+        .sort((a, b) => {
+          return a.lastUpdated < b.lastUpdated ? 1 : -1
+        })
+        .slice(start, end)
+    
+    console.log('paginatedItems', paginatedItems)
+    
+    return {
+      maxItem: itemEntries.length,
+      currentLength: Object.entries(paginatedItems).length,
+      data: paginatedItems
     }
   }
 

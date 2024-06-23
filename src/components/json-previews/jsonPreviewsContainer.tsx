@@ -1,18 +1,16 @@
 import React, {useEffect, useRef, useState} from "react";
 
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faPenToSquare} from "@fortawesome/free-solid-svg-icons/faPenToSquare";
-import bigJson from '@/data/big-json-sample.json'
-import bigJson2 from '@/data/big-json-sample-2.json'
-import regularJson from '@/data/regular-json-sample.json'
-import {JsonViewer, JsonViewerProps} from "@textea/json-viewer";
-import {JsonInput, JsonInputWithDate, JsonOutput} from "@/services/JsonManager";
-import {JsonFile} from "@/app/page";
+import { JsonInputWithDate, JsonOutput } from "@/services/JsonManager";
 import JsonPreviewsItems from "@/components/json-previews/jsonPreviewsItems";
+import { EditStatusV2 } from "@/app/page";
+import { Button } from "../ui/button";
 
 export interface JsonPreviewsProps {
   onEditJson: (item: JsonInputWithDate) => string
   values: JsonOutput | null
+  mode: EditStatusV2
+  onLoadMore: () => void
+  shouldDisplayLoadMore: boolean
 }
 
 export default function JsonPreviewsContainer(props: JsonPreviewsProps) {
@@ -20,31 +18,25 @@ export default function JsonPreviewsContainer(props: JsonPreviewsProps) {
   const [sortedItems, setSortedItems] = useState<JsonInputWithDate[]>([])
   useEffect(() => {
     if (props.values) {
-      const result = Object.entries(props.values).sort((a, b) => {
-        console.log('a', a[1].lastUpdated)
-        console.log('b', b)
-
-        return a[1].lastUpdated < b[1].lastUpdated ? 1 : -1
-      }).map(val => val[1])
-      console.log('result', result)
-
-      setSortedItems(result)
-
+      setSortedItems(props.values)
     }
   }, [props.values]);
   return (
       <>
-        <div className={'bg-gray-200'}>
-          <p className={`text-2xl m-4 h-10 text-black`}>Récents</p>
+        <div>
+          <p className={`text-xl m-4 h-10 text-black`}>Récents</p>
         </div>
-        <div className={`bg-white text-gray-600 rounded p-4 h-2/3 overflow-scroll`}>
+        <div className={`text-gray-600 rounded p-4 overflow-scroll`}>
           <div className={''}>
-            {sortedItems.map((item, i) => (
+            {
+              sortedItems.length > 0 && 
+              <>
+              {sortedItems.map((item, i) => (
                 <div
                     key={i}
                     className={`flex flex-col w-full mb-6 
-                     hover:bg-blue-200 hover:text-white
-                     ${selectedId === item.id? `bg-blue-300 text-white` : ``} 
+                     transition hover:bg-blue-200 hover:text-white hover:ease-out duration-100
+                     ${selectedId === item.id && props.mode === 'view' ? `bg-blue-300 text-white` : ``} 
                      cursor-pointer p-2 rounded`}
                     onClick={() => {
                       setSelectedId(item.id)
@@ -53,7 +45,12 @@ export default function JsonPreviewsContainer(props: JsonPreviewsProps) {
                 >
                   <JsonPreviewsItems data={item} />
                 </div>
-            ))}
+                ))
+              }
+              {props.shouldDisplayLoadMore && <Button variant="outline" className={'w-full'} onClick={props.onLoadMore}>Load more...</Button>}
+              </>
+            }
+            {sortedItems.length === 0 && <p>No json has been saved</p>}
           </div>
         </div>
       </>

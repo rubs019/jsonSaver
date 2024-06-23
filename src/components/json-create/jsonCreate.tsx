@@ -1,24 +1,39 @@
-import React, {useEffect, useRef, useState} from "react";
-import Button from "../ui/button/Button";
+import React, { useEffect, useRef, useState } from "react";
 import JsonEditor from "../jsonEditor";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faXmark} from "@fortawesome/free-solid-svg-icons/faXmark";
-import JsonManager, { JsonInput } from "@/services/JsonManager";
-import {JsonFile} from "@/app/page";
+import { JsonInput } from "@/services/JsonManager";
+import { EditStatusV2, JsonFile } from "@/app/page";
+import { Button } from "../ui/button";
+import { Input } from "@/components/ui/input";
+import { AlertCircle } from "lucide-react";
+import { Alert, AlertDescription, AlertTitle } from "../ui/alert";
+import { useToast } from "../ui/use-toast";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger
+} from "../ui/alert-dialog";
 
 export type JSONCreateProps = {
   data?: JsonFile | null
   onAdd?: (data: JsonFile) => void
   onDelete?: (id: string) => void
-  mode: "new" | "view"
+  mode: EditStatusV2
 }
 export default function JsonCreate(props: JSONCreateProps) {
-  const jsonManager = new JsonManager();
   const titleInput = useRef<HTMLInputElement>(null);
   const data = useRef<unknown>(null);
   const [content, setContent] = useState<unknown>({});
   const currentId = useRef<string | null>(null);
   const errorTitle = useRef<HTMLDivElement | null>(null);
+  const [btnSaveIsDisabled, setBtnSaveIsDisabled] = useState<boolean>(false);
+
+  const { toast } = useToast()
 
   // When data is updated
   useEffect(() => {
@@ -27,10 +42,13 @@ export default function JsonCreate(props: JSONCreateProps) {
     titleInput.current.value = props.data.title
     setContent(props.data.data)
     currentId.current = props.data.id
-  }, [props.data]);
+  }, [props.data, props.mode]);
 
   useEffect(() => {
-    if (props.mode === 'new') cleanData()
+    if (props.mode === 'new') {
+      cleanData()
+      titleInput.current?.focus()
+    }
   }, [props.mode]);
 
   const onChange = (item: string) => {
@@ -52,12 +70,20 @@ export default function JsonCreate(props: JSONCreateProps) {
       console.log('Data is required', payloadData)
       return
     }
+    const title = titleInput.current.value
+    const id = props.mode === EditStatusV2.view ? currentId.current : crypto.randomUUID()
+    console.log('ID to update', id)
+    if (!id) return
     const payload: JsonInput = {
-      id: currentId.current || crypto.randomUUID(),
-      title: titleInput.current.value,
+      id,
+      title,
       data: payloadData
     }
     props.onAdd?.(payload)
+    toast({
+      title: `Your json has been saved`,
+      description: `${title}`,
+    })
   }
 
   const remove = () => {
@@ -85,35 +111,55 @@ export default function JsonCreate(props: JSONCreateProps) {
           <p>No JSON to display</p>
         </div>
         <div className={`${shouldDisplayEditor() ? '' : 'hidden'} flex flex-col h-full`}>
-          <div className={`flex text-black items-center justify-between h-14 mb-3 `}>
-            <span className={'text-xl'}>Title</span>
-            <input onChange={(item) => {
-              if (item.target.value.length === 0) {
-                errorTitle.current?.classList.remove('hidden')
-                return
-              }
-              if (!errorTitle.current?.classList.contains('hidden')) {
-                errorTitle.current?.classList.add('hidden')
-              }
-            }} ref={titleInput} className={'w-2/4 border-none bg-gray-100 rounded h-full pl-3'} type="text"
-                   maxLength={200}
-                   placeholder={'Enter a new title'}/>
+          <div className={`flex text-black items-center justify-between h-14 mb-3 gap-4`}>
+            <Input  
+              onChange={(item) => {
+                if (item.target.value.length === 0) {
+                  setBtnSaveIsDisabled(true)
+                  errorTitle.current?.classList.remove('hidden')
+                  return
+                }
+                if (!errorTitle.current?.classList.contains('hidden')) {
+                  errorTitle.current?.classList.add('hidden')
+                }
+                setBtnSaveIsDisabled(false)
+              }} 
+              ref={titleInput} 
+              className={'border-none bg-gray-100 rounded pl-3'} type="text"
+              maxLength={200}
+              placeholder={'Enter a new title'}/>
             <div className={'flex gap-4'}>
-              <div className={'w-24'}>
-                <Button type={'primary'} onClick={save}>Save</Button>
-              </div>
-              <div className={'w-24'}>
-                <Button type={'danger'} onClick={remove}><span className={'flex items-center gap-2'}>
-                <FontAwesomeIcon icon={faXmark} size={'xl'}/>Delete</span>
-                </Button>
-              </div>
+                <Button type={'button'} onClick={save} disabled={btnSaveIsDisabled}>Save</Button>
+                <AlertDialog>
+                  <AlertDialogTrigger asChild>
+                    <Button type={'button'} variant={'destructive'}>Delete</Button>
+				  </AlertDialogTrigger>
+                  <AlertDialogContent>
+                    <AlertDialogHeader>
+                      <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+                      <AlertDialogDescription>
+                        This action cannot be undone. This will permanently delete your data.
+                      </AlertDialogDescription>
+                    </AlertDialogHeader>
+                    <AlertDialogFooter>
+                      <AlertDialogCancel>Cancel</AlertDialogCancel>
+                      <AlertDialogAction onClick={remove}>Continue</AlertDialogAction>
+                    </AlertDialogFooter>
+                  </AlertDialogContent>
+                </AlertDialog>
             </div>
           </div>
-          <div className={'my-3'}>
-            <p className={'bg-red-500 p-3 hidden'} ref={errorTitle}>Title is required</p>
+          <div>
+            <Alert variant="destructive" className={'m-1 hidden'} ref={errorTitle}>
+              <AlertCircle className="h-4 w-4" />
+              <AlertTitle>Error</AlertTitle>
+              <AlertDescription>
+                Title is required. Please enter a title.
+              </AlertDescription>
+            </Alert>
           </div>
-          <div className={`h-2/3`}>
-            <JsonEditor data={props.mode === 'view' ? content : {}} onChange={onChange}/>
+          <div className={`h-full`}>
+            <JsonEditor data={content} onChange={onChange}/>
           </div>
         </div>
       </div>
