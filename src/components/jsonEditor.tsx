@@ -19,7 +19,6 @@ export default function JsonEditor(props: JSONEditorProps) {
 
       import('jsoneditor').then((jsoneditor) => {  // <----------- Import if is browser
 
-        console.log('jsoneditor', jsoneditor)
         if (isEditorLoaded.current) { return }
         const JsonEditor = jsoneditor.default;
         const container = document.getElementById("jsoneditor")
@@ -44,7 +43,7 @@ export default function JsonEditor(props: JSONEditorProps) {
         isEditorLoaded.current = true
       })
     }
-  }, [props])
+  }, [props.data])
 
   return <div id="jsoneditor" className={'w-full h-full'}></div>
 }

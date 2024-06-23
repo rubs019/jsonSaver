@@ -1,7 +1,7 @@
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faPenToSquare} from "@fortawesome/free-solid-svg-icons/faPenToSquare";
 import {JsonViewer, JsonViewerProps} from "@textea/json-viewer";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {JsonInputWithDate} from "@/services/JsonManager";
 import dayjs from 'dayjs'
 
@@ -10,6 +10,7 @@ export type JsonPreviewsItemProps = {
 }
 export default function JsonPreviewsItems(props: JsonPreviewsItemProps): JSX.Element {
 
+  const [lastUpdated, setLastUpdated] = useState<string | null>(null)
   const viewerConfig: Omit<JsonViewerProps, 'value'> = {
     editable: false,
     enableClipboard: false,
@@ -19,15 +20,12 @@ export default function JsonPreviewsItems(props: JsonPreviewsItemProps): JSX.Ele
     enableAdd: false,
     enableDelete: false
   }
-
-  const showLastUpdate = () => {
-    console.log("showLastUpdate", props.data.lastUpdated);
-
-    return dayjs(props.data.lastUpdated).format("YYYY-MM-DD HH:mm:ss")
-  }
-  const displayLastUpdate = () => {
-    return <span className={`self-end text-xs`}>Last updated : {showLastUpdate()}</span>
-  }
+  
+  useEffect(() => {
+    const date = dayjs(props.data.lastUpdated).format("YYYY-MM-DD HH:mm:ss")
+    setLastUpdated(date)
+  }, [props.data.lastUpdated])
+  
   return (<>
     <div className={`flex flex-row justify-between mb-2`}>
     <div className={`flex flex-col`}>
@@ -44,8 +42,8 @@ export default function JsonPreviewsItems(props: JsonPreviewsItemProps): JSX.Ele
           <FontAwesomeIcon icon={faPenToSquare}/>
             Edit
           </div>
-          {props.data.lastUpdated && displayLastUpdate()}
-        </div>
+        {lastUpdated && <span className={`self-end text-xs`}>Last updated : {lastUpdated}</span>}
+      </div>
     </div>
   </>)
 }

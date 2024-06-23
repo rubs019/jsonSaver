@@ -129,7 +129,7 @@ export default function JsonCreate(props: JSONCreateProps) {
                 <Button type={'button'} onClick={save} disabled={btnSaveIsDisabled}>Save</Button>
                 <AlertDialog>
                   <AlertDialogTrigger asChild>
-                    <Button type={'button'} variant={'destructive'} onClick={remove}>Delete</Button>
+                    <Button type={'button'} variant={'destructive'}>Delete</Button>
 				  </AlertDialogTrigger>
                   <AlertDialogContent>
                     <AlertDialogHeader>
@@ -140,7 +140,7 @@ export default function JsonCreate(props: JSONCreateProps) {
                     </AlertDialogHeader>
                     <AlertDialogFooter>
                       <AlertDialogCancel>Cancel</AlertDialogCancel>
-                      <AlertDialogAction>Continue</AlertDialogAction>
+                      <AlertDialogAction onClick={remove}>Continue</AlertDialogAction>
                     </AlertDialogFooter>
                   </AlertDialogContent>
                 </AlertDialog>
@@ -156,7 +156,7 @@ export default function JsonCreate(props: JSONCreateProps) {
             </Alert>
           </div>
           <div className={`h-2/3`}>
-            <JsonEditor data={props.mode === 'view' ? content : {}} onChange={onChange}/>
+            <JsonEditor data={content} onChange={onChange}/>
           </div>
         </div>
       </div>
