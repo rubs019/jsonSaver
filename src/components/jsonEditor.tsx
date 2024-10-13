@@ -3,7 +3,7 @@ import JSONEditor, {JSONEditorOptions} from "jsoneditor";
 
 export interface JSONEditorProps {
   data: unknown
-  onChange: (data: any) => void
+  onChange: (data: string | null) => void
 }
 export default function JsonEditor(props: JSONEditorProps) {
   const isEditorLoaded = useRef<boolean>(false);
@@ -21,29 +21,37 @@ export default function JsonEditor(props: JSONEditorProps) {
 
         if (isEditorLoaded.current) { return }
         const JsonEditor = jsoneditor.default;
-        const container = document.getElementById("jsoneditor")
-        if (!container) {
+        const htmlContainer = document.getElementById("jsoneditor")
+        if (!htmlContainer) {
           console.log("Could not find JSON Editor")
           return
         }
         const options: JSONEditorOptions = {
           mode: "code",
-          onChange: async () => {
-            const errors = await editor.current?.validate()
-            if (errors && errors.length > 0) {
-              console.log("errors", errors)
-              return
-            }
-            props.onChange(editor.current?.get())
-          }
+          onChange: handleOnChangeEditor
         }
 
-        editor.current = new JsonEditor(container, options, props.data)
+        editor.current = new JsonEditor(htmlContainer, options, props.data)
 
         isEditorLoaded.current = true
       })
     }
   }, [props.data])
+  
+  const handleOnChangeEditor = async function() {
+    try {
+      const jsonValue = editor.current?.get();
+      const errors = await editor.current?.validate()
 
-  return <div id="jsoneditor" className={'w-full h-full'}></div>
+      if (errors && errors.length > 0) {
+        console.log("errors", errors)
+        throw new Error("parse error");
+      }
+      props.onChange(jsonValue)
+    } catch(e) {
+      props.onChange(null)
+    }
+  }
+
+  return <div id="jsoneditor" className={'w-full h-full pb-10'}></div>
 }

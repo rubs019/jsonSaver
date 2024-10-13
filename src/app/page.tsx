@@ -19,13 +19,14 @@ export const enum EditStatusV2 {
   new = 'new'
 }
 
-export interface LoadMoreParameters {
+export interface PaginationParams {
   offset: number
 }
 export interface RefreshParameters {
   start?: number,
   end: number
 }
+
 export default function Home() {
   const [currentJson, setCurrentJson] = useState<JsonFile | null>(null);
   const [currentStatus, setCurrentStatus] = useState<EditStatusV2>(EditStatusV2.new)
@@ -38,10 +39,6 @@ export default function Home() {
   useEffect(() => {
     if (!maxItem.current) refresh({ start: currentPagination.current[0], end: currentPagination.current[1]})
   }, []);
-  
-  useEffect(() => {
-    
-  }, [currentStatus]);
 
   /**
    * Use to update a json
@@ -108,7 +105,7 @@ export default function Home() {
   /**
    * Use to load next json
    */
-  const loadMoreJson = ({ offset }: LoadMoreParameters) => {
+  const loadMoreJson = ({ offset }: PaginationParams) => {
     currentPagination.current[1] = currentPagination.current[1] + offset
     refresh({ end : currentPagination.current[1]})
   }

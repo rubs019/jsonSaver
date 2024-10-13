@@ -1,7 +1,4 @@
-import {JsonFile} from "@/app/page";
-
-
-export type JsonInput = {
+export interface JsonInput {
   id: string
   title: string
   data: unknown
@@ -14,12 +11,13 @@ export type JsonInputWithDate = JsonInput & {
 export type JsonOutput = Array<JsonInputWithDate>
 
 export default class JsonManager {
+  /**
+   * Save the JSON payload 
+   */
   save(payload: JsonInput): void {
-    let result = this.getAll()
-    if (!result) {
-      console.log('No local storage returned, this should be the first record')
-      result = {} as JsonOutput
-    }
+    /* if no local storage returned, this should be the first record */
+    let result = this.getAll() || {} as JsonOutput
+    
     const dataToInsert = payload as unknown as JsonInputWithDate
     dataToInsert.lastUpdated = new Date()
     const id = dataToInsert.id

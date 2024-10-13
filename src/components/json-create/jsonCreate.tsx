@@ -27,7 +27,7 @@ export type JSONCreateProps = {
 }
 export default function JsonCreate(props: JSONCreateProps) {
   const titleInput = useRef<HTMLInputElement>(null);
-  const data = useRef<unknown>(null);
+  const jsonInput = useRef<unknown>(null);
   const [content, setContent] = useState<unknown>({});
   const currentId = useRef<string | null>(null);
   const errorTitle = useRef<HTMLDivElement | null>(null);
@@ -45,26 +45,32 @@ export default function JsonCreate(props: JSONCreateProps) {
   }, [props.data, props.mode]);
 
   useEffect(() => {
-    if (props.mode === 'new') {
+    if (props.mode === EditStatusV2.new) {
       cleanData()
       titleInput.current?.focus()
     }
   }, [props.mode]);
 
-  const onChange = (item: string) => {
-    data.current = item
+  const onChange = (item: string | null) => {
+    // The item is null when an error has been throwed by editor
+    if (!item) {
+      setBtnSaveIsDisabled(true);
+      return;
+    }
+    setBtnSaveIsDisabled(false);
+    jsonInput.current = item
   }
   const save = () => {
 
+    // Check if title is set
     if (!titleInput.current?.value) {
-      console.log('Title is required', titleInput.current)
       titleInput.current?.focus()
       errorTitle.current?.classList.remove("hidden")
       return
     }
 
     // In case if the title only has changed
-    const payloadData = data.current || content
+    const payloadData = jsonInput.current || content
 
     if (!payloadData) {
       console.log('Data is required', payloadData)
@@ -96,7 +102,7 @@ export default function JsonCreate(props: JSONCreateProps) {
   }
 
   const cleanData = () => {
-    data.current = null
+    jsonInput.current = null
     setContent({})
     if (titleInput.current?.value) titleInput.current.value = ''
   }
