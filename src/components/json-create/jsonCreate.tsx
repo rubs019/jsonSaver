@@ -133,23 +133,25 @@ export default function JsonCreate(props: JSONCreateProps) {
               ref={titleInput} 
               className={'border-none bg-gray-100 rounded pl-3'} type="text"
               maxLength={200}
-              placeholder={'Enter a new title'}/>
+              placeholder={'New title for you JSON'}/>
             <div className={'flex gap-4'}>
-                <Button type={'button'} onClick={save} disabled={btnSaveIsDisabled}>Save</Button>
+                <Button type={'button'} onClick={save} variant={'outline'} disabled={btnSaveIsDisabled}>Save</Button>
                 <AlertDialog>
                   <AlertDialogTrigger asChild>
                     <Button type={'button'} variant={'destructive'}>Delete</Button>
 				  </AlertDialogTrigger>
                   <AlertDialogContent>
                     <AlertDialogHeader>
-                      <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+                      <AlertDialogTitle>Are you sure?</AlertDialogTitle>
                       <AlertDialogDescription>
                         This action cannot be undone. This will permanently delete your data.
                       </AlertDialogDescription>
                     </AlertDialogHeader>
-                    <AlertDialogFooter>
+                    <AlertDialogFooter className={"destructive"}>
                       <AlertDialogCancel>Cancel</AlertDialogCancel>
-                      <AlertDialogAction onClick={remove}>Continue</AlertDialogAction>
+                      <AlertDialogAction asChild onClick={remove}>
+                        <Button type={'button'} variant={'destructive'}>Continue</Button>
+                      </AlertDialogAction>
                     </AlertDialogFooter>
                   </AlertDialogContent>
                 </AlertDialog>

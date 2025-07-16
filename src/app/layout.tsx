@@ -7,7 +7,7 @@ const inter = Inter({subsets: ["latin"]});
 
 export const metadata: Metadata = {
   title: "Json Saver",
-  description: "Save all your JSON !",
+  description: "Keep in safe your JSON data !",
 };
 
 export default function RootLayout({
