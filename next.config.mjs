@@ -6,14 +6,12 @@ const config = (phase, _) => {
      * @type {import('next').NextConfig}
      */
     const nextConfig = {
-        output: "export",
+        output: "standalone",
         distDir: 'dist',
     }
     if (phase === PHASE_PRODUCTION_BUILD) {
         nextConfig.basePath = '/jsonSaver'
     }
-
-    console.log('nextConfig', nextConfig)
     return nextConfig
 }
 

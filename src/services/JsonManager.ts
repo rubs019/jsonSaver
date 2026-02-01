@@ -1,3 +1,5 @@
+const STORAGE_KEY = 'json-saved'
+
 export interface JsonInput {
   id: string
   title: string
@@ -10,87 +12,99 @@ export type JsonInputWithDate = JsonInput & {
 
 export type JsonOutput = Array<JsonInputWithDate>
 
+export class StorageError extends Error {
+  constructor(message: string, public readonly cause?: unknown) {
+    super(message)
+    this.name = 'StorageError'
+  }
+}
+
 export default class JsonManager {
   /**
-   * Save the JSON payload 
+   * Save the JSON payload
+   * @throws {StorageError} if localStorage quota is exceeded or unavailable
    */
   save(payload: JsonInput): void {
-    /* if no local storage returned, this should be the first record */
-    let result = this.getAll() || {} as JsonOutput
-    
-    const dataToInsert = payload as unknown as JsonInputWithDate
-    dataToInsert.lastUpdated = new Date()
-    const id = dataToInsert.id
-    console.log("payload", payload, id)
-    console.log("result previous", result)
-    // @ts-ignore
-    result[dataToInsert.id] = dataToInsert
-    console.log("result", result)
-    localStorage.setItem('json-saved', JSON.stringify(result))
+    try {
+      const result = this.getAll() ?? {}
+
+      const dataToInsert: JsonInputWithDate = {
+        ...payload,
+        lastUpdated: new Date(),
+      }
+
+      ;(result as Record<string, JsonInputWithDate>)[dataToInsert.id] = dataToInsert
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(result))
+    } catch (e) {
+      if (e instanceof DOMException && e.name === 'QuotaExceededError') {
+        throw new StorageError('Storage quota exceeded. Please delete some items.', e)
+      }
+      throw new StorageError('Failed to save item', e)
+    }
   }
 
-  get(id: string): string | null {
-    const item = localStorage.getItem('json-saved')
-    if (!item) {
-      console.log('No local storage returned')
+  get(id: string): JsonInputWithDate | null {
+    try {
+      const item = localStorage.getItem(STORAGE_KEY)
+      if (!item) {
+        return null
+      }
+      const parsedResult = JSON.parse(item)
+      return parsedResult[id] ?? null
+    } catch {
       return null
     }
-    const parsedResult = JSON.parse(item)
-    return parsedResult[id] || null
   }
 
-  getAll(): JsonOutput | null {
+  getAll(): Record<string, JsonInputWithDate> | null {
     try {
-      const item = localStorage.getItem('json-saved')
-
+      const item = localStorage.getItem(STORAGE_KEY)
       if (!item) {
-        console.log('No item was founded')
         return null
       }
       return JSON.parse(item)
-    } catch (e) {
-      console.log(e)
+    } catch {
       return null
     }
   }
 
-  getAllPaginated(start: number, end: number): { maxItem: number, currentLength: number, data: JsonOutput } | null {
+  getAllPaginated(start: number, end: number): { maxItem: number; currentLength: number; data: JsonOutput } | null {
     const items = this.getAll()
     if (!items) {
-      console.log('No item was founded')
       return null
     }
-    const itemEntries = Object.entries(items)
-    let paginatedItems = itemEntries
-        .map((value) => value[1])
-        .sort((a, b) => {
-          return a.lastUpdated < b.lastUpdated ? 1 : -1
-        })
-        .slice(start, end)
-    
-    console.log('paginatedItems', paginatedItems)
-    
+
+    const itemEntries = Object.values(items)
+    const paginatedItems = itemEntries
+      .sort((a, b) => {
+        const dateA = new Date(a.lastUpdated).getTime()
+        const dateB = new Date(b.lastUpdated).getTime()
+        return dateB - dateA
+      })
+      .slice(start, end)
+
     return {
       maxItem: itemEntries.length,
-      currentLength: Object.entries(paginatedItems).length,
-      data: paginatedItems
+      currentLength: paginatedItems.length,
+      data: paginatedItems,
     }
   }
 
+  /**
+   * Delete a JSON item by id
+   * @throws {StorageError} if deletion fails
+   */
   delete(id: string): void {
     try {
-      const item = localStorage.getItem('json-saved')
-
+      const item = localStorage.getItem(STORAGE_KEY)
       if (!item) {
-        console.log('No item was founded')
         return
       }
       const items = JSON.parse(item)
       delete items[id]
-      localStorage.setItem('json-saved', JSON.stringify(items))
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(items))
     } catch (e) {
-      console.log(e)
-      return
+      throw new StorageError('Failed to delete item', e)
     }
   }
 }

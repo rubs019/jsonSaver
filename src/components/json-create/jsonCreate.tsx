@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import JsonEditor from "../jsonEditor";
 import { JsonInput } from "@/services/JsonManager";
-import { EditStatusV2, JsonFile } from "@/app/page";
+import { EditStatus, JsonFile } from "@/types/json";
 import { Button } from "../ui/button";
 import { Input } from "@/components/ui/input";
 import { AlertCircle } from "lucide-react";
@@ -23,7 +23,7 @@ export type JSONCreateProps = {
   data?: JsonFile | null
   onAdd?: (data: JsonFile) => void
   onDelete?: (id: string) => void
-  mode: EditStatusV2
+  mode: EditStatus
 }
 export default function JsonCreate(props: JSONCreateProps) {
   const titleInput = useRef<HTMLInputElement>(null);
@@ -45,7 +45,7 @@ export default function JsonCreate(props: JSONCreateProps) {
   }, [props.data, props.mode]);
 
   useEffect(() => {
-    if (props.mode === EditStatusV2.new) {
+    if (props.mode === EditStatus.new) {
       cleanData()
       titleInput.current?.focus()
     }
@@ -77,7 +77,7 @@ export default function JsonCreate(props: JSONCreateProps) {
       return
     }
     const title = titleInput.current.value
-    const id = props.mode === EditStatusV2.view ? currentId.current : crypto.randomUUID()
+    const id = props.mode === EditStatus.view ? currentId.current : crypto.randomUUID()
     console.log('ID to update', id)
     if (!id) return
     const payload: JsonInput = {

@@ -1,28 +1,34 @@
 'use client'
-import React, {useEffect} from "react";
-import JsonPreviewsContainer from '../json-previews/jsonPreviewsContainer';
-import { JsonOutput } from "@/services/JsonManager";
-import { EditStatusV2, JsonFile } from "@/app/page";
 
-export type SidebarProps = {
-  onEditJson: (item: JsonFile) => string
-  updateCurrentStatus: (status: EditStatusV2) => void
-  values: JsonOutput | null
-  mode: EditStatusV2
+import JsonPreviewsContainer from '../json-previews/jsonPreviewsContainer'
+import { JsonInputWithDate, JsonOutput } from '@/services/JsonManager'
+import { EditStatus } from '@/types/json'
+
+export interface SidebarProps {
+  onEditJson: (item: JsonInputWithDate) => void
+  updateCurrentStatus: (status: EditStatus) => void
+  values: JsonOutput
+  mode: EditStatus
   onLoadMore: () => void
   shouldDisplayLoadMore: boolean
 }
-export default function Sidebar(props: SidebarProps) {
+
+export default function Sidebar({
+  values,
+  mode,
+  onLoadMore,
+  shouldDisplayLoadMore,
+  onEditJson,
+}: SidebarProps) {
   return (
-      <>
-        <div className={`h-full w-full flex flex-col border-r border-r-gray-200`}>
-          <JsonPreviewsContainer 
-              shouldDisplayLoadMore={props.shouldDisplayLoadMore} 
-              onLoadMore={props.onLoadMore} 
-              mode={props.mode} 
-              values={props.values} 
-              onEditJson={(item) => props.onEditJson(item)}/>
-        </div>
-      </>
+    <div className="h-full w-full flex flex-col border-r border-r-gray-200">
+      <JsonPreviewsContainer
+        shouldDisplayLoadMore={shouldDisplayLoadMore}
+        onLoadMore={onLoadMore}
+        mode={mode}
+        values={values}
+        onEditJson={onEditJson}
+      />
+    </div>
   )
 }
