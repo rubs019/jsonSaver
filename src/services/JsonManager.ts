@@ -68,7 +68,7 @@ export default class JsonManager {
     }
   }
 
-  getAllPaginated(start: number, end: number): { maxItem: number; currentLength: number; data: JsonOutput } | null {
+  getAllPaginated(start: number, end: number): { maxItem: number; data: JsonOutput } | null {
     const items = this.getAll()
     if (!items) {
       return null
@@ -85,7 +85,6 @@ export default class JsonManager {
 
     return {
       maxItem: itemEntries.length,
-      currentLength: paginatedItems.length,
       data: paginatedItems,
     }
   }

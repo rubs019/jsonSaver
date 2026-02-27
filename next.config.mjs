@@ -6,8 +6,9 @@ const config = (phase, _) => {
      * @type {import('next').NextConfig}
      */
     const nextConfig = {
-        output: "standalone",
+        output: "export",
         distDir: 'dist',
+        images: { unoptimized: true },
     }
     if (phase === PHASE_PRODUCTION_BUILD) {
         nextConfig.basePath = '/jsonSaver'
