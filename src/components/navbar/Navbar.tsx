@@ -52,7 +52,7 @@ export default function Navbar({ onCreateNew, onEnterCompare, onExitCompare, mod
             <Button
               type="button"
               onClick={onCreateNew}
-              className="bg-zinc-900 hover:bg-zinc-700 text-white gap-1.5 font-medium shadow-sm"
+              variant={"default"}
             >
               <Plus className="w-3.5 h-3.5" />
               New JSON

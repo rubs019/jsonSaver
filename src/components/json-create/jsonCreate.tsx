@@ -144,7 +144,6 @@ export default function JsonCreate(props: JSONCreateProps) {
               type="button"
               onClick={save}
               disabled={btnSaveIsDisabled}
-              className="bg-zinc-900 hover:bg-zinc-700 text-white font-medium shadow-sm"
             >
               Save
             </Button>
