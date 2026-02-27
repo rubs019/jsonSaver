@@ -4,7 +4,7 @@ import { JsonInput } from "@/services/JsonManager";
 import { EditStatus, JsonFile } from "@/types/json";
 import { Button } from "../ui/button";
 import { Input } from "@/components/ui/input";
-import { AlertCircle } from "lucide-react";
+import { AlertCircle, FileJson } from "lucide-react";
 import { Alert, AlertDescription, AlertTitle } from "../ui/alert";
 import { useToast } from "../ui/use-toast";
 import {
@@ -109,11 +109,20 @@ export default function JsonCreate(props: JSONCreateProps) {
 
   return (
     <div className="h-full">
-      <div className={`flex items-center justify-center text-2xl text-black ${shouldDisplayEditor() ? 'hidden' : ''}`}>
-        <p>No JSON to display</p>
+      {/* Empty state */}
+      <div className={`h-full flex-col items-center justify-center text-center gap-4 ${shouldDisplayEditor() ? 'hidden' : 'flex'}`}>
+        <div className="w-14 h-14 rounded-2xl bg-zinc-100 flex items-center justify-center">
+          <FileJson className="w-7 h-7 text-zinc-400" />
+        </div>
+        <div>
+          <p className="font-display font-semibold text-zinc-600 text-base">No JSON selected</p>
+          <p className="text-sm text-zinc-400 mt-1">Pick one from the sidebar or create a new one</p>
+        </div>
       </div>
-      <div className={`${shouldDisplayEditor() ? '' : 'hidden'} flex flex-col h-full`}>
-        <div className="flex text-black items-center justify-between h-14 mb-3 gap-4">
+
+      {/* Editor */}
+      <div className={`${shouldDisplayEditor() ? 'flex' : 'hidden'} flex-col h-full`}>
+        <div className="flex items-center justify-between mb-3 gap-3">
           <Input
             onChange={(item) => {
               if (item.target.value.length === 0) {
@@ -125,18 +134,28 @@ export default function JsonCreate(props: JSONCreateProps) {
               setBtnSaveIsDisabled(false);
             }}
             ref={titleInput}
-            className="border-none bg-gray-100 rounded pl-3"
+            className="bg-zinc-50 border-zinc-200 focus:border-violet-400 focus:ring-2 focus:ring-violet-100 text-zinc-900 placeholder:text-zinc-400 font-medium rounded-lg"
             type="text"
             maxLength={200}
-            placeholder="New title for your JSON"
+            placeholder="JSON title…"
           />
-          <div className="flex gap-4">
-            <Button type="button" onClick={save} variant="outline" disabled={btnSaveIsDisabled}>
+          <div className="flex items-center gap-2 shrink-0">
+            <Button
+              type="button"
+              onClick={save}
+              disabled={btnSaveIsDisabled}
+              className="bg-zinc-900 hover:bg-zinc-700 text-white font-medium shadow-sm"
+            >
               Save
             </Button>
             <AlertDialog>
               <AlertDialogTrigger asChild>
-                <Button type="button" variant="destructive" disabled={isDeleteDisabled}>
+                <Button
+                  type="button"
+                  variant="outline"
+                  disabled={isDeleteDisabled}
+                  className="border-red-200 text-red-600 hover:bg-red-50 hover:border-red-300 font-medium"
+                >
                   Delete
                 </Button>
               </AlertDialogTrigger>
@@ -150,7 +169,7 @@ export default function JsonCreate(props: JSONCreateProps) {
                 <AlertDialogFooter>
                   <AlertDialogCancel>Cancel</AlertDialogCancel>
                   <AlertDialogAction asChild onClick={remove}>
-                    <Button type="button" variant="destructive">Continue</Button>
+                    <Button type="button" variant="destructive">Delete</Button>
                   </AlertDialogAction>
                 </AlertDialogFooter>
               </AlertDialogContent>
@@ -158,13 +177,13 @@ export default function JsonCreate(props: JSONCreateProps) {
           </div>
         </div>
         {showTitleError && (
-          <Alert variant="destructive" className="m-1">
+          <Alert variant="destructive" className="mb-3">
             <AlertCircle className="h-4 w-4" />
-            <AlertTitle>Error</AlertTitle>
-            <AlertDescription>Title is required. Please enter a title.</AlertDescription>
+            <AlertTitle>Title required</AlertTitle>
+            <AlertDescription>Please enter a title before saving.</AlertDescription>
           </Alert>
         )}
-        <div className="h-full">
+        <div className="flex-1 min-h-0">
           <JsonEditor data={content} onChange={onChange} />
         </div>
       </div>
