@@ -2,7 +2,7 @@
 
 import JsonPreviewsContainer from '../json-previews/jsonPreviewsContainer'
 import { JsonInputWithDate, JsonOutput } from '@/services/JsonManager'
-import { EditStatus } from '@/types/json'
+import { EditStatus, JsonFile } from '@/types/json'
 
 export interface SidebarProps {
   onEditJson: (item: JsonInputWithDate) => void
@@ -10,6 +10,8 @@ export interface SidebarProps {
   mode: EditStatus
   onLoadMore: () => void
   shouldDisplayLoadMore: boolean
+  compareSelections: [JsonFile | null, JsonFile | null]
+  onToggleCompare: (item: JsonFile) => void
 }
 
 export default function Sidebar({
@@ -18,6 +20,8 @@ export default function Sidebar({
   onLoadMore,
   shouldDisplayLoadMore,
   onEditJson,
+  compareSelections,
+  onToggleCompare,
 }: SidebarProps) {
   return (
     <div className="h-full w-full flex flex-col border-r border-r-gray-200">
@@ -27,6 +31,8 @@ export default function Sidebar({
         mode={mode}
         values={values}
         onEditJson={onEditJson}
+        compareSelections={compareSelections}
+        onToggleCompare={onToggleCompare}
       />
     </div>
   )

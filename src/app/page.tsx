@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react'
 import JsonManager, { JsonInputWithDate, StorageError } from '@/services/JsonManager'
 import Sidebar from '@/components/sidebar/Sidebar'
 import JsonCreate from '@/components/json-create/jsonCreate'
+import JsonCompare from '@/components/json-compare/JsonCompare'
 import Navbar from '@/components/navbar/Navbar'
 import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from '@/components/ui/resizable'
 import { usePagination } from '@/hooks/usePagination'
@@ -18,6 +19,7 @@ export default function Home() {
   const { data, hasMore, loadMore, refresh, addItem } = usePagination(jsonManager)
   const [currentJson, setCurrentJson] = useState<JsonFile | null>(null)
   const [currentStatus, setCurrentStatus] = useState<EditStatus>(EditStatus.new)
+  const [compareSelections, setCompareSelections] = useState<[JsonFile | null, JsonFile | null]>([null, null])
   const { toast } = useToast()
 
   useEffect(() => {
@@ -62,9 +64,38 @@ export default function Home() {
     setCurrentStatus(EditStatus.new)
   }
 
+  const handleEnterCompare = (): void => {
+    setCompareSelections([null, null])
+    setCurrentStatus(EditStatus.compare)
+  }
+
+  const handleExitCompare = (): void => {
+    setCompareSelections([null, null])
+    setCurrentStatus(EditStatus.new)
+  }
+
+  const handleToggleCompareSelection = (json: JsonFile): void => {
+    setCompareSelections((prev) => {
+      const [a, b] = prev
+      // Already selected → remove it
+      if (a?.id === json.id) return [null, b]
+      if (b?.id === json.id) return [a, null]
+      // Fill first empty slot
+      if (a === null) return [json, b]
+      if (b === null) return [a, json]
+      // Both slots taken, do nothing
+      return prev
+    })
+  }
+
   return (
     <main className="flex flex-col h-screen">
-      <Navbar onCreateNew={handleCreateNew} />
+      <Navbar
+        onCreateNew={handleCreateNew}
+        onEnterCompare={handleEnterCompare}
+        onExitCompare={handleExitCompare}
+        mode={currentStatus}
+      />
 
       <div className="flex-1 overflow-hidden">
         <ResizablePanelGroup direction="horizontal" className="h-full w-full rounded-lg border">
@@ -75,18 +106,24 @@ export default function Home() {
               mode={currentStatus}
               onLoadMore={loadMore}
               shouldDisplayLoadMore={hasMore}
+              compareSelections={compareSelections}
+              onToggleCompare={handleToggleCompareSelection}
             />
           </ResizablePanel>
           <ResizableHandle />
           <ResizablePanel defaultSize={67} minSize={50}>
             <div className="h-full p-3">
               <ErrorBoundary>
-                <JsonCreate
-                  mode={currentStatus}
-                  data={currentJson}
-                  onAdd={handleAddJson}
-                  onDelete={handleDeleteJson}
-                />
+                {currentStatus === EditStatus.compare ? (
+                  <JsonCompare jsonA={compareSelections[0]} jsonB={compareSelections[1]} />
+                ) : (
+                  <JsonCreate
+                    mode={currentStatus}
+                    data={currentJson}
+                    onAdd={handleAddJson}
+                    onDelete={handleDeleteJson}
+                  />
+                )}
               </ErrorBoundary>
             </div>
           </ResizablePanel>
