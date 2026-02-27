@@ -4,7 +4,7 @@ export interface JsonFile {
   data: unknown
 }
 
-export const enum EditStatus {
+export enum EditStatus {
   view = 'view',
   new = 'new',
   compare = 'compare',

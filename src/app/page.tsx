@@ -9,6 +9,7 @@ import Navbar from '@/components/navbar/Navbar'
 import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from '@/components/ui/resizable'
 import { usePagination } from '@/hooks/usePagination'
 import { EditStatus, JsonFile } from '@/types/json'
+import { toggleCompareSelection } from '@/utils/compareSelection'
 import ErrorBoundary from '@/components/ErrorBoundary'
 import { useToast } from '@/components/ui/use-toast'
 
@@ -75,17 +76,7 @@ export default function Home() {
   }
 
   const handleToggleCompareSelection = (json: JsonFile): void => {
-    setCompareSelections((prev) => {
-      const [a, b] = prev
-      // Already selected → remove it
-      if (a?.id === json.id) return [null, b]
-      if (b?.id === json.id) return [a, null]
-      // Fill first empty slot
-      if (a === null) return [json, b]
-      if (b === null) return [a, json]
-      // Both slots taken, do nothing
-      return prev
-    })
+    setCompareSelections((prev) => toggleCompareSelection(prev, json))
   }
 
   return (
