@@ -6,7 +6,6 @@ import { EditStatus } from '@/types/json'
 
 export interface SidebarProps {
   onEditJson: (item: JsonInputWithDate) => void
-  updateCurrentStatus: (status: EditStatus) => void
   values: JsonOutput
   mode: EditStatus
   onLoadMore: () => void

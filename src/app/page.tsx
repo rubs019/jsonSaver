@@ -1,13 +1,15 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
-import JsonManager, { JsonInputWithDate } from '@/services/JsonManager'
+import JsonManager, { JsonInputWithDate, StorageError } from '@/services/JsonManager'
 import Sidebar from '@/components/sidebar/Sidebar'
 import JsonCreate from '@/components/json-create/jsonCreate'
 import Navbar from '@/components/navbar/Navbar'
 import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from '@/components/ui/resizable'
 import { usePagination } from '@/hooks/usePagination'
 import { EditStatus, JsonFile } from '@/types/json'
+import ErrorBoundary from '@/components/ErrorBoundary'
+import { useToast } from '@/components/ui/use-toast'
 
 export default function Home() {
   const jsonManagerRef = useRef(new JsonManager())
@@ -16,6 +18,7 @@ export default function Home() {
   const { data, hasMore, loadMore, refresh, addItem } = usePagination(jsonManager)
   const [currentJson, setCurrentJson] = useState<JsonFile | null>(null)
   const [currentStatus, setCurrentStatus] = useState<EditStatus>(EditStatus.new)
+  const { toast } = useToast()
 
   useEffect(() => {
     refresh()
@@ -27,7 +30,15 @@ export default function Home() {
   }
 
   const handleAddJson = (jsonFile: JsonFile): void => {
-    jsonManager.save(jsonFile)
+    try {
+      jsonManager.save(jsonFile)
+    } catch (e) {
+      if (e instanceof StorageError) {
+        toast({ title: 'Save failed', description: e.message, variant: 'destructive' })
+        return
+      }
+      throw e
+    }
 
     const isAlreadyDisplayed = data.some((json) => json.id === jsonFile.id)
     if (isAlreadyDisplayed) {
@@ -60,7 +71,6 @@ export default function Home() {
           <ResizablePanel defaultSize={33} minSize={20} maxSize={50}>
             <Sidebar
               values={data}
-              updateCurrentStatus={setCurrentStatus}
               onEditJson={handleSelectJson}
               mode={currentStatus}
               onLoadMore={loadMore}
@@ -70,12 +80,14 @@ export default function Home() {
           <ResizableHandle />
           <ResizablePanel defaultSize={67} minSize={50}>
             <div className="h-full p-3">
-              <JsonCreate
-                mode={currentStatus}
-                data={currentJson}
-                onAdd={handleAddJson}
-                onDelete={handleDeleteJson}
-              />
+              <ErrorBoundary>
+                <JsonCreate
+                  mode={currentStatus}
+                  data={currentJson}
+                  onAdd={handleAddJson}
+                  onDelete={handleDeleteJson}
+                />
+              </ErrorBoundary>
             </div>
           </ResizablePanel>
         </ResizablePanelGroup>

@@ -22,7 +22,7 @@ export default function JsonPreviewsContainer({
       <div>
         <p className="text-xl m-4 h-10 text-black">Récents</p>
       </div>
-      <div className="text-gray-600 rounded p-4 overflow-scroll">
+      <div className="text-gray-600 rounded p-4 overflow-auto">
         <div>
           {values.length > 0 ? (
             <>

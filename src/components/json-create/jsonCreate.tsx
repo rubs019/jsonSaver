@@ -25,151 +25,149 @@ export type JSONCreateProps = {
   onDelete?: (id: string) => void
   mode: EditStatus
 }
+
 export default function JsonCreate(props: JSONCreateProps) {
   const titleInput = useRef<HTMLInputElement>(null);
-  const jsonInput = useRef<unknown>(null);
+  // Tracks the currently edited JSON value from the editor
+  const editedJsonRef = useRef<unknown>(null);
+  // Initial content passed to the editor when a JSON is selected
   const [content, setContent] = useState<unknown>({});
   const currentId = useRef<string | null>(null);
-  const errorTitle = useRef<HTMLDivElement | null>(null);
+  const [showTitleError, setShowTitleError] = useState(false);
   const [btnSaveIsDisabled, setBtnSaveIsDisabled] = useState<boolean>(false);
 
-  const { toast } = useToast()
+  const { toast } = useToast();
 
-  // When data is updated
+  // When selected JSON changes
   useEffect(() => {
-    if (!titleInput.current || !props.data?.title) return
+    if (!titleInput.current || !props.data?.title) return;
 
-    titleInput.current.value = props.data.title
-    setContent(props.data.data)
-    currentId.current = props.data.id
+    titleInput.current.value = props.data.title;
+    setContent(props.data.data);
+    currentId.current = props.data.id;
   }, [props.data, props.mode]);
 
   useEffect(() => {
     if (props.mode === EditStatus.new) {
-      cleanData()
-      titleInput.current?.focus()
+      cleanData();
+      titleInput.current?.focus();
     }
   }, [props.mode]);
 
   const onChange = (item: string | null) => {
-    // The item is null when an error has been throwed by editor
+    // item is null when the editor reports a validation error
     if (!item) {
       setBtnSaveIsDisabled(true);
       return;
     }
     setBtnSaveIsDisabled(false);
-    jsonInput.current = item
-  }
+    editedJsonRef.current = item;
+  };
+
   const save = () => {
-
-    // Check if title is set
     if (!titleInput.current?.value) {
-      titleInput.current?.focus()
-      errorTitle.current?.classList.remove("hidden")
-      return
+      titleInput.current?.focus();
+      setShowTitleError(true);
+      return;
     }
 
-    // In case if the title only has changed
-    const payloadData = jsonInput.current || content
+    // Use editedJsonRef if user changed the JSON, otherwise fall back to the displayed content
+    const payloadData = editedJsonRef.current || content;
 
-    if (!payloadData) {
-      console.log('Data is required', payloadData)
-      return
-    }
-    const title = titleInput.current.value
-    const id = props.mode === EditStatus.view ? currentId.current : crypto.randomUUID()
-    console.log('ID to update', id)
-    if (!id) return
-    const payload: JsonInput = {
-      id,
-      title,
-      data: payloadData
-    }
-    props.onAdd?.(payload)
+    if (!payloadData) return;
+
+    const title = titleInput.current.value;
+    const id = props.mode === EditStatus.view ? currentId.current : crypto.randomUUID();
+    if (!id) return;
+
+    const payload: JsonInput = { id, title, data: payloadData };
+    props.onAdd?.(payload);
     toast({
       title: `Your json has been saved`,
-      description: `${title}`,
-    })
-  }
+      description: title,
+    });
+  };
 
   const remove = () => {
-    if (!props.data?.id) {
-      console.log('ID is required', props.data?.id)
-      return
-    }
-    props.onDelete?.(props.data.id.toString())
-    cleanData()
-  }
+    if (!props.data?.id) return;
+    props.onDelete?.(props.data.id.toString());
+    cleanData();
+  };
 
   const cleanData = () => {
-    jsonInput.current = null
-    setContent({})
-    if (titleInput.current?.value) titleInput.current.value = ''
-  }
+    editedJsonRef.current = null;
+    setContent({});
+    setShowTitleError(false);
+    if (titleInput.current?.value) titleInput.current.value = '';
+  };
 
-  const shouldDisplayEditor = () => {
-    return props.data || props.mode === 'new'
-  }
+  const shouldDisplayEditor = (): boolean => {
+    return !!props.data || props.mode === EditStatus.new;
+  };
+
+  const isDeleteDisabled = props.mode === EditStatus.new || !props.data;
 
   return (
-      <div className={`h-full`}>
-        <div className={`flex items-center justify-center text-2xl text-black ${shouldDisplayEditor() ? 'hidden' : ''}`}>
-          <p>No JSON to display</p>
+    <div className="h-full">
+      <div className={`flex items-center justify-center text-2xl text-black ${shouldDisplayEditor() ? 'hidden' : ''}`}>
+        <p>No JSON to display</p>
+      </div>
+      <div className={`${shouldDisplayEditor() ? '' : 'hidden'} flex flex-col h-full`}>
+        <div className="flex text-black items-center justify-between h-14 mb-3 gap-4">
+          <Input
+            onChange={(item) => {
+              if (item.target.value.length === 0) {
+                setBtnSaveIsDisabled(true);
+                setShowTitleError(true);
+                return;
+              }
+              setShowTitleError(false);
+              setBtnSaveIsDisabled(false);
+            }}
+            ref={titleInput}
+            className="border-none bg-gray-100 rounded pl-3"
+            type="text"
+            maxLength={200}
+            placeholder="New title for your JSON"
+          />
+          <div className="flex gap-4">
+            <Button type="button" onClick={save} variant="outline" disabled={btnSaveIsDisabled}>
+              Save
+            </Button>
+            <AlertDialog>
+              <AlertDialogTrigger asChild>
+                <Button type="button" variant="destructive" disabled={isDeleteDisabled}>
+                  Delete
+                </Button>
+              </AlertDialogTrigger>
+              <AlertDialogContent>
+                <AlertDialogHeader>
+                  <AlertDialogTitle>Are you sure?</AlertDialogTitle>
+                  <AlertDialogDescription>
+                    This action cannot be undone. This will permanently delete your data.
+                  </AlertDialogDescription>
+                </AlertDialogHeader>
+                <AlertDialogFooter>
+                  <AlertDialogCancel>Cancel</AlertDialogCancel>
+                  <AlertDialogAction asChild onClick={remove}>
+                    <Button type="button" variant="destructive">Continue</Button>
+                  </AlertDialogAction>
+                </AlertDialogFooter>
+              </AlertDialogContent>
+            </AlertDialog>
+          </div>
         </div>
-        <div className={`${shouldDisplayEditor() ? '' : 'hidden'} flex flex-col h-full`}>
-          <div className={`flex text-black items-center justify-between h-14 mb-3 gap-4`}>
-            <Input  
-              onChange={(item) => {
-                if (item.target.value.length === 0) {
-                  setBtnSaveIsDisabled(true)
-                  errorTitle.current?.classList.remove('hidden')
-                  return
-                }
-                if (!errorTitle.current?.classList.contains('hidden')) {
-                  errorTitle.current?.classList.add('hidden')
-                }
-                setBtnSaveIsDisabled(false)
-              }} 
-              ref={titleInput} 
-              className={'border-none bg-gray-100 rounded pl-3'} type="text"
-              maxLength={200}
-              placeholder={'New title for you JSON'}/>
-            <div className={'flex gap-4'}>
-                <Button type={'button'} onClick={save} variant={'outline'} disabled={btnSaveIsDisabled}>Save</Button>
-                <AlertDialog>
-                  <AlertDialogTrigger asChild>
-                    <Button type={'button'} variant={'destructive'}>Delete</Button>
-				  </AlertDialogTrigger>
-                  <AlertDialogContent>
-                    <AlertDialogHeader>
-                      <AlertDialogTitle>Are you sure?</AlertDialogTitle>
-                      <AlertDialogDescription>
-                        This action cannot be undone. This will permanently delete your data.
-                      </AlertDialogDescription>
-                    </AlertDialogHeader>
-                    <AlertDialogFooter className={"destructive"}>
-                      <AlertDialogCancel>Cancel</AlertDialogCancel>
-                      <AlertDialogAction asChild onClick={remove}>
-                        <Button type={'button'} variant={'destructive'}>Continue</Button>
-                      </AlertDialogAction>
-                    </AlertDialogFooter>
-                  </AlertDialogContent>
-                </AlertDialog>
-            </div>
-          </div>
-          <div>
-            <Alert variant="destructive" className={'m-1 hidden'} ref={errorTitle}>
-              <AlertCircle className="h-4 w-4" />
-              <AlertTitle>Error</AlertTitle>
-              <AlertDescription>
-                Title is required. Please enter a title.
-              </AlertDescription>
-            </Alert>
-          </div>
-          <div className={`h-full`}>
-            <JsonEditor data={content} onChange={onChange}/>
-          </div>
+        {showTitleError && (
+          <Alert variant="destructive" className="m-1">
+            <AlertCircle className="h-4 w-4" />
+            <AlertTitle>Error</AlertTitle>
+            <AlertDescription>Title is required. Please enter a title.</AlertDescription>
+          </Alert>
+        )}
+        <div className="h-full">
+          <JsonEditor data={content} onChange={onChange} />
         </div>
       </div>
-  )
+    </div>
+  );
 }
