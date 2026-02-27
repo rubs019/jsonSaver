@@ -1,8 +1,7 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPenToSquare } from "@fortawesome/free-solid-svg-icons/faPenToSquare";
 import { JsonViewer, JsonViewerProps } from "@textea/json-viewer";
 import { JsonInputWithDate } from "@/services/JsonManager";
 import { EditStatus, JsonFile } from "@/types/json";
+import { Check } from "lucide-react";
 import dayjs from 'dayjs';
 
 export type JsonPreviewsItemProps = {
@@ -22,7 +21,7 @@ const viewerConfig: Omit<JsonViewerProps, 'value'> = {
 }
 
 export default function JsonPreviewsItems({ data, mode, compareSelections }: JsonPreviewsItemProps) {
-  const lastUpdated = dayjs(data.lastUpdated).format("YYYY-MM-DD HH:mm:ss");
+  const lastUpdated = dayjs(data.lastUpdated).format("YYYY-MM-DD HH:mm");
 
   const isCompareMode = mode === EditStatus.compare
   const selectionIndex = compareSelections
@@ -34,45 +33,53 @@ export default function JsonPreviewsItems({ data, mode, compareSelections }: Jso
   const isDisabled = isCompareMode && bothSelected && !isSelected
 
   return (
-    <div className="flex flex-col justify-between mb-2">
-      <div className="flex justify-between">
-        <div className="flex items-start gap-2 flex-1 min-w-0">
-          {isCompareMode && (
-            <div className="flex items-center mt-0.5 shrink-0" onClick={(e) => e.stopPropagation()}>
-              <input
-                type="checkbox"
-                checked={isSelected}
-                disabled={isDisabled}
-                readOnly
-                className="w-4 h-4 cursor-pointer disabled:opacity-40"
-              />
-              {selectionLabel && (
-                <span className="ml-1 text-xs font-bold text-blue-600">{selectionLabel}</span>
-              )}
-            </div>
-          )}
-          <div className="flex flex-col min-w-0">
-            <span>
-              {data.title.length > 24
-                ? data.title.slice(0, 24) + '...'
-                : data.title}
+    <div className="flex items-start gap-3 px-3 pt-3 pb-2.5">
+      {isCompareMode && (
+        <div className="flex items-center gap-1 shrink-0 mt-0.5">
+          <div
+            className={[
+              'w-4 h-4 rounded border-2 flex items-center justify-center transition-all duration-150',
+              isSelected
+                ? 'border-violet-600 bg-violet-600'
+                : isDisabled
+                  ? 'border-zinc-200 bg-zinc-50'
+                  : 'border-zinc-300 group-hover:border-violet-400',
+            ].join(' ')}
+          >
+            {isSelected && <Check className="w-2.5 h-2.5 text-white" strokeWidth={3} />}
+          </div>
+          {selectionLabel && (
+            <span
+              className={[
+                'w-4 h-4 rounded text-[10px] font-bold flex items-center justify-center',
+                selectionIndex === 0
+                  ? 'bg-emerald-100 text-emerald-700'
+                  : 'bg-violet-100 text-violet-700',
+              ].join(' ')}
+            >
+              {selectionLabel}
             </span>
-            <div className="overflow-auto">
-              <JsonViewer {...viewerConfig} value={data.data} />
-            </div>
-          </div>
+          )}
         </div>
-        {!isCompareMode && (
-          <div className="flex flex-col items-end justify-between gap-4 shrink-0">
-            <div className="flex gap-1 cursor-pointer">
-              <FontAwesomeIcon icon={faPenToSquare} />
-              Edit
-            </div>
-          </div>
-        )}
-      </div>
-      <div className="flex justify-end">
-        <span className="self-end text-xs">Last updated : {lastUpdated}</span>
+      )}
+
+      <div className="flex-1 min-w-0">
+        <div className="flex items-start justify-between gap-2">
+          <span className="font-medium text-zinc-800 text-sm leading-snug truncate">
+            {data.title.length > 26 ? data.title.slice(0, 26) + '…' : data.title}
+          </span>
+          {!isCompareMode && (
+            <span className="text-[11px] font-medium text-zinc-400 group-hover:text-violet-500 transition-colors shrink-0">
+              Edit ›
+            </span>
+          )}
+        </div>
+
+        <div className="mt-1 text-zinc-500 text-xs overflow-hidden max-h-8">
+          <JsonViewer {...viewerConfig} value={data.data} />
+        </div>
+
+        <p className="mt-1.5 text-[11px] text-zinc-400">{lastUpdated}</p>
       </div>
     </div>
   );

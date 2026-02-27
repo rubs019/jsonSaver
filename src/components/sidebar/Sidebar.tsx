@@ -24,7 +24,7 @@ export default function Sidebar({
   onToggleCompare,
 }: SidebarProps) {
   return (
-    <div className="h-full w-full flex flex-col border-r border-r-gray-200">
+    <div className="h-full w-full flex flex-col bg-zinc-50">
       <JsonPreviewsContainer
         shouldDisplayLoadMore={shouldDisplayLoadMore}
         onLoadMore={onLoadMore}
