@@ -1,6 +1,6 @@
 import { JsonInputWithDate, JsonOutput } from '@/services/JsonManager'
 import JsonPreviewsItems from '@/components/json-previews/jsonPreviewsItems'
-import { EditStatus } from '@/types/json'
+import { EditStatus, JsonFile } from '@/types/json'
 import { Button } from '../ui/button'
 
 export interface JsonPreviewsProps {
@@ -9,6 +9,8 @@ export interface JsonPreviewsProps {
   mode: EditStatus
   onLoadMore: () => void
   shouldDisplayLoadMore: boolean
+  compareSelections: [JsonFile | null, JsonFile | null]
+  onToggleCompare: (item: JsonFile) => void
 }
 
 export default function JsonPreviewsContainer({
@@ -16,6 +18,9 @@ export default function JsonPreviewsContainer({
   onEditJson,
   onLoadMore,
   shouldDisplayLoadMore,
+  mode,
+  compareSelections,
+  onToggleCompare,
 }: JsonPreviewsProps) {
   return (
     <>
@@ -30,9 +35,15 @@ export default function JsonPreviewsContainer({
                 <div
                   key={item.id}
                   className="flex flex-col w-full mb-6 border-2 border-transparent transition hover:border-2 hover:border-gray-300 hover:bg-gray-50 hover:ease-out duration-100 cursor-pointer p-2 rounded-lg"
-                  onClick={() => onEditJson(item)}
+                  onClick={() =>
+                    mode === EditStatus.compare ? onToggleCompare(item) : onEditJson(item)
+                  }
                 >
-                  <JsonPreviewsItems data={item} />
+                  <JsonPreviewsItems
+                    data={item}
+                    mode={mode}
+                    compareSelections={compareSelections}
+                  />
                 </div>
               ))}
               {shouldDisplayLoadMore && (
