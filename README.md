@@ -2,7 +2,7 @@
 
 A client-side web application for saving, editing, and managing JSON documents. No backend, no account — everything is stored locally in your browser.
 
-**Live demo:** [rubendesert.github.io/jsonSaver](https://rubendesert.github.io/jsonSaver)
+**Live demo:** [rubendesert.com/json](https://apps.rubendesert.com/json)
 
 ---
 
