@@ -77,7 +77,4 @@ src/
 
 ## Deployment
 
-Pushes to `main` trigger a GitHub Actions workflow that:
-1. Builds the static export to `/dist`
-2. Copies the output to the `use-components` branch
-3. Serves it from GitHub Pages at `/jsonSaver`
+TODO
