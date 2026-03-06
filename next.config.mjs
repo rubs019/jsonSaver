@@ -11,7 +11,10 @@ const config = (phase, _) => {
         images: { unoptimized: true },
     }
     if (phase === PHASE_PRODUCTION_BUILD) {
-        nextConfig.basePath = '/jsonSaver'
+        nextConfig.basePath = '/json'
+        nextConfig.assetPrefix = '/json'
+    } else {
+        console.log('Current phase', phase)
     }
     return nextConfig
 }
