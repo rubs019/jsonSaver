@@ -20,7 +20,7 @@ export default function Navbar({ onCreateNew, onEnterCompare, onExitCompare, mod
     <nav className="h-14 px-4 border-b border-zinc-200 bg-white flex items-center justify-between w-full shrink-0">
       <div className="flex items-center gap-3">
         <div className="w-8 h-8 rounded-lg bg-violet-700 flex items-center justify-center shadow-sm">
-          <Image src="/jason.png" alt="JSON Saver logo" width={18} height={18} className="brightness-0 invert" />
+          <Image src="/json/jason.png" alt="JSON Saver logo" width={18} height={18} className="brightness-0 invert" />
         </div>
         <Link href="/" className="font-display font-bold text-zinc-900 tracking-tight text-[15px] select-none">
           JSON SAVER
